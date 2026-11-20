@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sync Resource Referral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE clinical work tool, presented at executive standard: quiet, exact, confident
+   IDEA a referral desk: intake on the left, a finished patient letter on the right
+   PICTURE the live My Health Online letter, set like a page, building as resources are chosen
+   COLOUR white ground, Sutter teal #008080 lead, Dusky Teal #1F3433 ink and masthead, Yellow #EFC469 for safety only, Breezy Teal #01EFE1 night accent
+   TYPE Sora (headings, numerals) + Roboto (body), per Sutter brand
+   LAYOUT laptop: masthead, safety rule, intake + results (left) / sticky letter (right); phone: intake, results, letter, sticky copy bar */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#16272a);--ink:light-dark(#1f3433,#f2f7f7);--teal:light-dark(#008080,#01efe1);--onteal:light-dark(#ffffff,#1f3433);--mast:#1f3433;--band:#008080;--tint:light-dark(#eef6f6,#24403f);--tint2:light-dark(#f6fafa,#1b2f32);--line:light-dark(#d5e3e3,#33494b);--muted:light-dark(#4f6466,#a9bcbd);--card:light-dark(#ffffff,#1c3033);--yel:#efc469;--paper:light-dark(#ffffff,#f2f7f7);--paperink:#1f3433}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Roboto,Arial,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.sora{font-family:Sora,Arial,sans-serif;margin:0;letter-spacing:-.015em}
+a{color:var(--teal);text-underline-offset:2px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.wrap{max-width:1360px;margin:0 auto;padding-left:max(16px,3vw);padding-right:max(16px,3vw)}
+.mast{background:var(--mast);color:#fff;font-size:13px}
+.mast .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:8px}
+.mast span{opacity:.85}
+.mast b{font-weight:500;opacity:1}
+.hero{background:var(--band);color:#fff}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 40px;align-items:end;padding-block:30px 28px}
+.hero h1{font-size:clamp(30px,3.6vw,44px);line-height:1.05;font-weight:700;text-wrap:balance}
+.hero p{margin:10px 0 0;font-size:17px;max-width:58ch;opacity:.95}
+.steps{display:flex;gap:8px;list-style:none;margin:0;padding:0;font-size:14px}
+.steps li{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;white-space:nowrap}
+.steps b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;color:#008080;font-family:Sora,Arial,sans-serif;font-size:12px}
+.safety{background:var(--yel);color:#1f3433}
+.safety .wrap{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:10px 28px;padding-block:12px;align-items:start;font-size:14.5px;line-height:1.4}
+.safety .lbl{font-family:Sora,Arial,sans-serif;font-weight:700;font-size:13px;padding-top:2px}
+.safety div b{display:block;font-family:Sora,Arial,sans-serif;font-weight:600}
+.safety a{color:#1f3433;font-weight:700}
+main .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:32px;padding-block:28px 56px;align-items:start}
+.intake{border:1px solid var(--line);border-radius:14px;background:var(--tint2);padding:18px 20px;display:grid;gap:14px}
+.field{display:grid;gap:6px}
+.field>span,.seg legend{font-family:Sora,Arial,sans-serif;font-weight:600;font-size:15px;display:flex;align-items:center;gap:10px;padding:0}
+.n{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--teal);color:var(--onteal);font-size:12px;font-weight:700;flex:none}
+select{height:48px;width:100%;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:16px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat}
+.seg{border:0;margin:0;padding:0;display:grid;gap:6px}
+.segs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.segs label{position:relative}
+.segs input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.segs span{display:flex;align-items:center;justify-content:center;height:46px;font-weight:500;cursor:pointer}
+.segs label+label span{border-left:1px solid var(--line)}
+.segs input:checked+span{background:var(--teal);color:var(--onteal)}
+.segs input:focus-visible+span{outline:3px solid var(--yel);outline-offset:-3px}
+.hint{font-size:14px;color:var(--muted);margin:0;line-height:1.45}
+.tools{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;margin:18px 0 4px}
+.search{position:relative;flex:1 1 260px;max-width:380px}
+.search input{width:100%;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:16px}
+.tog{display:flex;gap:10px;align-items:center;font-size:15px;cursor:pointer;min-height:44px}
+.tog input{width:20px;height:20px;accent-color:#008080}
+.sec{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:26px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.sec h2{font-size:22px;font-weight:700}
+.sec .ct{font-family:Sora,Arial,sans-serif;font-size:14px;color:var(--muted)}
+.grp{font-family:Sora,Arial,sans-serif;font-size:13px;font-weight:600;color:var(--muted);margin:18px 0 8px}
+.list{display:grid;gap:10px}
+.card{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px 12px 56px;transition:border-color .15s,background-color .15s}
+.card:hover{border-color:color-mix(in srgb,var(--teal) 55%,var(--line))}
+.card.on{border-color:var(--teal);background:color-mix(in srgb,var(--teal) 6%,var(--card))}
+.card .ck{position:absolute;left:16px;top:16px;width:24px;height:24px;margin:0;accent-color:#008080;cursor:pointer}
+.card h3{font-size:17px;font-weight:600;line-height:1.3}
+.card h3 label{cursor:pointer}
+.card .lab{color:var(--muted);font-size:14px;margin-top:2px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:8px}
+.ph{font-family:Sora,Arial,sans-serif;font-weight:600;font-size:15px}
+.pill{font-size:12.5px;border-radius:999px;padding:2px 10px;background:var(--tint);color:var(--ink);white-space:nowrap}
+.pill.mc{background:transparent;border:1.5px solid var(--yel);font-weight:700}
+.chk{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-size:13.5px;color:var(--muted)}
+.chk:before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--yel);margin-top:6px}
+details{margin-top:6px}
+summary{cursor:pointer;color:var(--teal);font-weight:500;font-size:14.5px;min-height:32px;display:inline-flex;align-items:center;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:-3px 0 0 9px;transition:transform .15s}
+details[open] summary:after{transform:rotate(-135deg);margin-top:4px}
+dl{margin:6px 0 4px;display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:6px 14px;font-size:14.5px;border-top:1px solid var(--line);padding-top:10px}
+dt{color:var(--muted)}
+dd{margin:0;overflow-wrap:anywhere}
+.empty{padding:18px 20px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:var(--tint2);margin:0}
+aside{position:sticky;top:16px}
+.letter{border:1px solid var(--line);border-radius:16px;background:var(--tint);display:grid;overflow:hidden}
+.lhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px 10px}
+.lhead h2{font-size:19px}
+.count{font-family:Sora,Arial,sans-serif;font-size:13px;border-radius:999px;padding:3px 10px;background:var(--card);border:1px solid var(--line);white-space:nowrap}
+.sel{list-style:none;margin:0;padding:0 18px 10px;display:grid;gap:6px;max-height:210px;overflow:auto}
+.sel li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:5px 5px 5px 12px;font-size:14.5px;line-height:1.3}
+.sel small{color:var(--muted);display:block;font-size:12.5px}
+.ib{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--card);cursor:pointer;display:inline-grid;place-items:center;font-size:14px;line-height:1}
+.ib:disabled{opacity:.35;cursor:default}
+.paperwrap{padding:0 18px}
+.paper{background:var(--paper);color:var(--paperink);border-radius:10px;border:1px solid var(--line);padding:22px 22px 18px;font-size:15px;line-height:1.55;overflow:auto;min-height:280px;max-height:min(58vh,660px);overflow-wrap:anywhere;box-shadow:0 1px 2px rgba(31,52,51,.08)}
+.paper p{margin:0 0 14px}
+.paper p:last-child{margin:0}
+.paper a{color:#008080}
+.paper:empty:before{content:attr(data-ph);color:#5d7173}
+.ph-meta{font-size:12.5px;color:var(--muted);padding:8px 18px 0}
+.lfoot{padding:14px 18px 16px;display:grid;gap:10px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{min-height:46px;padding:0 20px;border-radius:10px;border:0;background:var(--teal);color:var(--onteal);font-family:Sora,Arial,sans-serif;font-weight:600;font-size:15px;cursor:pointer}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line);font-weight:500}
+.status{font-size:14px;color:var(--teal);font-weight:500}
+.phi{font-size:13px;font-weight:700;color:var(--ink);display:flex;gap:8px;align-items:center}
+.phi:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yel);flex:none}
+.guide{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:4px 18px 4px;margin-top:14px}
+.guide summary{font-family:Sora,Arial,sans-serif;font-weight:600;color:var(--ink);font-size:15px;min-height:44px}
+.guide ol{padding-bottom:14px}
+
+.guide ol{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px;line-height:1.45;counter-reset:g}
+.guide li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;counter-increment:g}
+.guide li:before{content:counter(g);font-family:Sora,Arial,sans-serif;font-size:12px;font-weight:700;color:var(--teal);padding-top:1px}
+.mbar{display:none}
+footer{border-top:1px solid var(--line);background:var(--tint2);color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:18px}
+@media(max-width:1100px){.steps{display:none}.hero .wrap{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:960px){main .wrap{grid-template-columns:minmax(0,1fr)}aside{position:static}.paper{max-height:none}.mbar{display:flex;position:sticky;top:0;z-index:5;background:var(--mast);color:#fff;justify-content:space-between;align-items:center;gap:10px;padding:8px max(16px,3vw)}.mbar .btn{background:#fff;color:#1f3433;min-height:40px}.safety .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}.safety .lbl{grid-column:1/-1}}
+@media(max-width:620px){.safety .wrap{grid-template-columns:minmax(0,1fr);gap:8px}.hero .wrap{padding-block:22px}.hero p{font-size:16px}.card{padding-left:50px}.card .ck{left:14px}dl{grid-template-columns:minmax(0,1fr);gap:2px}dt{margin-top:6px}.search{max-width:none}.paper{padding:16px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="mast"><div class="wrap"><span><b>Sutter Health</b> · Sutter Sync Heart Health Program</span><span>Internal tool for the Sync care team</span></div></div>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Sync Resource Referral</h1>
+      <p>Select the patient's county and identified need, tick the resources you discussed, and copy the finished text into the My Health Online message.</p>
+    </div>
+    <ol class="steps" aria-label="Steps"><li><b>1</b>Patient details</li><li><b>2</b>Choose resources</li><li><b>3</b>Copy to MHO</li></ol>
+  </div>
+</header>
+<section class="safety" aria-label="Safety first">
+  <div class="wrap">
+    <span class="lbl">Safety first</span>
+    <div><b>Immediate danger</b>Call 911.</div>
+    <div><b>Suicidal thoughts or crisis</b>988 (call or text), and notify the MD per Sync escalation.</div>
+    <div><b>Abuse or neglect</b>APS 833-401-0832. Mandated report: phone now, SOC 341 within 2 working days. <a href="https://www.cdss.ca.gov/inforesources/adult-protective-services" target="_blank" rel="noopener">CDSS Adult Protective Services</a></div>
+  </div>
+</section>
+<div class="mbar"><span id="mcount" class="sora">0 selected</span><button class="btn" id="copy2" type="button">Copy message</button></div>
+<main>
+  <div class="wrap">
+    <section aria-label="Patient details and resources">
+      <div class="intake" role="group" aria-label="Patient details">
+        <label class="field" for="county"><span><i class="n">1</i>County</span>
+          <select id="county"><option value="">Select county</option></select>
+        </label>
+        <label class="field" for="need"><span><i class="n">2</i>Identified need</span>
+          <select id="need"></select>
+        </label>
+        <fieldset class="seg"><legend><i class="n">3</i>Medi-Cal</legend>
+          <div class="segs">
+            <label><input type="radio" name="mc" value="yes"><span>Yes</span></label>
+            <label><input type="radio" name="mc" value="no"><span>No</span></label>
+            <label><input type="radio" name="mc" value="unsure" checked><span>Unsure</span></label>
+          </div>
+        </fieldset>
+        <p class="hint" id="mcnote"></p>
+      </div>
+      <details class="guide"><summary>Before you send: 6 checks</summary>
+        <ol>
+          <li><span><b>Plan benefits first.</b> Medicare Advantage, SutterSelect and Sutter Health Plan members may already have rides, post-discharge meals or an OTC allowance.</span></li>
+          <li><span><b>Medi-Cal-only resources</b> are marked. Medicare-only patients usually start with the Area Agency on Aging or statewide lines; the county mental health line mainly serves Medi-Cal for ongoing care.</span></li>
+          <li><span><b>Medication costs</b> go to the Sync pharm tech path (HealthWell, then Cost Plus Drugs, then the manufacturer program).</span></li>
+          <li><span><b>Mood:</b> routine positive screens go to AI-CBT. Behavioral health outliers and complex SDOH needs go to the Sync social worker.</span></li>
+          <li><span><b>Paratransit</b> can take up to 21 days to approve. For sooner appointments, use Medi-Cal rides or the plan's ride benefit.</span></li>
+          <li><span><b>Yellow dot:</b> a detail isn't fully verified. Confirm it before sending.</span></li>
+        </ol>
+      </details>
+      <div class="tools">
+        <div class="search"><label for="q" class="hint" style="position:absolute;left:-9999px">Search resources</label><input id="q" type="search" placeholder="Search resources (e.g. meals, IHSS, rides)" autocomplete="off"></div>
+        <label class="tog"><input type="checkbox" id="showState" checked> Include statewide resources</label>
+      </div>
+      <div id="results"><p class="empty">Loading resources…</p></div>
+    </section>
+    <aside>
+      <section class="letter" aria-label="My Health Online message">
+        <div class="lhead"><h2>My Health Online message</h2><span class="count" id="count">0 resources</span></div>
+        <ul class="sel" id="sel"></ul>
+        <div class="paperwrap"><div id="out" class="paper" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Message preview" spellcheck="true" data-ph="Tick one or more resources to build the message."></div></div>
+        <div class="lfoot">
+          <p class="hint" style="margin:0">Edit the preview if needed. Changing the selection rebuilds it.</p>
+          <div class="row">
+            <button class="btn" id="copy" type="button">Copy message</button>
+            <button class="btn ghost" id="clear" type="button">Clear</button>
+            <span class="status" id="copied" aria-live="polite"></span>
+          </div>
+          <p class="phi">Do not enter PHI in this web app.</p>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+<footer><div class="wrap"><span id="foot">Sutter Sync Heart Health Program</span><span>Questions or corrections: contact the Sync social worker.</span></div></footer>
+<script id="resdata" type="application/json">__DATA__</script>
+<script>
+{
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const NEEDS=[["","All"],["Food","Food"],["Transportation","Transportation"],["Utilities","Utilities"],["Caregiver (strain, lack of support)","Caregiver support"],["Behavioral health","Behavioral health"],["Aging & caregiver info (AAA)","Aging & senior services"],["Housing & legal","Housing & legal"],["Insurance & benefits","Insurance & benefits"],["Medication affordability","Medication costs"],["Phone & digital access","Phone access"],["Safety / crisis","Safety / crisis"]];
+const NL=Object.fromEntries(NEEDS.filter(n=>n[0]));
+let D=null,picked=[],MC='unsure';
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const byId=id=>D.county.find(r=>r.id===id)||D.state.find(r=>r.id===id);
+const isMc=r=>/yes|medi-cal/i.test(r.medi||'')&&!/crisis: no/i.test(r.medi||'');
+const needLabel=n=>NL[n]||n;
+function matchQ(r,q){if(!q)return true;return [r.name,r.label,r.need,r.who,r.how,r.notes,r.summary].join(' ').toLowerCase().includes(q)}
+const stateNeeds=r=>(r.ql||'').split(';').map(s=>s.trim());
+function linkHtml(l){const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t||u.replace(/^https?:\/\//,''))}</a>`}
+function card(r){
+  const on=picked.includes(r.id);
+  const det=[["Who it's for",r.who],["How to refer",r.how],["Notes",r.notes],["Medi-Cal",r.medi],["Website",r.web?`<a href="https://${esc(r.web)}" target="_blank" rel="noopener">${esc(r.web)}</a>`:null,1],["Links to send",r.links&&r.links.length?r.links.map(linkHtml).join('<br>'):null,1],["Source",[r.source,r.verified].filter(Boolean).join(' · ')||null]].filter(x=>x[1]);
+  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${r.label!==r.name?`<div class="lab">${esc(r.label)}</div>`:''}<div class="facts">${r.phone?`<span class="ph">${esc(r.phone)}</span>`:''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal only · confirm coverage':'Medi-Cal only'}</span>`:''}</div>${r.flag?`<div class="chk">${esc(r.flag)}</div>`:''}<details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
+}
+function query(){
+  const c=$('#county').value,need=$('#need').value,q=$('#q').value.trim().toLowerCase(),mc=document.querySelector('input[name=mc]:checked').value,noMc=mc==='no',showS=$('#showState').checked;
+  MC=mc;
+  const cr=c?D.county.filter(r=>r.county===c&&(!need||r.need===need)&&matchQ(r,q)&&!(noMc&&isMc(r))):[];
+  const has211=cr.some(r=>/2-1-1/.test(r.label));
+  const st=showS?D.state.filter(r=>{
+    if(r.ql==='NOCOUNTY'&&c)return false;
+    if(has211&&/^211/.test(r.label))return false;
+    if(noMc&&isMc(r))return false;
+    if(!matchQ(r,q))return false;
+    if(!need)return true;
+    if(need==='Safety / crisis')return r.need==='Safety / crisis';
+    return r.ql==='Always'||stateNeeds(r).includes(need)||r.need===need;
+  }).sort((a,b)=>(b.need==='Safety / crisis')-(a.need==='Safety / crisis')):[];
+  return {c,need,q,mc,cr,st,showS};
+}
+function render(){
+  const {c,need,q,mc,cr,st,showS}=query();
+  $('#mcnote').textContent={yes:'Showing all resources. Medi-Cal-only resources are marked.',no:'Medi-Cal-only resources are hidden. If the patient might qualify, consider HICAP or Medi-Cal / Medicare Savings Programs (statewide).',unsure:'Showing all resources. Confirm coverage before sending anything marked Medi-Cal only; HICAP (800-434-0222) can screen.'}[mc];
+  let h='';
+  if(c){
+    h+=`<div class="sec"><h2>${esc(c)} County</h2><span class="ct">${cr.length} resource${cr.length===1?'':'s'}</span></div>`;
+    if(!cr.length)h+=`<p class="empty">No ${esc(c)} County resource ${need?`for ${esc(needLabel(need))}`:''}${q?' matches this search':''}. Check the statewide list below, or try the county's Area Agency on Aging under "Aging & senior services."</p>`;
+    else if(need)h+=`<div class="list">${cr.sort((a,b)=>a.name.localeCompare(b.name)).map(card).join('')}</div>`;
+    else{const g={};cr.forEach(r=>(g[r.need]=g[r.need]||[]).push(r));NEEDS.forEach(([n])=>{if(g[n])h+=`<p class="grp">${esc(needLabel(n))}</p><div class="list">${g[n].sort((a,b)=>a.name.localeCompare(b.name)).map(card).join('')}</div>`})}
+  } else h+=`<p class="empty">Select the patient's county to see local resources. Statewide resources are listed below.</p>`;
+  if(showS){h+=`<div class="sec"><h2>Statewide</h2><span class="ct">${st.length} resource${st.length===1?'':'s'}</span></div>`;h+=st.length?`<div class="list">${st.map(card).join('')}</div>`:`<p class="empty">No statewide resource matches.</p>`}
+  $('#results').innerHTML=h;
+}
+const bph=s=>esc(s).replace(/(\b(?:1-)?\d{3}-\d{3}-\d{4}\b(?:\s*(?:ext\.?|x)\s*\d+)?|\b2-1-1\b|\b988\b|\b911\b)/g,'<b>$1</b>');
+const lk=l=>{const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `&bull; ${esc(t||'Website')}: <a href="${esc(u)}">${esc(u)}</a>`};
+const fl=x=>{const u=(x.match(/https?:\/\/\S+/)||[''])[0];return u?`<b>${esc(x.replace(u,'').trim())}</b> <a href="${esc(u)}">${esc(u)}</a>`:bph(x)};
+function compose(rs){
+  const n=rs.length,many=n>1,P=[];
+  P.push('Hello,');
+  P.push(`It was great speaking with you today, and thank you for your time! I wanted to send you the ${many?'resources':'resource'} we discussed so you can have ${many?'them':'it'} handy whenever you’re ready.`);
+  if(many)P.push('Resources we discussed:');
+  rs.forEach(r=>P.push([`<b>${esc(r.name)}</b>`,r.summary?bph(r.summary):'',...(r.links||[]).map(lk)].filter(Boolean).join('<br>')));
+  D.closing.split('\n\n').forEach(par=>{const ls=par.split('\n');if(ls.length>1)P.push(`<b>${esc(ls[0])}</b><br>`+ls.slice(1).map(fl).join('<br>'));else P.push(fl(par))});
+  return P.map(p=>`<p>${p}</p>`).join('');
+}
+function build(){
+  const rs=picked.map(byId).filter(Boolean),n=rs.length;
+  $('#count').textContent=`${n} resource${n===1?'':'s'}`;
+  $('#mcount').textContent=`${n} selected`;
+  $('#sel').innerHTML=rs.map((r,i)=>`<li><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
+  $('#sel').style.display=n?'':'none';
+  $('#out').innerHTML=n?compose(rs):'';
+  $('#copied').textContent='';
+}
+async function copy(){
+  const el=$('#out');if(!el.textContent.trim()){$('#copied').textContent='Select a resource first.';return}
+  const html=el.innerHTML;
+  const text=[...el.querySelectorAll('p')].map(p=>p.innerText.replace(/• /g,'- ')).join('\n\n')||el.innerText;
+  try{
+    if(window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})])}
+    else await navigator.clipboard.writeText(text);
+    $('#copied').textContent='Copied. Paste into MHO.'
+  }catch(e){
+    try{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);if(document.execCommand('copy')){$('#copied').textContent='Copied. Paste into MHO.';return}}catch(x){}
+    $('#copied').textContent='Message selected. Press Ctrl+C (Cmd+C).'
+  }
+}
+function toggle(id,on){if(on&&!picked.includes(id))picked.push(id);if(!on)picked=picked.filter(x=>x!==id);build()}
+$('#need').innerHTML=NEEDS.map(([v,l])=>`<option value="${esc(v)}">${l}</option>`).join('');
+$('#need').addEventListener('change',render);
+document.querySelectorAll('input[name=mc]').forEach(x=>x.addEventListener('change',render));
+$('#results').addEventListener('change',e=>{const k=e.target.closest('input[data-id]');if(!k)return;toggle(k.dataset.id,k.checked);k.closest('.card').classList.toggle('on',k.checked)});
+$('#sel').addEventListener('click',e=>{const m=e.target.closest('[data-mv]'),x=e.target.closest('[data-rm]');if(m){const i=+m.dataset.mv,j=i+ +m.dataset.d;[picked[i],picked[j]]=[picked[j],picked[i]];build()}if(x){picked=picked.filter(p=>p!==x.dataset.rm);build();render()}});
+$('#county').addEventListener('change',()=>{store.set('syncCounty',$('#county').value);render()});
+['#q','#showState'].forEach(s=>$(s).addEventListener('input',render));
+$('#copy').addEventListener('click',copy);$('#copy2').addEventListener('click',copy);
+$('#clear').addEventListener('click',()=>{picked=[];build();render()});
+window.__sync={query,compose,byId,get data(){return D}};
+try{
+  D=JSON.parse(document.getElementById('resdata').textContent);
+  const cs=[...new Set(D.county.map(r=>r.county))].sort();
+  $('#county').innerHTML='<option value="">Select county</option>'+cs.map(c=>`<option>${esc(c)}</option>`).join('');
+  const saved=store.get('syncCounty');$('#county').value=cs.includes(saved)?saved:'';
+  $('#foot').textContent=`Sutter Sync Heart Health Program · ${cs.length} counties · ${D.county.length} county and ${D.state.length} statewide resources · updated ${D.updated}`;
+  render();build();
+}catch(e){$('#results').innerHTML='<p class="empty">The resource list didn\'t load. Refresh the page to try again.</p>'}
+}
+</script>
+</body>
+</html>
