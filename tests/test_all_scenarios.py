@@ -1,8 +1,10 @@
 """Run every County x Identified need x Medi-Cal combination in a real browser.
 
-Checks, for each of the 864 combinations (23 counties + statewide-only, 12 needs, 3 Medi-Cal answers):
+Identified need is multi-select, so needs are tested as: none (All), each single need,
+every pair of needs, and all needs together (68 selections). With 23 counties plus
+statewide-only and 3 Medi-Cal answers that is 4,896 combinations. Checks:
   - every card on screen matches what the filter logic returned
-  - county results belong to the chosen county and need
+  - county results belong to the chosen county and selected needs, and none are missing
   - Medi-Cal "No" hides every Medi-Cal-only resource
   - 911 is always listed; statewide Medi-Cal rides are hidden once a county is chosen
 And for every resource on its own:
@@ -25,27 +27,35 @@ CHECKS = r"""
 async () => {
   const S = window.__sync, D = S.data, $ = s => document.querySelector(s);
   const counties = [...new Set(D.county.map(r => r.county))].sort();
-  const needs = [...$('#need').options].map(o => o.value);
   const isMc = r => /yes|medi-cal/i.test(r.medi || '') && !/crisis: no/i.test(r.medi || '');
   const errs = [], gaps = []; let n = 0;
-  for (const c of ['', ...counties]) for (const nd of needs) for (const m of ['yes', 'no', 'unsure']) {
-    $('#county').value = c; $('#need').value = nd;
+  const combos = [[]];
+  S.needs.forEach(a => combos.push([a]));
+  S.needs.forEach((a, i) => S.needs.slice(i + 1).forEach(b => combos.push([a, b])));
+  combos.push(S.needs.slice());
+  for (const c of ['', ...counties]) for (const nd of combos) for (const m of ['yes', 'no', 'unsure']) {
+    $('#county').value = c;
     document.querySelector(`input[name=mc][value=${m}]`).checked = true;
-    $('#county').dispatchEvent(new Event('change')); n++;
+    S.setNeeds(nd); n++;
     const q = S.query();
     const shown = document.querySelectorAll('#results .card').length;
     if (shown !== q.cr.length + q.st.length) errs.push(`card count ${c}|${nd}|${m}`);
     for (const r of q.cr) {
       if (r.county !== c) errs.push(`wrong county ${r.id} in ${c}`);
-      if (nd && r.need !== nd) errs.push(`wrong need ${r.id} for ${nd}`);
+      if (nd.length && !nd.includes(r.need)) errs.push(`wrong need ${r.id} for ${nd}`);
       if (m === 'no' && isMc(r)) errs.push(`Medi-Cal-only shown with No: ${r.id}`);
+    }
+    if (c && nd.length) for (const want of nd) {
+      const expect = D.county.filter(r => r.county === c && r.need === want && !(m === 'no' && isMc(r))).length;
+      const got = q.cr.filter(r => r.need === want).length;
+      if (expect !== got) errs.push(`missing results ${c}|${want}|${m}: ${got} of ${expect}`);
     }
     for (const r of q.st) {
       if (m === 'no' && isMc(r)) errs.push(`Medi-Cal-only statewide shown with No: ${r.id}`);
       if (c && r.ql === 'NOCOUNTY') errs.push(`statewide Medi-Cal rides shown with county ${c}`);
     }
     if (!q.st.some(r => r.label === '911')) errs.push(`911 missing ${c}|${nd}|${m}`);
-    if (c && nd && m === 'unsure' && !q.cr.length) gaps.push(`${c}: ${nd}`);
+    if (c && nd.length === 1 && m === 'unsure' && !q.cr.length) gaps.push(`${c}: ${nd[0]}`);
   }
   for (const r of [...D.county, ...D.state]) {
     const html = S.compose([r]);
