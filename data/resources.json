@@ -182,7 +182,7 @@
    "how": "Caregiver calls to join the group.",
    "web": "jfcs-eastbay.org",
    "notes": null,
-   "source": "Sync caregiver resource sheet",
+   "source": "Caregiver resource sheet",
    "verified": null,
    "flag": "Not re-checked",
    "links": [
@@ -558,7 +558,7 @@
    "how": "Caregiver calls to join the group.",
    "web": "jfcs-eastbay.org",
    "notes": null,
-   "source": "Sync caregiver resource sheet",
+   "source": "Caregiver resource sheet",
    "verified": null,
    "flag": "Not re-checked",
    "links": [
@@ -2255,7 +2255,7 @@
    "how": "Patient or SW calls DAS and asks for Nutrition Services. Daily hot meals at home, dining sites, diet-appropriate meals.",
    "web": "sfhsa.org/das",
    "notes": null,
-   "source": "Sync SF resource sheet; number confirmed on sfhsa.org",
+   "source": "SF resource sheet; number confirmed on sfhsa.org",
    "verified": "2026-11-20",
    "flag": null,
    "links": [
@@ -2275,7 +2275,7 @@
    "how": "Caller asks DAS for Caregiver & Dementia Support Services.",
    "web": "sfhsa.org/das",
    "notes": null,
-   "source": "Sync SF resource sheet; number confirmed on sfhsa.org",
+   "source": "SF resource sheet; number confirmed on sfhsa.org",
    "verified": "2026-11-20",
    "flag": "Program details not individually verified",
    "links": [
@@ -2297,7 +2297,7 @@
    "how": "Caller asks DAS intake for Housing Resource Programs.",
    "web": "sfhsa.org/das",
    "notes": null,
-   "source": "Sync SF resource sheet; number confirmed on sfhsa.org",
+   "source": "SF resource sheet; number confirmed on sfhsa.org",
    "verified": "2026-11-20",
    "flag": "Program details not individually verified",
    "links": [
@@ -2397,7 +2397,7 @@
    "how": "Caregiver calls IOA Connect. Grant pays for in-home care, adult day programs, IOA Enrichment Center (dementia) and rides to adult day.",
    "web": "ioaging.org",
    "notes": "Funded by SF DAS.",
-   "source": "Sync caregiver resource sheet; IOA number confirmed on ioaging.org",
+   "source": "Caregiver resource sheet; IOA number confirmed on ioaging.org",
    "verified": "2026-11-20",
    "flag": "Grant details not individually verified",
    "links": [
@@ -2836,7 +2836,7 @@
    "how": "Call for local senior shuttle and volunteer driver options.",
    "web": "smchealth.org/aas",
    "notes": null,
-   "source": "Sync patient handout; number confirmed on smchealth.org",
+   "source": "Patient handout; number confirmed on smchealth.org",
    "verified": "2026-11-20",
    "flag": "Shuttle/driver programs not individually verified",
    "links": [
@@ -3232,7 +3232,7 @@
    "how": "Call for senior ride programs and other local services.",
    "web": "mysourcewise.com",
    "notes": null,
-   "source": "Sync patient handout; number confirmed on county/city senior resource pages",
+   "source": "Patient handout; number confirmed on county/city senior resource pages",
    "verified": "2026-11-20",
    "flag": "Ride programs not individually verified",
    "links": [
@@ -4502,7 +4502,7 @@
    "phone": "988",
    "medi": "No",
    "who": "Anyone; call or text",
-   "how": "Active SI or emotional crisis when not imminent; also notify MD per Sync escalation rules.",
+   "how": "Active SI or emotional crisis when not imminent; also notify the patient's MD per escalation rules.",
    "flag": null,
    "ql": "Always",
    "links": [
@@ -4625,13 +4625,13 @@
   {
    "id": "s11",
    "need": "Medication affordability",
-   "label": "Sync pharm-tech path: HealthWell → Cost Plus Drugs → manufacturer assistance",
-   "name": "Sutter Sync pharmacy team",
-   "phone": "Sync pharmacy team (internal)",
+   "label": "Pharm-tech path: HealthWell → Cost Plus Drugs → manufacturer assistance",
+   "name": "Pharmacy team",
+   "phone": "Pharmacy team (internal)",
    "medi": "No",
    "who": "Patients who can't afford medications (eligibility differs at each step)",
    "how": "Pharm tech owns, in order: 1) HealthWell Foundation copay grant (insured; fund-specific eligibility); 2) Mark Cuban Cost Plus Drugs cash price, compared with plan copay; 3) manufacturer patient assistance program for the specific drug. SW supports if the barrier is broader SDOH.",
-   "flag": "855-320-5200 listed as pharmacy line in one handout and as device support in the MHO template – confirm",
+   "flag": null,
    "ql": "Medication affordability",
    "links": [
     "https://www.healthwellfoundation.org",
@@ -4931,5 +4931,5 @@
   }
  ],
  "opening": "Hi @FNAME@,\n\nIt was good speaking with you today. I wanted to send you the {res} we talked about so you have {it} handy whenever you’re ready.\n\n",
- "closing": "If your symptoms are severe or getting worse, seek medical care right away. For an emergency, call 911. For a mental health crisis, you can call or text 988 anytime.\n\nDo you need assistance with your Sutter Sync Device?\nIf you’re having trouble setting up, pairing, or syncing your device, call 855-320-5200 and ask for a Customer Support Agent. They can walk you through it.\n\nSutter Sync Help Center: https://www.sutterhealth.org/patient-resources/my-health-online/sync/help-center"
+ "closing": "If your symptoms are severe or getting worse, seek medical care right away. For an emergency, call 911. For a mental health crisis, you can call or text 988 anytime."
 }
