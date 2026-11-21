@@ -288,7 +288,7 @@ const fl=x=>{const u=(x.match(/https?:\/\/\S+/)||[''])[0];return u?`<b>${esc(x.r
 function compose(rs){
   const n=rs.length,many=n>1,P=[];
   P.push('Hello,');
-  P.push(`It was great speaking with you today, and thank you for your time! I wanted to send you the ${many?'resources':'resource'} we discussed so you can have ${many?'them':'it'} handy whenever you’re ready.`);
+  P.push('It was great speaking with you today, and thank you for your time! I wanted to send you resources so you can have them handy should you need them.');
   if(many)P.push('Resources we discussed:');
   rs.forEach(r=>{const sm=(r.summaryByMedi&&r.summaryByMedi[MC])||r.summary;P.push([`<b>${esc(r.name)}</b>`,sm?bph(sm):'',...(r.links||[]).map(lk)].filter(Boolean).join('<br>'))});
   D.closing.split('\n\n').forEach(par=>{const ls=par.split('\n');if(ls.length>1)P.push(`<b>${esc(ls[0])}</b><br>`+ls.slice(1).map(fl).join('<br>'));else P.push(fl(par))});
