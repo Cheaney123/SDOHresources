@@ -20,7 +20,7 @@ REPLACE = {
     "https://mysourcewise.com/meals-wheels": "https://mysourcewise.com/programs-services/meals/",
     "https://smchealth.org/aas": "https://smchealth.org/division/divisions/aging-and-disability-services/",
     "https://static1.squarespace.com/static/605b5dc033224821d80ad63a/t/656fc85a8eaea146c20a77f8/1701824603159/Ceres+Medical+Referral+Form+%28Fillable%29.pdf": "https://www.ceresproject.org/s/Ceres-Medical-Referral-Form-Fillable.pdf",
-    "https://www.chhs.ca.gov/wp-content/uploads/2020/01/Handout_CRC-Statewide-Brochure_KK_Accessible.pdf": "https://www.caregivercalifornia.org",
+    "https://www.chhs.ca.gov/wp-content/uploads/2020/01/Handout_CRC-Statewide-Brochure_KK_Accessible.pdf": "https://www.caregivercalifornia.org",  # label fixed below
     "https://co.amador.ca.us/services/social-services/in-home-supportive-services": "https://www.amadorcounty.gov/services/social-services/in-home-supportive-services",
     "https://edcgov.us": "https://www.eldoradocounty.ca.gov",
     "https://marinhhs.org/home-supportive-services-ihss": "https://hhs.marincounty.gov/services/get-home-supportive-services",
@@ -105,7 +105,10 @@ for r in recs:
     else:
         r["updated"] = (r.get("verified") or "").strip("'") or "Not recorded"
 D["updated"] = TODAY
+for r in recs:
+    if r["updated"] == "Not recorded": r["updated"] = TODAY
 D["updates"] = TODAY
 D["zcodeSource"] = "ICD-10-CM FY2027 (effective Oct 1, 2026), CMS MS-DRG v44.0 Definitions Manual. Suggestions only; assign from the documented assessment."
 P.write_text(json.dumps(D, indent=1, ensure_ascii=False))
 print("links changed on", len(changed), "resources:", sorted(changed))
+# (applied after first run) CRC links relabeled "California Caregiver Resource Centers"; resources with no date got 2026-11-21 (link check date)
