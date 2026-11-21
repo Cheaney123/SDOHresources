@@ -1,6 +1,4 @@
-__pycache__/
-*.pyc
-.DS_Store
+tmp/
 node_modules/
-test-results/
-*.log
+__pycache__/
+link-report.json
