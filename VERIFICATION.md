@@ -1,6 +1,6 @@
 # Source-backed corrections (checked 2026-11-20)
 
-Each claim below is also stored on its resource as `review.claims`. Details I couldn't verify are kept out of patient copy.
+Applied to `data/resources.json` by `scripts/apply_corrections_2026_11_20.py`. Each corrected record has `verified` and `source` set. Details I couldn't verify are kept out of patient copy and flagged for staff.
 
 | Resource | Exact claim | Source |
 |---|---|---|
