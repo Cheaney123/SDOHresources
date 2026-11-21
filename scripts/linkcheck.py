@@ -74,7 +74,10 @@ def check(url):
             err = type(e).__name__
             if attempt == 0:
                 time.sleep(3); continue
-            return dict(status="BROKEN", code=None, final=url, title="", why=f"could not connect ({err})")
+            if re.search(r"NameResolution|getaddrinfo|Name or service not known|nodename nor servname", str(e)):
+                return dict(status="BROKEN", code=None, final=url, title="", why="website address no longer exists")
+            # Some small sites refuse connections from cloud servers but open normally in a browser
+            return dict(status="MANUAL", code=None, final=url, title="", why="site refused the automated connection")
 
 def main():
     uses = {}
