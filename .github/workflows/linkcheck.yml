@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:                     # also runs whenever the checker itself changes
     branches: [main]
-    paths: [".github/workflows/linkcheck.yml", "scripts/linkcheck.py"]
+    paths: [".github/workflows/linkcheck.yml", "scripts/linkcheck.py", "data/links_confirmed.json"]
 permissions:
   contents: read
   issues: write

@@ -86,7 +86,14 @@ def main():
             uses.setdefault(u, []).append(r)
     with cf.ThreadPoolExecutor(12) as ex:
         res = dict(zip(uses, ex.map(check, uses)))
-    order = {"BROKEN": 0, "MANUAL": 1, "MOVED": 2, "OK": 3}
+    conf_path = ROOT / "data/links_confirmed.json"
+    confirmed = json.loads(conf_path.read_text()) if conf_path.exists() else {}
+    import datetime as dt
+    for u, v in res.items():
+        d = confirmed.get(u)
+        if v["status"] == "MANUAL" and d and (dt.date.today() - dt.date.fromisoformat(d)).days <= 120:
+            v["status"], v["why"] = "CONFIRMED", f"blocks automated checks; confirmed by hand {d}"
+    order = {"BROKEN": 0, "MANUAL": 1, "MOVED": 2, "CONFIRMED": 3, "OK": 4}
     counts = {k: sum(v["status"] == k for v in res.values()) for k in order}
     rows = []
     for u, v in sorted(res.items(), key=lambda kv: (order[kv[1]["status"]], kv[0])):
@@ -96,10 +103,12 @@ def main():
     today = time.strftime("%Y-%m-%d")
     json.dump({"date": today, "counts": counts, "links": rows}, open(ROOT / "link-report.json", "w"), indent=1)
     md = [f"Weekly link check, {today}: **{len(res)}** links checked.",
-          f"Broken: **{counts['BROKEN']}** · Check by hand: **{counts['MANUAL']}** · Moved: **{counts['MOVED']}** · OK: {counts['OK']}", ""]
+          f"Broken: **{counts['BROKEN']}** · Check by hand: **{counts['MANUAL']}** · Moved: **{counts['MOVED']}** · "
+          f"Confirmed by hand earlier: {counts['CONFIRMED']} · OK: {counts['OK']}", ""]
     labels = {"BROKEN": "Broken: fix or replace", "MANUAL": "Check by hand (site blocks automated checks)",
-              "MOVED": "Moved: still works, update the address when convenient"}
-    for k in ("BROKEN", "MANUAL", "MOVED"):
+              "MOVED": "Moved: still works, update the address when convenient",
+              "CONFIRMED": "No action: blocks automated checks, but confirmed by hand in the last 120 days"}
+    for k in ("BROKEN", "MANUAL", "MOVED", "CONFIRMED"):
         sel = [x for x in rows if x["status"] == k]
         if not sel:
             continue
@@ -109,6 +118,8 @@ def main():
             used = "; ".join(x["resources"][:3]) + (f" (+{len(x['resources']) - 3} more)" if len(x["resources"]) > 3 else "")
             md.append(f"| {x['url']} | {res_txt} | {used} |")
         md.append("")
+    md.append("After opening a 'check by hand' link and finding it correct, add it with today's date to `data/links_confirmed.json` (or ask Claude).")
+    md.append("")
     md.append("Nothing was changed automatically. Fix links in `data/resources.json` (or ask Claude), and the app and spreadsheet update together.")
     (ROOT / "link-report.md").write_text("\n".join(md))
     print("\n".join(md[:2]))
