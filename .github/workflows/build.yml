@@ -1,0 +1,28 @@
+# Keeps the web app and the spreadsheet in sync with data/resources.json (the single source of truth).
+# Any change to the data rebuilds index.html and SDOH_Resources.xlsx and commits them; Cloudflare then deploys.
+name: Rebuild app and spreadsheet
+on:
+  push:
+    branches: [main]
+    paths: ["data/**", "scripts/build.py", "scripts/export_xlsx.py", "src/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install openpyxl
+      - run: python scripts/build.py
+      - run: python scripts/export_xlsx.py
+      - name: Commit rebuilt files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898341+github-actions[bot]@users.noreply.github.com"
+          git add index.html SDOH_Resources.xlsx
+          git diff --cached --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "Rebuild app and spreadsheet from data [automated]"
+          git push

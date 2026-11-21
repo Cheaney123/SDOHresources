@@ -4,3 +4,5 @@ __pycache__/
 node_modules/
 test-results/
 *.log
+link-report.md
+link-report.json
