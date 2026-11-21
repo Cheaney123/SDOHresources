@@ -1,0 +1,31 @@
+# Weekly link check. Opens a GitHub issue listing broken, moved and hand-check links.
+# Nothing in the data is changed automatically: every fix is reviewed first.
+name: Weekly link check
+on:
+  schedule:
+    - cron: "17 16 * * 1"   # Mondays 16:17 UTC (8:17 AM Pacific in winter, 9:17 AM in summer)
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install requests
+      - run: python scripts/linkcheck.py
+      - name: Post results as an issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create link-check --color 008080 --description "Weekly link check results" --force
+          for n in $(gh issue list --label link-check --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "Replaced by this week's link check."
+          done
+          B=$(jq '.counts.BROKEN' link-report.json); M=$(jq '.counts.MANUAL' link-report.json); V=$(jq '.counts.MOVED' link-report.json)
+          gh issue create --label link-check \
+            --title "Link check $(date +%Y-%m-%d): $B broken, $M to check by hand, $V moved" \
+            --body-file link-report.md

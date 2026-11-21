@@ -87,3 +87,10 @@ These changes were made to resource information and contact routes only. The wor
 - **Senior Legal Hotline:** Sacramento County residents 60+ only. It is now a Sacramento listing, not statewide. Confirm with LSNC.
 - **Medicare Savings Programs:** separate from the new "Medi-Cal: apply or check coverage" listing, so MSP still shows when Medi-Cal is No.
 - **County mental health lines:** the patient text follows the Medi-Cal answer (`summaryByMedi`).
+
+## How updates work (since 2026-11-21)
+
+- **One source of truth:** `data/resources.json`. Change resources there only.
+- **Automatic rebuild:** any change to the data (or the app template) runs `.github/workflows/build.yml`, which rebuilds `index.html` and `SDOH_Resources.xlsx` and commits them. Cloudflare then deploys. The spreadsheet can be downloaded from the link in the app footer, and it always matches the app.
+- **Weekly link check:** `.github/workflows/linkcheck.yml` runs every Monday (and on demand from the Actions tab). It opens a GitHub issue labeled `link-check` listing broken links, links to check by hand (sites that block automated checks) and links that now send people to a different website. Nothing is changed automatically.
+- The Claude Sheets version of the spreadsheet is no longer kept in sync; use the downloaded Excel file.
