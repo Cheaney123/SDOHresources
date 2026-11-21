@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "17 16 * * 1"   # Mondays 16:17 UTC (8:17 AM Pacific in winter, 9:17 AM in summer)
   workflow_dispatch:
+  push:                     # also runs whenever the checker itself changes
+    branches: [main]
+    paths: [".github/workflows/linkcheck.yml", "scripts/linkcheck.py"]
 permissions:
   contents: read
   issues: write
