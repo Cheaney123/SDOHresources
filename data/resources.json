@@ -4642,9 +4642,11 @@
    "flag": null,
    "ql": "Behavioral health",
    "links": [
-    "https://aging.ca.gov"
+    "Long-Term Care Ombudsman (California Department of Aging): https://aging.ca.gov/Programs_and_Services/Long-Term_Care_Ombudsman/"
    ],
-   "summary": "Call 800-231-4024, any time, if you live in a nursing home or care home and have concerns about your care or safety."
+   "summary": "Call 800-231-4024, any time, if you live in a nursing home or care home and have concerns about your care or safety.",
+   "verified": "2026-11-20",
+   "source": "California Department of Aging, Long-Term Care Ombudsman page"
   },
   {
    "id": "s6",
