@@ -159,7 +159,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   <div class="wrap">
     <div>
       <h1>Resource Referral Prototype</h1>
-      <p>Select the patient's county and identified need, tick the resources you discussed, and copy the finished text into the My Health Online message.</p>
+      <p>Select the patient's county and identified need, tick the resources you discussed, and copy the finished text into a My Health Online message.</p>
     </div>
     <ol class="steps" aria-label="Steps"><li><b>1</b>Patient details</li><li><b>2</b>Choose resources</li><li><b>3</b>Copy to MHO</li></ol>
   </div>
@@ -168,11 +168,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   <div class="wrap">
     <div class="lblcell"><h2 class="lbl"><span>SAFETY<br>FIRST</span></h2></div>
     <div class="sitem"><span class="num">911</span><span class="what">Immediate danger</span><span class="how">Call right away.</span></div>
-    <div class="sitem"><span class="num">988</span><span class="what">Suicidal thoughts or crisis</span><span class="how">Call or text. Notify the patient's MD.</span></div>
+    <div class="sitem"><span class="num">988</span><span class="what">Suicidal thoughts or crisis</span><span class="how">Call or text. Notify the patient's mental health provider.</span></div>
     <div class="sitem"><span class="num">Adult Protective Services</span><span class="what">Concern for abuse or neglect?</span><span class="how"><a href="https://www.cdss.ca.gov/inforesources/adult-protective-services" target="_blank" rel="noopener">Learn more</a></span></div>
   </div>
 </section>
-<div class="mbar"><span id="mcount" class="sora">0 selected</span></div>
 <main>
   <div class="wrap">
     <section aria-label="Patient details and resources">
@@ -298,7 +297,6 @@ function compose(rs){
 function build(){
   const rs=picked.map(byId).filter(Boolean),n=rs.length;
   $('#count').textContent=`${n} resource${n===1?'':'s'}`;
-  $('#mcount').textContent=`${n} selected`;
   $('#sel').innerHTML=rs.map((r,i)=>`<li><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
   $('#sel').style.display=n?'':'none';
   $('#out').innerHTML=n?compose(rs):'';
