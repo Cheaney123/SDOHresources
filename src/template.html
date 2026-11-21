@@ -5,353 +5,785 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Resource Referral Prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Roboto:wght@400;500;700&display=swap">
 <style>
-/* VOICE clinical work tool, presented at executive standard: quiet, exact, confident
-   IDEA a referral desk: intake on the left, a finished patient letter on the right
-   PICTURE the live My Health Online letter, set like a page, building as resources are chosen
-   COLOUR white ground, Sutter teal #008080 lead, Dusky Teal #1F3433 ink and masthead, Yellow #EFC469 for safety only, Breezy Teal #01EFE1 night accent
-   TYPE Sora (headings, numerals) + Roboto (body), per Sutter brand
-   LAYOUT laptop: masthead, safety rule, intake + results (left) / sticky letter (right); phone: intake, results, letter, sticky copy bar */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#16272a);--ink:light-dark(#1f3433,#f2f7f7);--teal:light-dark(#008080,#01efe1);--onteal:light-dark(#ffffff,#1f3433);--mast:#1f3433;--band:#008080;--tint:light-dark(#eef6f6,#24403f);--tint2:light-dark(#f6fafa,#1b2f32);--line:light-dark(#d5e3e3,#33494b);--muted:light-dark(#4f6466,#a9bcbd);--card:light-dark(#ffffff,#1c3033);--yel:#efc469;--paper:light-dark(#ffffff,#f2f7f7);--paperink:#1f3433}
-:root[data-theme=light]{color-scheme:light}
-:root[data-theme=dark]{color-scheme:dark}
-*{box-sizing:border-box;min-width:0}
-html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.55 Roboto,Arial,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
-h1,h2,h3,.sora{font-family:Sora,Arial,sans-serif;margin:0;letter-spacing:-.015em}
-a{color:var(--teal);text-underline-offset:2px}
-button,select,input{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
-.wrap{max-width:1360px;margin:0 auto;padding-left:max(16px,3vw);padding-right:max(16px,3vw)}
-.mast{background:var(--mast);color:#fff;font-size:13px}
-.mast .wrap{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;padding-block:8px}
-.mast span{opacity:.85}
-.mast b{font-weight:500;opacity:1}
-.hero{background:var(--band);color:#fff}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 40px;align-items:end;padding-block:30px 28px}
-.hero h1{font-size:clamp(30px,3.6vw,44px);line-height:1.05;font-weight:700;text-wrap:balance}
-.hero p{margin:10px 0 0;font-size:17px;max-width:58ch;opacity:.95}
-.steps{display:flex;gap:8px;list-style:none;margin:0;padding:0;font-size:14px}
-.steps li{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;white-space:nowrap}
-.steps b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;color:#008080;font-family:Sora,Arial,sans-serif;font-size:12px}
-.safety{background:var(--yel);color:#1f3433;border-bottom:1px solid rgba(31,52,51,.18)}
-.safety .wrap{display:grid;grid-template-columns:max-content minmax(0,.7fr) minmax(0,1fr) minmax(0,1.4fr);padding-block:16px;align-items:stretch}
+:root{--teal:#008080;--teal-d:#006a6a;--dusk:#1f3433;--yellow:#efc469;--breezy:#01efe1;--ink:#1f3433;--muted:#4b5d5c;--line:#d5e0df;--soft:#f3f8f8;--white:#fff;--warn:#7a4b00;--warnbg:#fff4dc;--bad:#8a1c1c;--badbg:#fdecec;--ok:#0b5e3c;--okbg:#e5f5ee}
+*{box-sizing:border-box}
+html{font-size:100%}
+body{margin:0;font-family:Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.45;font-size:1rem}
+h1,h2,h3,legend,.sora{font-family:Sora,Arial,sans-serif}
+a{color:var(--teal-d)}
+button,select,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--dusk);outline-offset:2px;box-shadow:0 0 0 6px var(--yellow)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mast{background:var(--dusk);color:#fff;font-size:.875rem;padding:.45rem 1.25rem;display:flex;gap:1rem;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.mast .right{display:flex;gap:.5rem;flex-wrap:wrap}
+.hero{background:var(--teal);color:#fff;padding:1.4rem 1.25rem 1.2rem}
+.hero h1{margin:0;font-size:clamp(1.5rem,3.2vw,2.3rem);line-height:1.15}
+.hero p{margin:.4rem 0 0;max-width:62rem}
+.chip{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.03em;background:var(--yellow);color:var(--dusk);border-radius:999px;padding:.1rem .55rem;vertical-align:middle;margin-left:.4rem}
+.safety{background:var(--yellow);color:var(--dusk);padding:1rem 1.25rem;border-bottom:1px solid rgba(31,52,51,.18)}
+.swrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:max-content minmax(0,.7fr) minmax(0,1fr) minmax(0,1.4fr);align-items:stretch}
 .lblcell{display:flex;align-items:center;padding-right:28px}
-.safety .lbl{margin:0;color:#1f3433;font-family:Sora,Arial,sans-serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:.04em;white-space:nowrap}
+.slbl{margin:0;color:var(--dusk);font-family:Sora,Arial,sans-serif;font-weight:700;font-size:1.5rem;line-height:1;letter-spacing:.04em;white-space:nowrap}
 .sitem{display:grid;align-content:start;gap:3px;padding:0 24px;border-left:1px solid rgba(31,52,51,.28)}
-.sitem .num{font-family:Sora,Arial,sans-serif;font-weight:700;font-size:22px;line-height:1.1;letter-spacing:-.01em;white-space:nowrap}
-.sitem .what{font-family:Sora,Arial,sans-serif;font-weight:600;font-size:14px}
-.sitem .how{font-size:13.5px;line-height:1.45}
-.safety a{color:#1f3433;font-weight:700;white-space:nowrap}
-main .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:32px;padding-block:28px 56px;align-items:start}
-.intake{border:1px solid var(--line);border-radius:14px;background:var(--tint2);padding:18px 20px;display:grid;gap:14px}
-.field{display:grid;gap:6px}
-.field>span,.seg legend{font-family:Sora,Arial,sans-serif;font-weight:600;font-size:15px;display:flex;align-items:center;gap:10px;padding:0}
-.n{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--teal);color:var(--onteal);font-size:12px;font-weight:700;flex:none}
-.opt{font-family:Roboto,Arial,sans-serif;font-weight:400;font-size:13px;color:var(--muted)}
-.ms{position:relative}
-.ms summary{list-style:none;height:48px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:0 16px 0 14px;font-size:16px;cursor:pointer;color:var(--ink);font-weight:400}
-.ms summary::-webkit-details-marker{display:none}
-.ms summary span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ms summary:after{content:"";flex:none;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:-4px 2px 0 0}
-.ms[open] summary{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal)}
-.ms[open] summary:after{transform:rotate(-135deg);margin-top:4px}
-.menu{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:20;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(31,52,51,.16);padding:6px}
-#needmenu{max-height:320px;overflow:auto;display:grid}
-.opt-row{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 10px;border-radius:8px;cursor:pointer;font-size:15.5px}
-.opt-row:hover{background:var(--tint)}
-.opt-row input{width:20px;height:20px;accent-color:#008080;margin:0;flex:none}
-.opt-row.all{border-bottom:1px solid var(--line);border-radius:8px 8px 0 0;font-weight:500}
-.mfoot{display:flex;justify-content:flex-end;gap:8px;padding:8px 4px 2px;border-top:1px solid var(--line);margin-top:4px}
-.btn.sm{min-height:38px;padding:0 14px;font-size:14px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;border-radius:999px;padding:3px 6px 3px 12px;background:var(--card);border:1px solid var(--line)}
-.chip button{border:0;background:transparent;cursor:pointer;width:24px;height:24px;border-radius:50%;font-size:13px;line-height:1;color:var(--muted)}
-.chip button:hover{background:var(--tint);color:var(--ink)}
-select{height:48px;width:100%;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:16px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat}
-.seg{border:0;margin:0;padding:0;display:grid;gap:6px}
-.segs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
-.segs label{position:relative}
-.segs input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.segs span{display:flex;align-items:center;justify-content:center;height:46px;font-weight:500;cursor:pointer}
-.segs label+label span{border-left:1px solid var(--line)}
-.segs input:checked+span{background:var(--teal);color:var(--onteal)}
-.segs input:focus-visible+span{outline:3px solid var(--yel);outline-offset:-3px}
-.hint{font-size:14px;color:var(--muted);margin:0;line-height:1.45}
-.tools{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;margin:18px 0 4px}
-.search{position:relative;flex:1 1 260px;max-width:380px}
-.search input{width:100%;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:16px}
-.tog{display:flex;gap:10px;align-items:center;font-size:15px;cursor:pointer;min-height:44px}
-.tog input{width:20px;height:20px;accent-color:#008080}
-.sec{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:26px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
-.sec h2{font-size:22px;font-weight:700}
-.sec .ct{font-family:Sora,Arial,sans-serif;font-size:14px;color:var(--muted)}
-.grp{font-family:Sora,Arial,sans-serif;font-size:13px;font-weight:600;color:var(--muted);margin:18px 0 8px}
-.list{display:grid;gap:10px}
-.card{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px 12px 56px;transition:border-color .15s,background-color .15s}
-.card:hover{border-color:color-mix(in srgb,var(--teal) 55%,var(--line))}
-.card.on{border-color:var(--teal);background:color-mix(in srgb,var(--teal) 6%,var(--card))}
-.card .ck{position:absolute;left:16px;top:16px;width:24px;height:24px;margin:0;accent-color:#008080;cursor:pointer}
-.card h3{font-size:17px;font-weight:600;line-height:1.3}
-.card h3 label{cursor:pointer}
-.card .lab{color:var(--muted);font-size:14px;margin-top:2px}
-.facts{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:8px}
-.ph{font-family:Sora,Arial,sans-serif;font-weight:600;font-size:15px}
-.pill{font-size:12.5px;border-radius:999px;padding:2px 10px;background:var(--tint);color:var(--ink);white-space:nowrap}
-.pill.mc{background:transparent;border:1.5px solid var(--yel);font-weight:700}
-.chk{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-size:13.5px;color:var(--muted)}
-.chk:before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--yel);margin-top:6px}
-details{margin-top:6px}
-summary{cursor:pointer;color:var(--teal);font-weight:500;font-size:14.5px;min-height:32px;display:inline-flex;align-items:center;list-style:none}
-summary::-webkit-details-marker{display:none}
-summary:after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:-3px 0 0 9px;transition:transform .15s}
-details[open] summary:after{transform:rotate(-135deg);margin-top:4px}
-dl{margin:6px 0 4px;display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:6px 14px;font-size:14.5px;border-top:1px solid var(--line);padding-top:10px}
-dt{color:var(--muted)}
-dd{margin:0;overflow-wrap:anywhere}
-.empty{padding:18px 20px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:var(--tint2);margin:0}
-aside{position:sticky;top:16px}
-.letter{border:1px solid var(--line);border-radius:16px;background:var(--tint);display:grid;overflow:hidden}
-.lhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px 10px}
-.lhead h2{font-size:19px}
-.count{font-family:Sora,Arial,sans-serif;font-size:13px;border-radius:999px;padding:3px 10px;background:var(--card);border:1px solid var(--line);white-space:nowrap}
-.sel{list-style:none;margin:0;padding:0 18px 10px;display:grid;gap:6px;max-height:210px;overflow:auto}
-.sel li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:5px 5px 5px 12px;font-size:14.5px;line-height:1.3}
-.sel small{color:var(--muted);display:block;font-size:12.5px}
-.ib{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--card);cursor:pointer;display:inline-grid;place-items:center;font-size:14px;line-height:1}
-.ib:disabled{opacity:.35;cursor:default}
-.paperwrap{padding:0 18px}
-.paper{background:var(--paper);color:var(--paperink);border-radius:10px;border:1px solid var(--line);padding:22px 22px 18px;font-size:15px;line-height:1.55;overflow:auto;min-height:280px;max-height:min(58vh,660px);overflow-wrap:anywhere;box-shadow:0 1px 2px rgba(31,52,51,.08)}
-.paper p{margin:0 0 14px}
-.paper p:last-child{margin:0}
-.paper a{color:#008080}
-.paper:empty:before{content:attr(data-ph);color:#5d7173}
-.ph-meta{font-size:12.5px;color:var(--muted);padding:8px 18px 0}
-.lfoot{padding:14px 18px 16px;display:grid;gap:10px}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.btn{min-height:46px;padding:0 20px;border-radius:10px;border:0;background:var(--teal);color:var(--onteal);font-family:Sora,Arial,sans-serif;font-weight:600;font-size:15px;cursor:pointer}
-.btn:hover{filter:brightness(1.06)}
-.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line);font-weight:500}
-.status{font-size:14px;color:var(--teal);font-weight:500}
-.phi{font-size:13px;font-weight:700;color:var(--ink);display:flex;gap:8px;align-items:center}
-.phi:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yel);flex:none}
-.guide{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:4px 18px 4px;margin-top:14px}
-.guide summary{font-family:Sora,Arial,sans-serif;font-weight:600;color:var(--ink);font-size:15px;min-height:44px}
-.guide ol{padding-bottom:14px}
-
-.guide ol{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px;line-height:1.45;counter-reset:g}
-.guide li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;counter-increment:g}
-.guide li:before{content:counter(g);font-family:Sora,Arial,sans-serif;font-size:12px;font-weight:700;color:var(--teal);padding-top:1px}
-.mbar{display:none}
-footer{border-top:1px solid var(--line);background:var(--tint2);color:var(--muted);font-size:13px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:18px}
-@media(max-width:1100px){.steps{display:none}.hero .wrap{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:960px){main .wrap{grid-template-columns:minmax(0,1fr)}aside{position:static}.paper{max-height:none}.mbar{display:flex;position:sticky;top:0;z-index:5;background:var(--mast);color:#fff;justify-content:space-between;align-items:center;gap:10px;padding:8px max(16px,3vw)}.mbar .btn{background:#fff;color:#1f3433;min-height:40px}.safety .wrap{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}.lblcell{grid-column:1/-1;padding-right:0}.lblcell+.sitem{border-left:0;padding-left:0}}
-@media(max-width:620px){.safety .wrap{grid-template-columns:minmax(0,1fr);row-gap:0}.lblcell{padding-bottom:10px}.sitem{border-left:0;padding:10px 0;border-top:1px solid rgba(31,52,51,.25)}.sitem .num{font-size:20px}.hero .wrap{padding-block:22px}.hero p{font-size:16px}.card{padding-left:50px}.card .ck{left:14px}dl{grid-template-columns:minmax(0,1fr);gap:2px}dt{margin-top:6px}.search{max-width:none}.paper{padding:16px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.sitem .num{font-family:Sora,Arial,sans-serif;font-weight:700;font-size:1.375rem;line-height:1.1;white-space:nowrap}
+.sitem .what{font-family:Sora,Arial,sans-serif;font-weight:600;font-size:.875rem}
+.sitem .how{font-size:.85rem;line-height:1.45}
+.sbtn{max-width:1400px;margin:.7rem auto 0;display:flex;justify-content:flex-end}
+@media(max-width:960px){.swrap{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}.lblcell{grid-column:1/-1;padding-right:0}.lblcell+.sitem{border-left:0;padding-left:0}}
+@media(max-width:620px){.swrap{grid-template-columns:minmax(0,1fr);row-gap:0}.lblcell{padding-bottom:10px}.sitem{border-left:0;padding:10px 0;border-top:1px solid rgba(31,52,51,.25)}.sitem .num{white-space:normal}.sbtn{justify-content:stretch}.sbtn .btn{width:100%}}
+.btn{border:2px solid var(--teal);background:var(--teal);color:#fff;border-radius:10px;padding:.5rem .9rem;font-weight:700;cursor:pointer;min-height:44px}
+.btn:hover{background:var(--teal-d)}
+.btn.ghost{background:#fff;color:var(--teal-d)}
+.btn.dark{background:var(--dusk);border-color:var(--dusk)}
+.btn.warn{background:#fff;color:var(--bad);border-color:var(--bad)}
+.btn.sm{padding:.25rem .6rem;min-height:36px;font-size:.875rem}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.mast .btn{min-height:36px;padding:.25rem .7rem;font-size:.875rem;background:transparent;border-color:#fff;color:#fff}
+.wrap{max-width:1400px;margin:0 auto;padding:1.25rem;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:1.25rem;align-items:start}
+.col{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.panel{border:1px solid var(--line);border-radius:14px;background:var(--soft);padding:1rem}
+.panel h2{margin:0 0 .6rem;font-size:1.1rem;display:flex;gap:.5rem;align-items:center}
+.n{display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--teal);color:#fff;font-size:.85rem;flex:none}
+fieldset{border:0;margin:0 0 .8rem;padding:0;min-width:0}
+legend,.flabel{font-weight:700;margin-bottom:.3rem;padding:0;font-family:Roboto,Arial;font-size:1rem}
+.hint{font-size:.875rem;color:var(--muted);margin:.25rem 0 0}
+input[type=text],input[type=search],select,textarea{width:100%;border:1px solid #9fb3b1;border-radius:10px;padding:.55rem .7rem;background:#fff;min-height:44px}
+textarea{min-height:5rem}
+.seg{display:flex;flex-wrap:wrap;gap:.4rem}
+.seg label{display:flex;align-items:center;gap:.4rem;border:1px solid #9fb3b1;background:#fff;border-radius:10px;padding:.45rem .7rem;cursor:pointer;min-height:44px}
+.seg input{accent-color:var(--teal);width:1.1rem;height:1.1rem}
+.seg label:has(input:checked){border-color:var(--teal);background:#e3f2f2;font-weight:700}
+.needs{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.4rem}
+.sugg{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem;align-items:center}
+.cond{border-left:4px solid var(--teal);padding-left:.8rem;margin-top:.6rem}
+.banner{border-radius:12px;padding:.7rem .9rem;margin:.5rem 0;border:1px solid}
+.banner.warn{background:var(--warnbg);border-color:#e2b764;color:var(--warn)}
+.banner.bad{background:var(--badbg);border-color:#e7a3a3;color:var(--bad)}
+.banner.ok{background:var(--okbg);border-color:#9fd3bb;color:var(--ok)}
+.banner.info{background:#fff;border-color:var(--line)}
+.banner p{margin:.2rem 0}
+.banner .acts{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}
+.grp{margin:1rem 0 .3rem;font-size:1.05rem;border-bottom:2px solid var(--dusk);padding-bottom:.2rem;display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+.sub{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:.7rem 0 .3rem}
+.card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:.8rem .9rem;margin:.5rem 0}
+.card.sel{border-color:var(--teal);box-shadow:inset 4px 0 0 var(--teal)}
+.card h3{margin:0;font-size:1.02rem}
+.card .lab{color:var(--muted);font-size:.9rem;margin:.1rem 0 .35rem}
+.phones{list-style:none;margin:.3rem 0;padding:0}
+.phones li{margin:.15rem 0}
+.phones b{font-family:Sora,Arial}
+.badges{display:flex;flex-wrap:wrap;gap:.3rem;margin:.35rem 0}
+.bd{font-size:.75rem;border-radius:999px;padding:.1rem .5rem;border:1px solid var(--line);background:var(--soft);white-space:nowrap}
+.bd.mc{background:#e3f2f2;border-color:#9cc9c9}
+.bd.unk{background:#fff;border-style:dashed}
+.bd.flag{background:var(--warnbg);border-color:#e2b764}
+.bd.int{background:var(--dusk);color:#fff;border-color:var(--dusk)}
+.bd.ok{background:var(--okbg);border-color:#9fd3bb}
+.cardacts{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem;align-items:center}
+details.more{margin-top:.3rem}
+details.more summary{cursor:pointer;color:var(--teal-d);font-weight:700;min-height:32px;display:flex;align-items:center}
+details.more dl{display:grid;grid-template-columns:8.5rem 1fr;gap:.25rem .7rem;font-size:.9rem;margin:.4rem 0}
+details.more dt{font-weight:700;color:var(--muted)}
+details.more dd{margin:0;overflow-wrap:anywhere;min-width:0}
+.card,.panel,.banner{overflow-wrap:anywhere}
+.safety a{color:var(--dusk);font-weight:700}
+.aside{position:sticky;top:.75rem;display:flex;flex-direction:column;gap:1rem}
+.tabs{display:flex;gap:.3rem;border-bottom:2px solid var(--line);margin-bottom:.6rem}
+.tabs button{border:0;background:none;padding:.5rem .8rem;font-weight:700;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;min-height:44px}
+.tabs button[aria-selected=true]{border-color:var(--teal);color:var(--teal-d)}
+.sellist{list-style:none;margin:0 0 .6rem;padding:0}
+.sellist li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.5rem .6rem;margin:.35rem 0}
+.sellist .top{display:flex;gap:.4rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.sellist .ord{display:flex;gap:.25rem}
+.sellist .role{font-size:.75rem;font-weight:700;color:var(--teal-d);text-transform:uppercase;letter-spacing:.04em}
+.paper{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;min-height:8rem;overflow-wrap:anywhere}
+.paper p{margin:0 0 .6rem}
+.paper.big{font-size:1.3rem;line-height:1.55}
+.paper .empty{color:var(--muted)}
+.notebox{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.9rem;margin:0}
+.rowacts{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.6rem}
+.status{font-weight:700;color:var(--teal-d)}
+.gate{list-style:none;padding:0;margin:.4rem 0}
+.gate li{margin:.25rem 0}
+.pend{font-size:.75rem;font-weight:700;background:var(--warnbg);border:1px solid #e2b764;color:var(--warn);border-radius:6px;padding:0 .35rem;margin-left:.3rem;white-space:nowrap}
+.safemode{display:none;max-width:60rem;margin:1.5rem auto;padding:0 1.25rem}
+body.safety-on .wrap{display:none}
+body.safety-on .safemode{display:block}
+dialog{border:1px solid var(--line);border-radius:14px;max-width:34rem;width:calc(100% - 2rem);padding:1.1rem}
+dialog::backdrop{background:rgba(31,52,51,.45)}
+.manual{margin-top:.5rem}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr)}.aside{position:static}}
+@media (max-width:420px){.bd,.pend{white-space:normal}.sellist select{max-width:100%}.sellist .rowacts>*{max-width:100%}.wrap{padding:.6rem}.panel{padding:.75rem}.needs{grid-template-columns:1fr}details.more dl{grid-template-columns:1fr}}
+@media print{body *{visibility:hidden}#out,#out *{visibility:visible}#out{position:absolute;left:0;top:0;border:0;font-size:16pt}}
 </style>
 </head>
 <body>
-<div class="mast"><div class="wrap"><span>Internal Resource Guide: No PHI collected.</span></div></div>
-<header class="hero">
-  <div class="wrap">
-    <div>
-      <h1>Resource Referral Prototype</h1>
-      <p>Select the patient's county and identified need, tick the resources you discussed, and copy the finished text into the My Health Online message.</p>
-    </div>
-    <ol class="steps" aria-label="Steps"><li><b>1</b>Patient details</li><li><b>2</b>Choose resources</li><li><b>3</b>Copy to MHO</li></ol>
-  </div>
-</header>
+<div class="mast"><span>Internal Resource Guide: No PHI collected.</span>
+  <span class="right"><button class="btn" id="newref" type="button">Start new referral</button></span></div>
+<div id="newconfirm" class="banner warn" hidden role="alert" style="margin:0;border-radius:0"><p><b>Clear everything for a new referral?</b> County, needs, answers, selections, edits and both outputs will be cleared.</p><div class="acts"><button class="btn warn sm" id="newyes" type="button">Yes, start new</button><button class="btn ghost sm" id="newno" type="button">Cancel</button></div></div>
+<header class="hero"><h1>Resource Referral Prototype</h1>
+<p>Select the patient's county and identified need, tick the resources you discussed, and copy the finished text into the My Health Online message.</p></header>
 <section class="safety" aria-label="Safety first">
-  <div class="wrap">
-    <div class="lblcell"><h2 class="lbl"><span>SAFETY<br>FIRST</span></h2></div>
+  <div class="swrap">
+    <div class="lblcell"><h2 class="slbl"><span>SAFETY<br>FIRST</span></h2></div>
     <div class="sitem"><span class="num">911</span><span class="what">Immediate danger</span><span class="how">Call right away.</span></div>
     <div class="sitem"><span class="num">988</span><span class="what">Suicidal thoughts or crisis</span><span class="how">Call or text. Notify the patient's MD.</span></div>
     <div class="sitem"><span class="num">833-401-0832</span><span class="what">Abuse or neglect (APS)</span><span class="how">Mandated report: phone now, SOC 341 within 2 working days. <a href="https://www.cdss.ca.gov/inforesources/adult-protective-services" target="_blank" rel="noopener">CDSS Adult Protective Services</a></span></div>
   </div>
+  <div class="sbtn"><button class="btn dark" id="safetyBtn" type="button">Safety concern: leave routine flow</button></div>
 </section>
-<div class="mbar"><span id="mcount" class="sora">0 selected</span><button class="btn" id="copy2" type="button">Copy message</button></div>
-<main>
-  <div class="wrap">
-    <section aria-label="Patient details and resources">
-      <div class="intake" role="group" aria-label="Patient details">
-        <label class="field" for="county"><span><i class="n">1</i>County</span>
-          <select id="county"><option value="">Select county</option></select>
-        </label>
-        <div class="field"><span id="needlbl"><i class="n">2</i>Identified need <small class="opt">Choose one or more</small></span>
-          <details class="ms" id="needbox"><summary id="needsum" aria-describedby="needlbl">All</summary>
-            <div class="menu" role="group" aria-labelledby="needlbl"><div id="needmenu"></div>
-              <div class="mfoot"><button type="button" class="btn ghost sm" id="needclear">Clear</button><button type="button" class="btn sm" id="needdone">Done</button></div>
-            </div>
-          </details>
-        </div>
-        <fieldset class="seg"><legend><i class="n">3</i>Medi-Cal</legend>
-          <div class="segs">
-            <label><input type="radio" name="mc" value="yes"><span>Yes</span></label>
-            <label><input type="radio" name="mc" value="no"><span>No</span></label>
-            <label><input type="radio" name="mc" value="unsure" checked><span>Unsure</span></label>
-          </div>
-        </fieldset>
-        <p class="hint" id="mcnote"></p>
-      </div>
-      <details class="guide"><summary>Before you send: 6 checks</summary>
-        <ol>
-          <li><span><b>Plan benefits first.</b> Medicare Advantage, SutterSelect and Sutter Health Plan members may already have rides, post-discharge meals or an OTC allowance.</span></li>
-          <li><span><b>Medi-Cal-only resources</b> are marked. Medicare-only patients usually start with the Area Agency on Aging or statewide lines; the county mental health line mainly serves Medi-Cal for ongoing care.</span></li>
-          <li><span><b>Medication costs</b> go to the pharmacy team (HealthWell, then Cost Plus Drugs, then the manufacturer program).</span></li>
-          <li><span><b>Mood:</b> routine positive screens go to AI-CBT. Behavioral health outliers and complex SDOH needs go to the social worker.</span></li>
-          <li><span><b>Paratransit</b> can take up to 21 days to approve. For sooner appointments, use Medi-Cal rides or the plan's ride benefit.</span></li>
-          <li><span><b>Yellow dot:</b> a detail isn't fully verified. Confirm it before sending.</span></li>
-        </ol>
-      </details>
-      <div class="tools">
-        <div class="search"><label for="q" class="hint" style="position:absolute;left:-9999px">Search resources</label><input id="q" type="search" placeholder="Search resources (e.g. meals, IHSS, rides)" autocomplete="off"></div>
-        <label class="tog"><input type="checkbox" id="showState" checked> Include statewide resources</label>
-      </div>
-      <div id="results"><p class="empty">Loading resources…</p></div>
-    </section>
-    <aside>
-      <section class="letter" aria-label="My Health Online message">
-        <div class="lhead"><h2>My Health Online message</h2><span class="count" id="count">0 resources</span></div>
-        <ul class="sel" id="sel"></ul>
-        <div class="paperwrap"><div id="out" class="paper" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Message preview" spellcheck="true" data-ph="Tick one or more resources to build the message."></div></div>
-        <div class="lfoot">
-          <p class="hint" style="margin:0">Edit the preview if needed. Changing the selection rebuilds it.</p>
-          <div class="row">
-            <button class="btn" id="copy" type="button">Copy message</button>
-            <button class="btn ghost" id="clear" type="button">Clear</button>
-            <span class="status" id="copied" aria-live="polite"></span>
-          </div>
-          <p class="phi">Do not enter PHI in this web app.</p>
-        </div>
-      </section>
-    </aside>
+
+<section class="safemode" id="safemode" aria-labelledby="smh" tabindex="-1">
+  <div class="panel">
+    <h2 id="smh">Safety concern: routine directory flow stopped</h2>
+    <p>Don't send a routine resource message. Stay with the patient and use the safety contacts:</p>
+    <ul>
+      <li><b>911</b>: immediate danger.</li>
+      <li><b>988</b>: suicidal thoughts or mental health crisis (call or text).</li>
+      <li><b>833-401-0832</b>: Adult Protective Services (abuse, neglect, exploitation).</li>
+    </ul>
+    <div id="policyTexts"></div>
+    <h3 class="sora" style="font-size:1rem">Staff note</h3>
+    <pre class="notebox" id="safetyNote"></pre>
+    <div class="rowacts"><button class="btn" id="copySafety" type="button">Copy staff note</button><span class="status" id="safetyStatus" aria-live="polite"></span></div>
+    <div class="rowacts"><button class="btn ghost" id="safetyBack" type="button">Return to routine flow</button></div>
   </div>
+</section>
+
+<main class="wrap" id="main">
+<div class="col">
+  <section class="panel" aria-labelledby="h1s">
+    <h2 id="h1s"><span class="n">1</span>What did you hear?</h2>
+    <label class="flabel" for="phrase">Need in a few words <span class="hint">(optional)</span></label>
+    <input type="text" id="phrase" autocomplete="off" placeholder="e.g. hungry, need a ride, can't afford my refill, shutoff notice">
+    <p class="hint">Type a short phrase, never names, dates or medical details. It is only used to find matching needs and isn't copied anywhere.</p>
+    <div class="sugg" id="sugg" aria-live="polite"></div>
+    <fieldset style="margin-top:.8rem"><legend>Identified need(s)</legend>
+      <div class="needs" id="needs"></div></fieldset>
+    <div id="prioWrap" hidden><label class="flabel" for="prio">Which need comes first for the patient?</label><select id="prio"></select></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h2s">
+    <h2 id="h2s"><span class="n">2</span>Where and coverage</h2>
+    <label class="flabel" for="county">Patient's county</label>
+    <select id="county"></select>
+    <fieldset style="margin-top:.8rem"><legend>Medi-Cal</legend>
+      <div class="seg" id="mcSeg">
+        <label><input type="radio" name="mc" value="yes">Yes</label>
+        <label><input type="radio" name="mc" value="no">No</label>
+        <label><input type="radio" name="mc" value="unsure" checked>Unsure</label>
+      </div><p class="hint" id="mcHint"></p></fieldset>
+    <div id="planWrap" hidden class="cond"><label class="flabel" for="plan">Medi-Cal plan, if known <span class="hint">(changes which ride line we give)</span></label>
+      <select id="plan"><option value="">Not known</option><option>Anthem Blue Cross</option><option>Health Net</option><option>Molina</option><option>Kaiser</option><option value="other">Another plan</option></select></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h3s">
+    <h2 id="h3s"><span class="n">3</span>What would the patient like?</h2>
+    <fieldset><legend class="sr">Patient preference</legend>
+      <div class="seg" id="prefSeg">
+        <label><input type="radio" name="pref" value="info">Information only</label>
+        <label><input type="radio" name="pref" value="help">Help connecting</label>
+        <label><input type="radio" name="pref" value="decline">No help today</label>
+      </div><p class="hint" id="prefHint">Ask, don't assume. Declining help today doesn't mean the need is gone.</p></fieldset>
+    <div id="chanWrap" hidden><label class="flabel" for="channel">How will they get the plan?</label>
+      <select id="channel"><option value="mho">My Health Online message</option><option value="spoken">Read aloud by phone (no written message)</option><option value="print">Printed copy</option></select></div>
+    <div id="routeQs" hidden class="cond">
+      <p class="hint" style="margin-top:0">Only questions that change the route are shown.</p>
+      <fieldset id="qTiming" hidden><legend>When is it needed?</legend><div class="seg">
+        <label><input type="radio" name="timing" value="today">Today or tonight</label>
+        <label><input type="radio" name="timing" value="soon">Within a few days</label>
+        <label><input type="radio" name="timing" value="routine">No rush</label></div></fieldset>
+      <fieldset id="qDelivery" hidden><legend>Does food need to come to the home?</legend><div class="seg">
+        <label><input type="radio" name="delivery" value="yes">Yes</label>
+        <label><input type="radio" name="delivery" value="no">No</label></div></fieldset>
+      <fieldset id="qCall"><legend>Can the patient make phone calls themselves?</legend><div class="seg">
+        <label><input type="radio" name="canCall" value="yes">Yes</label>
+        <label><input type="radio" name="canCall" value="no">No</label>
+        <label><input type="radio" name="canCall" value="unsure">Not sure</label></div>
+        <p class="hint">Ask directly. Having My Health Online doesn't mean they can make calls.</p></fieldset>
+      <fieldset id="qVm"><legend>Safe way to reach them for follow-up</legend><div class="seg">
+        <label><input type="radio" name="vm" value="call-vm">Phone, voicemail OK</label>
+        <label><input type="radio" name="vm" value="call-novm">Phone, no voicemail</label>
+        <label><input type="radio" name="vm" value="mho">MHO message only</label>
+        <label><input type="radio" name="vm" value="patient-calls">Patient will call us</label></div></fieldset>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="h4s">
+    <h2 id="h4s"><span class="n">4</span>Resources</h2>
+    <label style="display:flex;gap:.5rem;align-items:center;min-height:44px"><input type="checkbox" id="statewide" checked style="width:1.2rem;height:1.2rem;accent-color:var(--teal)"> Include statewide resources</label>
+    <div id="conflictsL"></div>
+    <div id="results" aria-live="polite"></div>
+  </section>
+</div>
+
+<aside class="aside" aria-label="Outputs">
+  <section class="panel">
+    <div class="tabs" role="tablist" aria-label="Output">
+      <button role="tab" id="tabP" aria-selected="true" aria-controls="paneP" type="button">Patient message</button>
+      <button role="tab" id="tabS" aria-selected="false" aria-controls="paneS" type="button" tabindex="-1">Staff note</button>
+    </div>
+    <div id="gate" aria-live="polite"></div>
+    <div id="paneP" role="tabpanel" aria-labelledby="tabP">
+      <ol class="sellist" id="sel" aria-label="Selected resources, in order"></ol>
+      <div id="planBox"></div>
+      <label class="flabel" for="pnote">Personal line <span class="hint">(optional, no PHI; kept when you change resources)</span></label>
+      <input type="text" id="pnote" maxlength="240" placeholder="e.g. I'll check in with you next week.">
+      <div class="rowacts" style="justify-content:space-between"><span class="hint" id="outLabel">Preview</span>
+        <span><label style="font-size:.875rem"><input type="checkbox" id="big"> Large print</label> <button class="btn ghost sm" id="printBtn" type="button">Print</button></span></div>
+      <div class="paper" id="out" aria-live="polite"></div>
+      <p class="hint">Language: English only. <span id="langNote">No reviewed translations are approved yet.</span></p>
+    </div>
+    <div id="paneS" role="tabpanel" aria-labelledby="tabS" hidden>
+      <pre class="notebox" id="note"></pre>
+      <label style="display:flex;gap:.5rem;align-items:center;margin-top:.5rem;min-height:44px"><input type="checkbox" id="sentOk"> <span id="sentLbl">I sent the patient message (record it in the note)</span></label>
+    </div>
+    <div class="rowacts"><button class="btn" id="copy" type="button">Copy patient message</button><button class="btn ghost" id="clearSel" type="button">Clear resources</button><span class="status" id="copyStatus" aria-live="polite"></span></div>
+    <p class="hint" style="font-weight:700;color:var(--dusk)">Do not enter PHI in this web app.</p>
+    <div class="manual" id="manual" hidden><p class="banner warn" style="margin:.3rem 0">Copy didn't work in this browser. The text is selected below: press Ctrl+C (Cmd+C on a Mac), then paste.</p><textarea id="manualText" rows="8" readonly></textarea></div>
+  </section>
+</aside>
 </main>
-<footer><div class="wrap"><span id="foot">Resource Referral Prototype</span><span>Questions or corrections: contact the social worker.</span></div></footer>
-<script id="resdata" type="application/json">__DATA__</script>
+
+<dialog id="corr" aria-labelledby="corrh">
+  <h2 id="corrh" class="sora" style="font-size:1.1rem;margin-top:0">Report a correction</h2>
+  <p class="hint">Describe what's wrong with the resource. Don't include anything about a patient.</p>
+  <label class="flabel" for="corrId">Resource ID</label><input type="text" id="corrId" readonly>
+  <label class="flabel" for="corrType" style="margin-top:.5rem;display:block">What's wrong?</label>
+  <select id="corrType"><option>Wrong or disconnected phone number</option><option>Wrong hours or intake details</option><option>Program paused or closed</option><option>Wrong service area or eligibility</option><option>Broken or changed link</option><option>Wording is confusing for patients</option><option>Other</option></select>
+  <label class="flabel" for="corrText" style="margin-top:.5rem;display:block">Details</label><textarea id="corrText"></textarea>
+  <p class="banner bad" id="corrPhi" hidden>This looks like it might include patient details (a date or ID number). Please remove them.</p>
+  <div class="rowacts"><button class="btn" id="corrCopy" type="button">Copy report</button><a class="btn ghost" id="corrMail" hidden>Email maintainer</a><button class="btn ghost" id="corrClose" type="button">Close</button><span class="status" id="corrStatus" aria-live="polite"></span></div>
+</dialog>
+
+<script id="data" type="application/json">__DATA__</script>
+<script id="pilot" type="application/json">__PILOT__</script>
 <script>
-{
-const $=s=>document.querySelector(s);
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const NEEDS=[["","All"],["Food","Food"],["Transportation","Transportation"],["Utilities","Utilities"],["Caregiver (strain, lack of support)","Caregiver support"],["Behavioral health","Behavioral health"],["Aging & caregiver info (AAA)","Aging & senior services"],["Housing & legal","Housing & legal"],["Insurance & benefits","Insurance & benefits"],["Medication affordability","Medication costs"],["Phone & digital access","Phone access"],["Safety / crisis","Safety / crisis"]];
-const NL=Object.fromEntries(NEEDS.filter(n=>n[0]));
-let D=null,picked=[],MC='unsure',NEEDSEL=[];
-const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-const byId=id=>D.county.find(r=>r.id===id)||D.state.find(r=>r.id===id);
-const isMc=r=>/yes|medi-cal/i.test(r.medi||'')&&!/crisis: no/i.test(r.medi||'');
-const needLabel=n=>NL[n]||n;
-function matchQ(r,q){if(!q)return true;return [r.name,r.label,r.need,r.who,r.how,r.notes,r.summary].join(' ').toLowerCase().includes(q)}
-const stateNeeds=r=>(r.ql||'').split(';').map(s=>s.trim());
-function linkHtml(l){const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t||u.replace(/^https?:\/\//,''))}</a>`}
-function card(r){
-  const on=picked.includes(r.id);
-  const det=[["Who it's for",r.who],["How to refer",r.how],["Notes",r.notes],["Medi-Cal",r.medi],["Website",r.web?`<a href="https://${esc(r.web)}" target="_blank" rel="noopener">${esc(r.web)}</a>`:null,1],["Links to send",r.links&&r.links.length?r.links.map(linkHtml).join('<br>'):null,1],["Source",[r.source,r.verified].filter(Boolean).join(' · ')||null]].filter(x=>x[1]);
-  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${r.label!==r.name?`<div class="lab">${esc(r.label)}</div>`:''}<div class="facts">${r.phone?`<span class="ph">${esc(r.phone)}</span>`:''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal only · confirm coverage':'Medi-Cal only'}</span>`:''}</div>${r.flag?`<div class="chk">${esc(r.flag)}</div>`:''}<details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
+(()=>{
+'use strict';
+const D=JSON.parse(document.getElementById('data').textContent);
+const P=JSON.parse(document.getElementById('pilot').textContent);
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const NEED=Object.fromEntries(D.needs.map(n=>[n.key,n]));
+const SV=Object.fromEntries(D.services.map(s=>[s.id,s]));
+const RETIRED=D.retired.map(r=>r.pattern);
+const TIMED=new Set(['food','transport','medication','utilities','housing']);
+const STATUS={
+  discussed:{t:'Discussed only',conf:false},
+  'patient-will':{t:'Patient will contact them',conf:false},
+  attempted:{t:'Staff tried to connect; not yet accepted',conf:false},
+  'cost-question':{t:'Cost question sent to pharmacy team',conf:true,need:'medication'},
+  'refill-requested':{t:'Refill requested',conf:true,need:'medication',pending:'cost-question'},
+  'ride-requested':{t:'Ride requested, not yet booked',conf:true,need:'transport'},
+  'ride-booked':{t:'Ride booked',conf:true,need:'transport',pending:'ride-requested'},
+  'referral-placed':{t:'Referral placed',conf:true},
+  connected:{t:'Connected: receiving team accepted',conf:true,pending:'attempted'}
+};
+const GROUP_HINT={
+  food:'Check plan benefits first: Medicare Advantage, SutterSelect and Sutter Health Plan members may have post-discharge meals.',
+  transport:'Check plan benefits first: Medicare Advantage, SutterSelect and Sutter Health Plan members may have a ride benefit. Paratransit approval can take up to 21 days.',
+  medication:'Team workflow: medication cost questions go to the pharmacy team (HealthWell, then Cost Plus Drugs, then the manufacturer program).',
+  behavioral:'Team workflow: routine positive mood screens go to AI-CBT. Behavioral health outliers and complex needs go to the social worker.',
+  isolation:'Team workflow: routine positive mood screens go to AI-CBT.'
+};
+const fresh=()=>({phrase:'',needs:[],prio:'',county:'',mc:'unsure',plan:'',pref:'',channel:'mho',timing:'',delivery:'',canCall:'',vm:'',statewide:true,sel:[],edits:{},pnote:'',actor:'',status:'discussed',statusOk:false,owner:'',by:'',backup:'',callback:false,retry:'',win:'',gapOk:false,sent:false,tab:'P',ver:0,copiedVer:-1,safety:false});
+let st=fresh();
+
+// ---------- data helpers
+function svc(id,county){
+  const b=SV[id]; if(!b)return null;
+  const o=(county&&b.overrides&&b.overrides[county])||{};
+  return Object.assign({},b,o,{_county:county});
 }
-function query(){
-  const c=$('#county').value,needs=NEEDSEL.slice(),q=$('#q').value.trim().toLowerCase(),mc=document.querySelector('input[name=mc]:checked').value,noMc=mc==='no',showS=$('#showState').checked;
-  MC=mc;
-  const cr=c?D.county.filter(r=>r.county===c&&(!needs.length||needs.includes(r.need))&&matchQ(r,q)&&!(noMc&&isMc(r))):[];
-  const has211=cr.some(r=>/2-1-1/.test(r.label));
-  const st=showS?D.state.filter(r=>{
-    if(r.ql==='NOCOUNTY'&&c)return false;
-    if(has211&&/^211/.test(r.label))return false;
-    if(noMc&&isMc(r))return false;
-    if(!matchQ(r,q))return false;
-    if(!needs.length)return true;
-    if(r.ql==='Always')return true;
-    return needs.some(n=>n==='Safety / crisis'?r.need==='Safety / crisis':(stateNeeds(r).includes(n)||r.need===n));
-  }).sort((a,b)=>(b.need==='Safety / crisis')-(a.need==='Safety / crisis')):[];
-  return {c,needs,q,mc,cr,st,showS};
+function servesCounty(s,c){return s.serves.type==='statewide'||(s.serves.counties||[]).includes(c)}
+const isLocal=s=>s.serves.type!=='statewide';
+function phonesFor(s){
+  let ph=(s.phones||[]).filter(p=>p.number||p.display);
+  if(s.planAware&&st.plan&&st.plan!=='other'){const m=ph.filter(p=>p.plan&&p.plan.toLowerCase().startsWith(st.plan.toLowerCase()));if(m.length)ph=m}
+  return ph;
 }
-function render(){
-  const {c,needs,q,mc,cr,st,showS}=query();
-  $('#mcnote').textContent={yes:'Showing all resources. Medi-Cal-only resources are marked.',no:'Medi-Cal-only resources are hidden. If the patient might qualify, consider HICAP or Medi-Cal / Medicare Savings Programs (statewide).',unsure:'Showing all resources. Confirm coverage before sending anything marked Medi-Cal only; HICAP (800-434-0222) can screen.'}[mc];
-  let h='';
-  if(c){
-    h+=`<div class="sec"><h2>${esc(c)} County</h2><span class="ct">${cr.length} resource${cr.length===1?'':'s'}</span></div>`;
-    const missing=c&&needs.length?needs.filter(n=>!cr.some(r=>r.need===n)):[];
-    if(!cr.length)h+=`<p class="empty">No ${esc(c)} County resource ${needs.length?`for ${esc(needs.map(needLabel).join(', '))}`:''}${q?' matches this search':''}. Check the statewide list below, or try the county's Area Agency on Aging under "Aging & senior services."</p>`;
-    else if(missing.length)h+=`<p class="hint" style="margin:-4px 0 12px">No ${esc(c)} County listing for ${esc(missing.map(needLabel).join(', '))}. See statewide resources below.</p>`;
-    if(!cr.length){}
-    else if(needs.length===1)h+=`<div class="list">${cr.sort((a,b)=>a.name.localeCompare(b.name)).map(card).join('')}</div>`;
-    else{const g={};cr.forEach(r=>(g[r.need]=g[r.need]||[]).push(r));NEEDS.forEach(([n])=>{if(g[n])h+=`<p class="grp">${esc(needLabel(n))}</p><div class="list">${g[n].sort((a,b)=>a.name.localeCompare(b.name)).map(card).join('')}</div>`})}
-  } else h+=`<p class="empty">Select the patient's county to see local resources. Statewide resources are listed below.</p>`;
-  if(showS){h+=`<div class="sec"><h2>Statewide</h2><span class="ct">${st.length} resource${st.length===1?'':'s'}</span></div>`;h+=st.length?`<div class="list">${st.map(card).join('')}</div>`:`<p class="empty">No statewide resource matches.</p>`}
-  $('#results').innerHTML=h;
+function rideLine(s){return (s.phones||[]).find(p=>p.role==='ride scheduling'&&p.plan&&st.plan&&p.plan.toLowerCase().startsWith(st.plan.toLowerCase()))}
+function clean(t){let x=String(t||'');RETIRED.forEach(r=>{if(x.includes(r))x=''});return x}
+
+// ---------- phrase -> needs
+function norm(s){return s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9&' -]/g,' ').replace(/\s+/g,' ').trim()}
+function detect(phrase){
+  const p=' '+norm(phrase)+' ';
+  if(p.trim().length<3)return [];
+  const hits=[];
+  D.needs.forEach(n=>{let sc=0;n.synonyms.forEach(w=>{const ww=norm(w);if(ww&&p.includes(' '+ww+' ')||(ww.length>4&&p.includes(ww)))sc+=ww.split(' ').length});if(sc)hits.push([n.key,sc])});
+  return hits.sort((a,b)=>b[1]-a[1]).map(h=>h[0]);
 }
-const bph=s=>esc(s).replace(/(\b(?:1-)?\d{3}-\d{3}-\d{4}\b(?:\s*(?:ext\.?|x)\s*\d+)?|\b2-1-1\b|\b988\b|\b911\b)/g,'<b>$1</b>');
-const lk=l=>{const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `&bull; ${esc(t||'Website')}: <a href="${esc(u)}">${esc(u)}</a>`};
-const fl=x=>{const u=(x.match(/https?:\/\/\S+/)||[''])[0];return u?`<b>${esc(x.replace(u,'').trim())}</b> <a href="${esc(u)}">${esc(u)}</a>`:bph(x)};
-function compose(rs){
-  const n=rs.length,many=n>1,P=[];
-  P.push('Hello,');
-  P.push(`It was great speaking with you today, and thank you for your time! I wanted to send you the ${many?'resources':'resource'} we discussed so you can have ${many?'them':'it'} handy whenever you’re ready.`);
-  if(many)P.push('Resources we discussed:');
-  rs.forEach(r=>P.push([`<b>${esc(r.name)}</b>`,r.summary?bph(r.summary):'',...(r.links||[]).map(lk)].filter(Boolean).join('<br>')));
-  D.closing.split('\n\n').forEach(par=>{const ls=par.split('\n');if(ls.length>1)P.push(`<b>${esc(ls[0])}</b><br>`+ls.slice(1).map(fl).join('<br>'));else P.push(fl(par))});
-  return P.map(p=>`<p>${p}</p>`).join('');
+
+// ---------- results
+function visible(){
+  const c=st.county, unl=c==='__unlisted';
+  const needs=st.needs.length?st.needs:D.needs.map(n=>n.key).filter(k=>k!=='safety');
+  const out={},hidden={},mcHidden={};
+  needs.forEach(n=>{out[n]=[];hidden[n]=0;mcHidden[n]=0});
+  D.services.forEach(b=>{
+    if(b.always&&!st.needs.includes('safety'))return;
+    const s=svc(b.id,unl?null:c);
+    if(isLocal(s)){if(!c||unl||!servesCounty(s,c))return}
+    else{if(b.onlyWithoutCounty&&c&&!unl)return}
+    const ns=(s.needs||[s.need]).filter(n=>out[n]);
+    if(!ns.length)return;
+    const n=ns.includes(s.need)?s.need:ns[0];
+    if(!isLocal(s)&&!st.statewide){hidden[n]++;return}
+    if(st.mc==='no'&&s.medi&&s.medi.req==='required'){mcHidden[n]++;return}
+    out[n].push(s);
+  });
+  const toks=norm(st.phrase).split(' ').filter(t=>t.length>3);
+  Object.keys(out).forEach(n=>{
+    out[n].forEach((s,i)=>{let sc=isLocal(s)?30:10;const hay=norm([s.name,s.label,s.summary,s.how].join(' '));toks.forEach(t=>{if(hay.includes(t))sc+=4});
+      if(n==='food'){if(st.delivery==='yes'&&/meals on wheels|home-delivered|deliver/i.test(hay))sc+=12;if(st.timing==='today'){if(/meals on wheels|home-delivered/i.test(hay))sc-=12;if(/food finder|pantry|food bank/i.test(hay))sc+=8;if(/^2-1-1/.test(s.name))sc+=10}}
+      if(n==='transport'&&st.mc==='no'&&s.planAware)sc-=50;
+      if(s.staffOnly)sc-=5;
+      s._score=sc-i*0.01});
+    out[n].sort((a,b)=>b._score-a._score);
+  });
+  return {out,hidden,mcHidden};
 }
-function build(){
-  const rs=picked.map(byId).filter(Boolean),n=rs.length;
-  $('#count').textContent=`${n} resource${n===1?'':'s'}`;
-  $('#mcount').textContent=`${n} selected`;
-  $('#sel').innerHTML=rs.map((r,i)=>`<li><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
-  $('#sel').style.display=n?'':'none';
-  $('#out').innerHTML=n?compose(rs):'';
-  $('#copied').textContent='';
+
+function phoneHtml(p){
+  const pend=p.unverified?'<span class="pend">not verified</span>':'';
+  const lab=p.label?esc(p.label)+': ':'';
+  return `<li>${lab}<b>${esc(p.number||p.display)}</b>${p.purpose?' <span class="hint">'+esc(p.purpose)+'</span>':''}${p.hours?' <span class="hint">· '+esc(p.hours)+'</span>':''}${pend}</li>`;
 }
-async function copy(){
-  const el=$('#out');if(!el.textContent.trim()){$('#copied').textContent='Select a resource first.';return}
-  const html=el.innerHTML;
-  const text=[...el.querySelectorAll('p')].map(p=>p.innerText.replace(/• /g,'- ')).join('\n\n')||el.innerText;
-  try{
-    if(window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})])}
-    else await navigator.clipboard.writeText(text);
-    $('#copied').textContent='Copied. Paste into MHO.'
-  }catch(e){
-    try{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);if(document.execCommand('copy')){$('#copied').textContent='Copied. Paste into MHO.';return}}catch(x){}
-    $('#copied').textContent='Message selected. Press Ctrl+C (Cmd+C).'
+function cardHtml(s){
+  const selected=st.sel.some(x=>x.id===s.id);
+  const c=st.county&&st.county!=='__unlisted'?st.county:null;
+  let area='Statewide';
+  if(isLocal(s)){area=s.basedIn&&c&&s.basedIn!==c?`Based in ${s.basedIn} County · serves ${c}`:`Serves ${(s.serves.counties||[]).length>3?(s.serves.counties.length+' counties incl. '+c):(s.serves.counties||[]).join(', ')}`}
+  const medi=s.medi?`<span class="bd mc">${esc(s.medi.req==='required'?'Medi-Cal only':s.medi.req==='partial'?'Medi-Cal: ongoing care only':s.medi.text)}</span>`:'';
+  const it=s.intake||{};const intake=`<span class="bd ${it.status==='unknown'?'unk':it.status==='paused'?'flag':'ok'}">Intake: ${esc(it.status==='unknown'?'not confirmed':it.status)}${it.checked?' · checked '+esc(it.checked):''}</span>`;
+  const rv=s.review||{};const rev=`<span class="bd ${rv.status==='verified'?'ok':'flag'}">${esc(rv.status==='verified'?'Verified':'Partly verified')} ${esc(rv.date||'')}</span>`;
+  const phones=phonesFor(s).map(phoneHtml).join('');
+  const links=(s.links||[]).filter(l=>!RETIRED.some(r=>l.url.includes(r))).map(l=>`<li>${esc({apply:'Apply',finder:'Find',help:'Help',info:'Info'}[l.kind]||'Link')}: <a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a></li>`).join('');
+  const claims=(rv.claims||[]).map(cl=>`<li>${esc(cl.claim)} <a href="${esc(cl.url)}" target="_blank" rel="noopener">source</a> (${esc(cl.checked)})</li>`).join('');
+  const hist=(s.history||[]).map(h=>`<li>${esc(h.date)}: ${esc(h.change)}</li>`).join('');
+  return `<article class="card${selected?' sel':''}" data-id="${esc(s.id)}">
+  <h3>${esc(s.name)}${s.staffOnly?' <span class="bd int">Staff only</span>':''}</h3>
+  ${s.label&&s.label!==s.name?`<p class="lab">${esc(s.label)}</p>`:''}
+  ${s.planAware&&!st.plan&&(st.mc!=='no')?'<p class="hint">Plan not known: the message will say to call the number on the plan card. Pick the plan in step 2 to give its ride line.</p>':''}
+  <ul class="phones">${phones}${links}</ul>
+  <div class="badges"><span class="bd">${esc(area)}</span>${medi}${intake}${rev}</div>
+  ${it.note?`<p class="hint">${esc(it.note)}</p>`:''}
+  <div class="cardacts"><button class="btn sm ${selected?'ghost':''}" type="button" data-act="toggle" data-id="${esc(s.id)}" aria-pressed="${selected}">${selected?'Remove':'Select'}<span class="sr"> ${esc(s.name)}</span></button></div>
+  <details class="more"><summary>Details<span class="sr"> for ${esc(s.name)}</span></summary><dl>
+   <dt>Who</dt><dd>${esc(s.who||'')}</dd><dt>How (staff)</dt><dd>${esc(s.staffNote||s.how||'')}</dd>
+   ${s.notes?`<dt>Notes</dt><dd>${esc(s.notes)}</dd>`:''}
+   ${rv.flag?`<dt>Open item</dt><dd>${esc(rv.flag)}</dd>`:''}
+   <dt>Source</dt><dd>${esc(rv.source||'')}${claims?'<ul>'+claims+'</ul>':''}</dd>
+   <dt>Maintainer</dt><dd>${esc(rv.maintainer||'')}</dd><dt>History</dt><dd><ul>${hist}</ul></dd>
+   <dt>Resource ID</dt><dd>${esc(s.id)} <button class="btn ghost sm" type="button" data-act="report" data-id="${esc(s.id)}">Report a correction</button></dd></dl></details>
+</article>`;
+}
+
+function renderResults(){
+  const R=$('#results');
+  if(st.safety)return;
+  const {out,hidden,mcHidden}=visible();
+  const c=st.county; let h='';
+  if(!c){R.innerHTML='<p class="hint">Choose the patient\'s county to see local resources. Statewide options appear below.</p>'+statewideOnly(out,hidden,mcHidden);return}
+  if(c==='__unlisted')h+=`<div class="banner info"><p><b>County not listed.</b> This guide covers ${D.coverageCounties.length} counties. Showing statewide options. To find county services, the patient can call the California Aging & Adult Information Line at <b>800-510-2020</b>, or 2-1-1.</p></div>`;
+  const order=orderedNeeds(Object.keys(out));
+  order.forEach(n=>{
+    const list=out[n];
+    h+=`<h3 class="grp sora"><span>${esc(NEED[n].label)}</span><span class="hint">${list.length} shown</span></h3>`;
+    if(GROUP_HINT[n])h+=`<p class="hint">${esc(GROUP_HINT[n])}</p>`;
+    if(n==='safety')h+='<div class="banner bad"><p><b>Safety concern?</b> Use the safety contacts and leave the routine flow.</p><div class="acts"><button class="btn dark sm" type="button" data-act="safety">Leave routine flow</button></div></div>';
+    const loc=list.filter(isLocal), sw=list.filter(s=>!isLocal(s));
+    if(!loc.length&&c!=='__unlisted')h+=`<div class="banner warn"><p>No ${esc(NEED[n].label.toLowerCase())} listings for ${esc(c)} County in this guide.</p><div class="acts">${hidden[n]?`<button class="btn sm" type="button" data-act="showsw">Show ${hidden[n]} statewide option${hidden[n]>1?'s':''}</button>`:''}${NEED[n].fallback&&NEED[n].fallback.text?`<span class="hint">Fallback: ${esc(NEED[n].fallback.text)}</span>`:''}</div></div>`;
+    if(loc.length)h+=`<p class="sub">${esc(c)} County</p>`+loc.map(cardHtml).join('');
+    if(sw.length)h+='<p class="sub">Statewide</p>'+sw.map(cardHtml).join('');
+    if(hidden[n]&&loc.length)h+=`<p class="hint">${hidden[n]} statewide option${hidden[n]>1?'s':''} hidden. <button class="btn ghost sm" type="button" data-act="showsw">Show</button></p>`;
+    if(mcHidden[n])h+=`<p class="hint">${mcHidden[n]} Medi-Cal-only option${mcHidden[n]>1?'s':''} hidden because Medi-Cal is No. If the patient might qualify, see "Medi-Cal: apply or check coverage" under Insurance & benefits.</p>`;
+  });
+  R.innerHTML=h;
+}
+function statewideOnly(out,hidden){let h='';orderedNeeds(Object.keys(out)).forEach(n=>{const sw=out[n].filter(s=>!isLocal(s));if(sw.length){h+=`<h3 class="grp sora"><span>${esc(NEED[n].label)}</span></h3><p class="sub">Statewide</p>`+sw.map(cardHtml).join('')}});return h}
+function orderedNeeds(keys){const pr=st.prio&&keys.includes(st.prio)?[st.prio]:[];return pr.concat(keys.filter(k=>!pr.includes(k)))}
+
+// ---------- conflicts
+function conflicts(){
+  const c=st.county, out=[];
+  st.sel.forEach(x=>{const s=svc(x.id,c&&c!=='__unlisted'?c:null);if(!s)return;
+    if(isLocal(s)&&c&&(c==='__unlisted'||!servesCounty(s,c))&&!x.exc)out.push({id:x.id,kind:'area',msg:`${s.name} doesn't list ${c==='__unlisted'?'the patient\'s county':c+' County'} in its service area.`});
+    if(st.mc==='no'&&s.medi&&s.medi.req==='required'&&!x.excMc)out.push({id:x.id,kind:'mc',msg:`${s.name} is for Medi-Cal members, and Medi-Cal is marked No.`});
+  });
+  return out;
+}
+function conflictHtml(cs){
+  if(!cs.length)return '';
+  return `<div class="banner bad" role="alert"><p><b>Resolve before copying:</b></p>${cs.map(x=>`<p>${esc(x.msg)}</p><div class="acts"><button class="btn warn sm" type="button" data-act="toggle" data-id="${esc(x.id)}">Remove it</button>${x.kind==='area'?`<button class="btn ghost sm" type="button" data-act="exc" data-id="${esc(x.id)}">Keep: provider serves this patient</button>`:`<button class="btn ghost sm" type="button" data-act="excmc" data-id="${esc(x.id)}">Keep: patient may qualify</button>`}</div>`).join('')}</div>`;
+}
+
+// ---------- patient message model (one model -> HTML and plain text)
+const PH=/(\b\d{3}-\d{3}-\d{4}(?:\s*(?:ext\.?|x)\s*\d+)?\b|\b\d{3}-\d{4}\b|\b2-1-1\b|\b988\b|\b911\b)/g;
+function segs(text){const out=[];let last=0;String(text).replace(PH,(m,_,i)=>{if(i>last)out.push({t:text.slice(last,i)});out.push({t:m,b:true});last=i+m.length});if(last<text.length)out.push({t:text.slice(last)});return out}
+function L(text,o){return Object.assign({segs:segs(spokenFix(text))},o||{})}
+const byTxt=()=>st.by?(st.by==='later today'?(st.win&&st.win!=='any time'?' this '+st.win:' later today'):' by '+(st.by==='end of this week'?'the end of this week':st.by)):'';
+function bold(text){return {segs:[{t:text,b:true}]}}
+function linkLine(l){return {segs:[{t:'• '+l.label+': '},{t:l.url,href:l.url}]}}
+
+function firstPhone(s){const ph=phonesFor(s);return ph.find(p=>p.number)||null}
+function bodyFor(s,mode,first){
+  const lines=[];
+  const ed=st.edits[s.id];
+  if(mode==='phone'){const p=firstPhone(s);if(p)lines.push(L(`Call ${p.number}${p.purpose?' '+p.purpose:''}.`));else if(s.links[0])lines.push(linkLine(s.links[0]));return lines}
+  if(mode==='records'){const p=firstPhone(s);if(p)lines.push(L(`Phone number: ${p.number}`));return lines}
+  if(mode==='link'){const l=(s.links||[]).find(l=>l.kind!=='info')||s.links[0];if(l)lines.push(linkLine(l));else{const p=firstPhone(s);if(p)lines.push(L(`Call ${p.number}.`))}return lines}
+  let text=ed!=null?ed:summaryFor(s);
+  lines.push(L(clean(text)));
+  if(s.staffOnly)return lines;
+  if(s.planAware&&ed==null){
+    const rl=rideLine(s);const es=effStatus();
+    if(['ride-requested','ride-booked'].includes(es)&&st.pref==='help'){if(rl)lines.push(L(`To check on your ride, call ${rl.label} at ${rl.number}${rl.hours?' ('+rl.hours+')':''}. You don’t need to book another one.`));else lines.push(L('To check on your ride, call the member services number on your plan card. You don’t need to book another one.'))}
+    else if(rl)lines.push(L(`Call ${rl.label} at ${rl.number} ${rl.purpose||'to schedule a ride'}${rl.hours?' ('+rl.hours+')':''}.${rl.timing?' '+rl.timing:''}`));
+    else{lines.push(L('Call the member services number on your plan card and ask for a ride.'));
+      const rides=(s.phones||[]).filter(p=>p.role==='ride scheduling'&&!p.unverified);
+      if(rides.length&&!st.plan)lines.push(L('If your plan is listed here, you can call its ride line directly: '+rides.map(p=>`${p.plan} ${p.number}`).join('; ')+'.'))}
   }
+  if(first){
+    if(s.script&&st.channel!=='print')lines.push(L(`When you call, you can say: “${s.script}”`));
+    if(s.prepare)lines.push(L('Have ready: '+s.prepare));
+    if(s.timing&&st.timing!=='today')lines.push(L('Good to know: '+s.timing));
+    if(s.limits&&st.timing!=='today')lines.push(L('Good to know: '+s.limits));
+    if(s.adviceRoutine&&st.timing!=='today'&&st.timing!=='soon')lines.push(L(s.adviceRoutine));
+    if(s.planAware&&(st.timing==='today'||st.timing==='soon'))lines.push(L('Tell them when your appointment is and that you need the ride soon.'));
+  }
+  const hasPhone=(s.phones||[]).some(p=>p.number);
+  if(st.channel!=='spoken'&&!(s.planAware&&st.timing==='today'))(s.links||[]).filter(l=>!RETIRED.some(r=>l.url.includes(r))&&(l.label!=='Website'||!hasPhone)).slice(0,3).forEach(l=>lines.push(linkLine(l)));
+  return lines;
 }
-function toggle(id,on){if(on&&!picked.includes(id))picked.push(id);if(!on)picked=picked.filter(x=>x!==id);build()}
-const NOPTS=NEEDS.filter(n=>n[0]);
-function needUI(){
-  const n=NEEDSEL.length;
-  $('#needsum').innerHTML=`<span>${!n?'All':n<=2?esc(NEEDSEL.map(needLabel).join(', ')):`${n} needs selected`}</span>`;
-  $('#needmenu').innerHTML=`<label class="opt-row all"><input type="checkbox" data-n="" ${n?'':'checked'}>All needs</label>`+NOPTS.map(([v,l])=>`<label class="opt-row"><input type="checkbox" data-n="${esc(v)}" ${NEEDSEL.includes(v)?'checked':''}>${esc(l)}</label>`).join('');
-  let chips=document.getElementById('needchips');
-  if(!chips){chips=document.createElement('div');chips.id='needchips';chips.className='chips';$('#needbox').after(chips)}
-  chips.innerHTML=n>2?NEEDSEL.map(v=>`<span class="chip">${esc(needLabel(v))}<button type="button" data-x="${esc(v)}" aria-label="Remove ${esc(needLabel(v))}">&#10005;</button></span>`).join(''):'';
+function summaryFor(s){
+  if(s.summaryByMedi)return s.summaryByMedi[st.mc]||s.summary;
+  return s.summary||'';
 }
-function setNeeds(arr){NEEDSEL=NOPTS.map(n=>n[0]).filter(v=>arr.includes(v));needUI();render()}
-$('#needmenu').addEventListener('change',e=>{const i=e.target.closest('input[data-n]');if(!i)return;const v=i.dataset.n;if(!v)NEEDSEL=[];else NEEDSEL=i.checked?[...NEEDSEL,v]:NEEDSEL.filter(x=>x!==v);setNeeds(NEEDSEL)});
-$('#needclear').addEventListener('click',()=>setNeeds([]));
-$('#needdone').addEventListener('click',()=>{$('#needbox').open=false;$('#needsum').focus()});
-document.addEventListener('click',e=>{const b=$('#needbox');if(b.open&&!b.contains(e.target))b.open=false});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#needbox').open){$('#needbox').open=false;$('#needsum').focus()}});
-document.addEventListener('click',e=>{const x=e.target.closest('[data-x]');if(x)setNeeds(NEEDSEL.filter(v=>v!==x.dataset.x))});
-needUI();
-document.querySelectorAll('input[name=mc]').forEach(x=>x.addEventListener('change',render));
-$('#results').addEventListener('change',e=>{const k=e.target.closest('input[data-id]');if(!k)return;toggle(k.dataset.id,k.checked);k.closest('.card').classList.toggle('on',k.checked)});
-$('#sel').addEventListener('click',e=>{const m=e.target.closest('[data-mv]'),x=e.target.closest('[data-rm]');if(m){const i=+m.dataset.mv,j=i+ +m.dataset.d;[picked[i],picked[j]]=[picked[j],picked[i]];build()}if(x){picked=picked.filter(p=>p!==x.dataset.rm);build();render()}});
-$('#county').addEventListener('change',()=>{store.set('syncCounty',$('#county').value);render()});
-['#q','#showState'].forEach(s=>$(s).addEventListener('input',render));
-$('#copy').addEventListener('click',copy);$('#copy2').addEventListener('click',copy);
-$('#clear').addEventListener('click',()=>{picked=[];build();render()});
-window.__sync={query,compose,byId,setNeeds,needs:NOPTS.map(n=>n[0]),get data(){return D}};
-try{
-  D=JSON.parse(document.getElementById('resdata').textContent);
-  const cs=[...new Set(D.county.map(r=>r.county))].sort();
-  $('#county').innerHTML='<option value="">Select county</option>'+cs.map(c=>`<option>${esc(c)}</option>`).join('');
-  const saved=store.get('syncCounty');$('#county').value=cs.includes(saved)?saved:'';
-  $('#foot').textContent=`Resource Referral Prototype · ${cs.length} counties · ${D.county.length} county and ${D.state.length} statewide resources · updated ${D.updated}`;
-  render();build();
-}catch(e){$('#results').innerHTML='<p class="empty">The resource list didn\'t load. Refresh the page to try again.</p>'}
+function fallbackFor(first){
+  const pn=(st.prio&&(first.needs||[]).includes(st.prio))?st.prio:((first.needs||[]).find(n=>st.needs.includes(n))||first.need);
+  first=Object.assign({},first,{need:pn});
+  const fb0=fallbackCore(first);
+  if(/2-1-1/.test(first.name)&&/2-1-1/.test(fb0))return '';
+  return fb0;
 }
+function fallbackCore(first){
+  if(first.need==='transport'&&(st.timing==='today'||st.timing==='soon'))return 'If you can’t get a ride in time, call your doctor’s office, tell them your ride fell through, and ask about rescheduling.';
+  if(first.need==='food'&&st.timing==='today'){return sel().some(o=>/2-1-1/.test(o.s.name))?'':'If you can’t find a site that’s open today, call 2-1-1 to find other food help near you.'}
+  if(first.fallback)return first.fallback;
+  const f=NEED[first.need]&&NEED[first.need].fallback;
+  if(!f||!f.text)return '';
+  if((f.ids||[]).some(id=>st.sel.some(x=>x.id===id)||id===first.id))return '';
+  return f.text;
+}
+function ownerText(o){if(!o)return '';if(o.startsWith('Me'))return 'I';if(o==='Pilot referral contact'&&P.referralContact)return P.referralContact.patientText||'our care team';return 'our '+o.toLowerCase()}
+function sel(){const c=st.county&&st.county!=='__unlisted'?st.county:null;return st.sel.map(x=>({x,s:svc(x.id,c)})).filter(o=>o.s)}
+function timeSensitive(){return st.pref==='help'&&(st.timing==='today'||st.timing==='soon')}
+
+function patientModel(){
+  const all=sel().filter(o=>!o.s.staffOnly||st.pref==='help');
+  const tried=all.filter(o=>o.x.tried);const items=all.filter(o=>!o.x.tried);
+  if(st.pref==='decline')return {none:'No patient message for a voluntary decline. The staff note records the decision.'};
+  if(!items.length)return {none:tried.length?'Every selected resource is marked "already tried". Add another option for the next step.':'Select one or more resources to build the message.'};
+  const lines=[];const info=st.pref==='info';const spoken=st.channel==='spoken';
+  if(!spoken){lines.push(L('Hello,'));lines.push({blank:1})}
+  const nres=items.length;
+  lines.push(L(spoken?'Here’s the plan we talked about.':`It was great speaking with you today, and thank you for your time! I wanted to send you the ${nres>1?'resources':'resource'} we discussed so you can have ${nres>1?'them':'it'} handy whenever you’re ready.`));
+  if(tried.length)lines.push(L(`We know ${tried.map(o=>o.s.name).join(' and ')} couldn’t help before, so here is a different option.`));
+  if(st.pnote.trim()){lines.push({blank:1});lines.push(L(st.pnote.trim()))}
+  const [f,...rest]=items;
+  const staffFirst=st.pref==='help'&&st.actor&&st.actor!=='Patient';
+  const noCalls=st.pref==='help'&&st.canCall==='no';
+  lines.push({blank:1});
+  if(!info||items.length>1)lines.push(bold(staffFirst?'What we’re setting up for you':'Your first step'));
+  lines.push(bold(f.s.name));
+  const es0=effStatus();
+  if(staffFirst&&!f.s.staffOnly&&es0==='discussed')lines.push(L(`${ownerText(st.actor)==='I'?'I’m':'We’re'} contacting them for you, so you don’t need to call them yourself.`));
+  const body=bodyFor(f.s,noCalls?'records':(f.x.send||'full'),!info&&!staffFirst&&!noCalls);
+  body.forEach(l=>lines.push(l));
+  const bodyTxt=renderLinesText(body);
+  const backupSet=st.pref==='help'&&st.backup&&st.backup!=='none';
+  if(!info&&!staffFirst&&!noCalls&&!(backupSet&&st.timing==='today')){const fb=fallbackFor(f.s);if(fb&&!bodyTxt.includes(fb.replace(/^If you can't get through, /,'')) ){lines.push({blank:1});lines.push(bold(st.timing==='today'?'If that doesn’t work today':'If that doesn’t work'));lines.push(L(fb))}}
+  if(st.needs.includes('medication')&&(st.timing==='today'||st.timing==='soon'))lines.push(L('If you are about to run out of a medicine, call your pharmacy or your doctor’s office today.'));
+  if(rest.length){lines.push({blank:1});lines.push(bold(noCalls?'For your records':rest.length===1?'Another option':'Other options'));
+    rest.forEach((o,i)=>{if(i)lines.push({blank:1});lines.push(bold(o.s.name));bodyFor(o.s,noCalls?'records':(o.x.send||'full'),false).forEach(l=>lines.push(l))})}
+  if(st.pref==='help'){const nx=nextSteps(f.s);if(nx.length){lines.push({blank:1});lines.push(bold('What happens next'));nx.forEach(t=>lines.push(L(t)))}}
+  lines.push({blank:1});lines.push(L(D.closing));
+  return {lines};
+}
+function effStatus(){const S=STATUS[st.status]||STATUS.discussed;if(S.conf&&!st.statusOk)return S.pending||'discussed';return st.status}
+function nextSteps(first){
+  const out=[];const n=first.planAware?'your health plan':first.staffOnly?'our '+first.name.toLowerCase():short(first.name);const es=effStatus();
+  const who=st.actor;
+  if(es==='patient-will'||(!who||who==='Patient')&&es==='discussed'){if(who==='Patient'||es==='patient-will')out.push(`You'll contact ${n} first.`)}
+  if(who&&who!=='Patient'&&es==='discussed')out.push(`${cap(ownerText(who))} will contact ${n} for you${byTxt()}.`);
+  const we=who&&who.startsWith('Me')?'I':'We';
+  if(es==='attempted')out.push(`${we} reached out to ${n} for you. They have not confirmed yet.`);
+  if(es==='cost-question')out.push('We sent a question about your medicine cost to our pharmacy team. This does not order a refill.');
+  if(es==='refill-requested')out.push('Your refill has been requested.');
+  if(es==='ride-requested')out.push('Your ride has been requested but is not booked yet.');
+  if(es==='ride-booked')out.push('Your ride is booked.');
+  if(es==='referral-placed')out.push(`We sent a referral to ${n}. They have not confirmed yet.`);
+  if(es==='connected')out.push(`${n} has accepted your referral.`);
+  const b=backupText();
+  if(b)out.push(st.timing==='today'?`If ${n} can’t help today, ${b}`:`If ${n} can’t help${byTxt()}, ${b}`);
+  if(st.callback&&st.owner&&!st.owner.startsWith('Patient')){const O=cap(ownerText(st.owner));out.push({mho:`${O} will message you in My Health Online${byTxt()}.`,'call-novm':`${O} will call you${byTxt()}${winTxt()}. ${O==='I'?'I':'We'} won’t leave a voicemail.`,'call-vm':`${O} will call you${byTxt()}${winTxt()}.`}[st.vm]||`${O} will follow up with you${byTxt()}.`)}
+  if(st.callback&&st.retry&&st.vm&&st.vm.startsWith('call')){const I=st.owner&&st.owner.startsWith('Me');const pre=I?'If I miss you, I’ll':'If we miss you, we’ll';out.push(st.retry==='later the same day'&&st.win&&st.win!=='any time'?`${pre} try again later that ${st.win}.`:`${pre} try again ${st.retry}${st.win&&st.win!=='any time'?' in the '+st.win:''}.`)}
+
+  return out;
+}
+function backupText(){
+  if(!st.backup||st.backup==='none')return '';
+  if(st.backup==='pilot'&&P.referralContact)return `contact ${P.referralContact.patientText}.`;
+  const o=sel().find(o=>o.s.id===st.backup);if(!o)return '';
+  const sv=o.s;
+  if(sv.primary&&sv.primary.type==='link'&&sv.links[sv.primary.index]&&st.channel!=='spoken'){const l=sv.links[sv.primary.index];return `use the ${l.label.replace(/\s*\(.*\)$/,'')} from ${short(sv.name)}: ${l.url}`}
+  const ph=phonesFor(sv).filter(p=>p.number);const p=ph.find(p=>!['application help','member services'].includes(p.role))||ph[0];
+  return p?(p.number==='2-1-1'?'call 2-1-1.':`call ${short(sv.name)} at ${p.number}${p.purpose&&!/application/.test(p.role||'')?' '+p.purpose:''}.`):`contact ${sv.name}.`;
+}
+const winTxt=()=>st.win&&st.win!=='any time'?(st.by==='later today'?'':', in the '+st.win):'';
+const short=n=>String(n).replace(/\s*\((?!ACC)[^)]*\)$/,'');
+const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
+
+function renderLinesHTML(lines){
+  let h='',para=[];
+  const flush=()=>{if(para.length){h+='<p>'+para.join('<br>')+'</p>';para=[]}};
+  lines.forEach(l=>{if(l.blank){flush();return}
+    para.push(l.segs.map(g=>g.href?`<a href="${esc(g.href)}">${esc(g.t)}</a>`:g.b?`<b>${esc(g.t)}</b>`:esc(g.t)).join(''))});
+  flush();return h;
+}
+function spokenFix(t){return st.channel==='spoken'?t.replace(/\bext\.\s*/g,'extension '):t}
+function renderLinesText(lines){return lines.map(l=>l.blank?'':l.segs.map(g=>g.t).join('')).join('\n').replace(/\n{3,}/g,'\n\n').trim()}
+
+// ---------- staff note (same confirmed facts)
+function staffNote(){
+  const items=sel();const r=[];
+  r.push('Resource referral note (generated by Resource Referral Prototype; no patient identifiers)');
+  if(st.safety){r.push('Routine directory flow stopped for a safety concern. Escalation per the approved workflow; record actions in the chart. No routine resource message generated.');return r.join('\n')}
+  const nd=orderedNeeds(st.needs).map((k,i)=>NEED[k].label+(i===0&&st.needs.length>1?' (patient priority)':''));
+  r.push('Need(s) identified: '+(nd.join(', ')||'not selected'));
+  r.push('County: '+(st.county==='__unlisted'?'not listed in guide':st.county||'not selected')+' · Medi-Cal: '+st.mc+(st.plan?' · Plan: '+st.plan:''));
+  r.push('Patient preference: '+({info:'Information only',help:'Help connecting',decline:'No help today (need not ruled out; no resource message; no automatic referral)'}[st.pref]||'not asked'));
+  if(st.pref==='decline'){return r.join('\n')}
+  r.push('Channel: '+({mho:'My Health Online message',spoken:'Verbal plan by phone; no written message',print:'Printed copy'}[st.channel]));
+  const tr=items.filter(o=>o.x.tried),nt=items.filter(o=>!o.x.tried);
+  if(nt.length)r.push('Resources discussed: '+nt.map((o,i)=>`${o.s.name} [${o.s.id}]${i===0?' (first step)':''}`).join('; '));
+  if(tr.length)r.push('Previously tried, couldn’t help (per patient): '+tr.map(o=>`${o.s.name} [${o.s.id}]`).join('; '));
+  const ex=items.filter(o=>o.x.exc||o.x.excMc);if(ex.length)r.push('Exceptions: '+ex.map(o=>`${o.s.name}: ${o.x.exc?'outside listed service area, staff confirmed provider serves patient':''}${o.x.excMc?'listed as Medi-Cal only, patient may qualify':''}`).join('; '));
+  if(st.pref==='help'){
+    const q=[];if(st.timing)q.push('timing '+({today:'today/tonight',soon:'within a few days',routine:'no rush'}[st.timing]));if(st.delivery)q.push('home delivery '+st.delivery);if(st.canCall)q.push('can make calls: '+st.canCall);if(st.vm)q.push('follow-up channel: '+({'call-vm':'phone, voicemail OK','call-novm':'phone, no voicemail',mho:'MHO only','patient-calls':'patient will call'}[st.vm]));
+    if(q.length)r.push('Routing answers: '+q.join('; '));
+    r.push('Acts first: '+(st.actor||'not set'));
+    const S=STATUS[st.status];const es=effStatus();
+    r.push('Status: '+STATUS[es].t+(S.conf?(st.statusOk?' (staff-confirmed)':` (${S.t} NOT confirmed)`):''));
+    r.push('Follow-up owner: '+(st.owner||'not set')+(st.by?' · by '+st.by:'')+(st.callback?' · staff committed to follow up':'')+(st.win?' · safe call window: '+st.win:'')+(st.retry?' · if missed, retry '+st.retry:''));
+    const bo=st.backup==='none'?'none available':st.backup==='pilot'?'pilot referral contact':(sel().find(o=>o.s.id===st.backup)||{s:{name:'not set'}}).s.name;
+    r.push('Backup route: '+(st.backup?bo:'not set'));
+    const gaps=gapList();if(gaps.length)r.push('Gaps: '+gaps.join('; ')+(st.gapOk?' (staff confirmed flagged to lead)':''));
+  }
+  if(st.channel==='spoken')r.push(st.sent?'Plan read aloud to patient (staff-confirmed).':'Plan not recorded as read aloud.');
+  else r.push(st.sent?`Patient message: ${st.channel==='print'?'printed copy given':'sent'} (staff-confirmed).`:'Patient message: not recorded as sent.');
+  return r.join('\n');
+}
+function gapList(){
+  const g=[];
+  if(st.pref!=='help')return g;
+  if(timeSensitive()){if(!st.owner)g.push('time-sensitive need without a follow-up owner');if(!st.by)g.push('no follow-up time');if(!st.backup||st.backup==='none')g.push('no backup route if the first agency can’t help')}
+  if(st.owner==='Pilot referral contact'&&!P.referralContact)g.push('no local pilot referral contact configured');
+  return g;
+}
+
+// ---------- right panel
+function renderSel(){
+  const items=sel();const info=st.pref==='info';
+  $('#sel').innerHTML=items.map((o,i)=>{const s=o.s;const ed=st.edits[s.id]!=null;
+    return `<li data-id="${esc(s.id)}"><div class="top"><div><span class="role">${i===0?'First step':i===1?'Another option':'Option'}</span><br><b>${esc(s.name)}</b>${o.x.exc?' <span class="bd flag">exception: outside area</span>':''}</div>
+    <div class="ord"><button class="btn ghost sm" type="button" data-act="up" data-id="${esc(s.id)}" ${i===0?'disabled':''} aria-label="Move ${esc(s.name)} up">↑</button><button class="btn ghost sm" type="button" data-act="down" data-id="${esc(s.id)}" ${i===items.length-1?'disabled':''} aria-label="Move ${esc(s.name)} down">↓</button><button class="btn ghost sm" type="button" data-act="toggle" data-id="${esc(s.id)}" aria-label="Remove ${esc(s.name)}">✕</button></div></div>
+    <div class="rowacts" style="margin-top:.3rem"><label class="hint" for="send-${esc(s.id)}">Send</label><select id="send-${esc(s.id)}" data-act="send" data-id="${esc(s.id)}" style="width:auto;max-width:100%;min-height:36px;padding:.2rem .5rem"><option value="full" ${o.x.send==='full'||!o.x.send?'selected':''}>Full details</option><option value="phone" ${o.x.send==='phone'?'selected':''}>Phone number only</option><option value="link" ${o.x.send==='link'?'selected':''}>Link only</option></select>
+    <button class="btn ghost sm" type="button" data-act="edit" data-id="${esc(s.id)}" aria-expanded="${ed}">${ed?'Editing wording':'Edit wording'}</button>
+    <label class="hint" style="display:inline-flex;gap:.35rem;align-items:center;min-height:36px"><input type="checkbox" data-act="tried" data-id="${esc(s.id)}" ${o.x.tried?'checked':''}> Already tried, couldn’t help</label></div>
+    ${ed?`<label class="sr" for="ed-${esc(s.id)}">Wording for ${esc(s.name)}</label><textarea id="ed-${esc(s.id)}" data-act="edtext" data-id="${esc(s.id)}">${esc(st.edits[s.id])}</textarea><button class="btn ghost sm" type="button" data-act="unedit" data-id="${esc(s.id)}">Use standard wording</button>`:''}</li>`}).join('');
+}
+function renderPlan(){
+  const box=$('#planBox');
+  if(st.pref!=='help'||!st.sel.length){box.innerHTML='';return}
+  const first=sel()[0].s;const n=first.need;
+  const opts=Object.entries(STATUS).filter(([k,v])=>!v.need||v.need===n||(st.needs.includes(v.need)));
+  const roles=['Patient'].concat(P.roles||[]);
+  const S=STATUS[st.status]||STATUS.discussed;
+  box.innerHTML=`<div class="banner info"><p class="sora" style="margin:0 0 .3rem"><b>Agreed plan</b> <span class="hint">(goes into both outputs)</span></p>
+  <label class="flabel" for="actor">Who acts first?</label><select id="actor" data-act="f" data-f="actor"><option value="">Choose…</option>${roles.map(r=>`<option ${st.actor===r?'selected':''}>${esc(r)}</option>`).join('')}</select>
+  <label class="flabel" for="status" style="margin-top:.4rem;display:block">What has actually happened with ${esc(first.name)}?</label><select id="status" data-act="f" data-f="status">${opts.map(([k,v])=>`<option value="${k}" ${st.status===k?'selected':''}>${esc(v.t)}</option>`).join('')}</select>
+  ${S.conf?`<label style="display:flex;gap:.5rem;align-items:center;min-height:44px"><input type="checkbox" id="statusOk" data-act="c" data-f="statusOk" ${st.statusOk?'checked':''}> I confirm this happened (otherwise it's shown as pending)</label>`:''}
+  <label class="flabel" for="owner" style="margin-top:.4rem;display:block">Who follows up if it isn't resolved?</label><select id="owner" data-act="f" data-f="owner"><option value="">Choose…</option>${roles.map(r=>`<option ${st.owner===r?'selected':''}>${esc(r)}</option>`).join('')}</select>
+  <label class="flabel" for="by" style="margin-top:.4rem;display:block">By when?</label><select id="by" data-act="f" data-f="by"><option value="">Choose…</option>${['later today','tomorrow','end of this week','next week'].map(v=>`<option ${st.by===v?'selected':''}>${v}</option>`).join('')}</select>
+  ${st.owner&&st.owner!=='Patient'?`<label style="display:flex;gap:.5rem;align-items:center;min-height:44px"><input type="checkbox" id="callback" data-act="c" data-f="callback" ${st.callback?'checked':''}> ${esc(st.owner.startsWith('Me')?'I':'This person')} committed to follow up with the patient</label>`:''}
+  ${st.vm&&st.vm.startsWith('call')?`<label class="flabel" for="win" style="margin-top:.4rem;display:block">Safe time to call (as the patient said)</label><select id="win" data-act="f" data-f="win"><option value="">Choose…</option>${['morning','afternoon','evening','any time'].map(v=>`<option ${st.win===v?'selected':''}>${v}</option>`).join('')}</select>`:''}
+  ${st.callback&&st.vm&&st.vm.startsWith('call')?`<label class="flabel" for="retry" style="margin-top:.4rem;display:block">If the call is missed, we'll try again</label><select id="retry" data-act="f" data-f="retry"><option value="">Choose…</option>${['later the same day','the next business day'].map(v=>`<option ${st.retry===v?'selected':''}>${v}</option>`).join('')}</select>`:''}
+  <label class="flabel" for="backup" style="margin-top:.4rem;display:block">Backup if the first route fails</label><select id="backup" data-act="f" data-f="backup"><option value="">Choose…</option>${sel().slice(1).map(o=>`<option value="${esc(o.s.id)}" ${st.backup===o.s.id?'selected':''}>${esc(o.s.name)}</option>`).join('')}${P.referralContact?`<option value="pilot" ${st.backup==='pilot'?'selected':''}>${esc(P.referralContact.label)}</option>`:''}<option value="none" ${st.backup==='none'?'selected':''}>No safe backup available</option></select>
+  ${!P.referralContact?'<p class="hint">No pilot referral contact is configured. If you need one, tell the pilot lead.</p>':''}</div>`;
+}
+function gateItems(){
+  const g=[];const cs=conflicts();cs.forEach(c=>g.push({bad:1,t:c.msg}));
+  if(st.pref==='help'&&timeSensitive()){
+    if(!st.owner||!st.by)g.push({bad:1,t:'Time-sensitive: choose who follows up and by when.'});
+    if(!st.backup)g.push({bad:1,t:'Time-sensitive: choose a backup route, or "No safe backup available".'});
+    if(st.backup==='none'&&!st.gapOk)g.push({bad:1,t:'No safe backup: flag this gap to your lead while the patient is present.',ack:1});
+  }
+  if(st.pref==='help'&&st.canCall==='no'&&st.actor==='Patient')g.push({bad:1,t:'The patient said they can’t make calls: choose a staff member to act first, or give a plan they can do another way.'});
+  if(st.pref==='help'&&st.callback&&st.vm&&st.vm.startsWith('call')&&!st.win)g.push({bad:1,t:'Ask when it’s safe to call, so follow-up calls stay inside that window.'});
+  if(timeSensitive()&&st.canCall==='no'&&st.callback&&st.vm&&st.vm.startsWith('call')&&!st.retry)g.push({bad:1,t:'The patient can’t make calls: say when you’ll try again if the call is missed.'});
+  if(st.pref==='help'&&st.owner&&st.owner!=='Patient'&&!st.callback)g.push({t:'The message doesn’t tell the patient how they’ll hear back. Tick “committed to follow up” only if someone has agreed to.'});
+  if(timeSensitive()&&st.backup&&!['none','pilot'].includes(st.backup))g.push({t:'Check that the backup can act in time. Some programs need sign-up first.'});
+  if(st.pref==='help'&&st.canCall==='no'&&st.backup&&st.backup!=='none'&&st.backup!=='pilot')g.push({bad:1,t:'The backup asks the patient to make a call, but they said they can’t. Choose a backup someone else carries out, or "No safe backup available".'});
+  if(st.pref==='help'&&st.vm==='patient-calls'&&!P.referralContact)g.push({t:'No approved number is configured for the patient to call back. Don’t promise a callback line; tell the pilot lead.'});
+  if(st.timing==='today'&&st.needs.includes('food'))g.push({t:'Same-day food: check that a site is open today (the Food Finder lists days and times) before the call ends. Home-delivered meals take time to start.'});
+  if((st.timing==='today'||st.timing==='soon')&&st.needs.includes('transport'))g.push({t:'Plan rides usually need 3 to 5 business days’ notice, and paratransit approval can take up to 21 days. For a sooner ride, ask the plan about urgent rides and agree a backup.'});
+  if(st.timing==='today'&&st.needs.includes('medication'))g.push({t:'Imminent refill gap: use your team’s approved time-sensitive medication workflow. '+((P.approvedText||{}).medicationAccess||'(Sutter-approved wording not configured yet.)')});
+  sel().forEach(o=>{const it=o.s.intake||{};if(it.status==='paused')g.push({t:`${o.s.name}: intake is paused${it.checked?' (checked '+it.checked+')':''}. Use it only if the patient wants to wait, and give a fallback.`})});
+  const S=STATUS[st.status];if(st.pref==='help'&&S&&S.conf&&!st.statusOk)g.push({t:`"${S.t}" isn't confirmed, so both outputs show it as pending.`});
+  if(st.mc==='unsure'&&sel().some(o=>o.s.medi&&o.s.medi.req==='required'))g.push({t:'A selected resource is Medi-Cal only: confirm coverage before sending.'});
+  return g;
+}
+function renderGate(){
+  const g=gateItems();
+  $('#gate').innerHTML=(g.length?`<div class="banner ${g.some(x=>x.bad)?'bad':'warn'}"><ul class="gate">${g.map(x=>`<li>${esc(x.t)}${x.ack?' <label style="display:inline-flex;gap:.4rem;align-items:center"><input type="checkbox" data-act="c" data-f="gapOk"> I flagged it to my lead</label>':''}</li>`).join('')}</ul></div>`:'')+(gapList().length&&!timeSensitive()?`<div class="banner warn"><p>${esc(gapList().join('; '))}</p></div>`:'');
+  $('#conflictsL').innerHTML=conflictHtml(conflicts());
+}
+function blocked(){return gateItems().some(x=>x.bad)}
+
+function renderOut(){
+  const m=patientModel();
+  const big=$('#big').checked;$('#out').classList.toggle('big',big);
+  $('#outLabel').textContent=st.channel==='spoken'?'Read-aloud script (no written message)':st.channel==='print'?'Printed copy':'Preview';
+  $('#out').innerHTML=m.none?`<p class="empty">${esc(m.none)}</p>`:renderLinesHTML(m.lines);
+  $('#note').textContent=staffNote();
+  $('#sentLbl').textContent=st.channel==='spoken'?'I read the plan to the patient (record it in the note)':st.channel==='print'?'I gave the patient the printed copy (record it in the note)':'I sent the patient message (record it in the note)';
+  $('#copy').textContent=st.tab==='S'?'Copy staff note':st.channel==='spoken'?'Copy read-aloud script':'Copy patient message';
+  const dis=st.tab==='P'&&(!!m.none||blocked());
+  $('#copy').disabled=dis;
+  $('#copy').setAttribute('aria-describedby','gate');
+  if(st.copiedVer!==st.ver){$('#copyStatus').textContent='';$('#manual').hidden=true}
+}
+function renderNeeds(){
+  $('#needs').innerHTML=D.needs.map(n=>`<label style="display:flex;gap:.5rem;align-items:center;min-height:44px;background:#fff;border:1px solid #9fb3b1;border-radius:10px;padding:.3rem .6rem"><input type="checkbox" data-act="need" value="${n.key}" ${st.needs.includes(n.key)?'checked':''} style="width:1.1rem;height:1.1rem;accent-color:var(--teal)">${esc(n.label)}</label>`).join('');
+}
+function renderPrio(){
+  const w=$('#prioWrap');w.hidden=st.needs.length<2;
+  if(!w.hidden){if(!st.needs.includes(st.prio))st.prio=st.needs[0];$('#prio').innerHTML=st.needs.map(k=>`<option value="${k}" ${st.prio===k?'selected':''}>${esc(NEED[k].label)}</option>`).join('')}
+}
+function renderSugg(){
+  const d=detect(st.phrase).filter(k=>!st.needs.includes(k));
+  $('#sugg').innerHTML=d.length?'<span class="hint">Sounds like:</span>'+d.map(k=>`<button class="btn ghost sm" type="button" data-act="addneed" data-k="${k}">+ ${esc(NEED[k].label)}</button>`).join(''):(st.phrase.trim().length>2&&!detect(st.phrase).length?'<span class="hint">No match. Pick a need below, or try other words (e.g. "food", "ride", "bill").</span>':'');
+}
+function renderConds(){
+  $('#planWrap').hidden=!(st.needs.includes('transport')&&st.mc!=='no');
+  $('#chanWrap').hidden=!(st.pref==='info'||st.pref==='help');
+  $('#routeQs').hidden=st.pref!=='help';
+  $('#qTiming').hidden=!st.needs.some(n=>TIMED.has(n));
+  $('#qDelivery').hidden=!st.needs.includes('food');
+  $('#mcHint').textContent=st.mc==='no'?'Medi-Cal-only resources are hidden. Medicare Savings Programs and Medi-Cal applications are still shown under Insurance & benefits.':st.mc==='unsure'?'Showing all. Medi-Cal-only resources are labelled.':'';
+}
+function render(){st.ver++;renderSugg();renderPrio();renderConds();renderResults();renderSel();renderPlan();renderGate();renderOut();renderSafety();$$('#needs input').forEach(i=>i.checked=st.needs.includes(i.value))}
+
+// ---------- safety mode
+function renderSafety(){
+  document.body.classList.toggle('safety-on',st.safety);
+  const A=P.approvedText||{};
+  $('#policyTexts').innerHTML=[['mandatedReporting','Mandated reporting steps'],['urgentEscalation','Urgent escalation'],['moodScreening','Mood screening follow-up'],['medicationAccess','Time-sensitive medication access']].map(([k,t])=>A[k]?`<p><b>${t}:</b> ${esc(A[k])}</p>`:`<p class="banner warn"><b>${t}:</b> Sutter-approved wording needed. Follow your team's current approved workflow; this guide doesn't supply one.</p>`).join('');
+  $('#safetyNote').textContent=st.safety?staffNote():'';
+}
+
+// ---------- copy
+async function doCopy(){
+  if(st.tab==='P'&&($('#copy').disabled))return;
+  let html='',text='';
+  if(st.tab==='S'){text=staffNote();html='<pre>'+esc(text)+'</pre>'}
+  else{const m=patientModel();if(m.none)return;text=renderLinesText(m.lines);html=renderLinesHTML(m.lines)}
+  let ok=false;
+  try{
+    if(window.__forceCopyFail)throw new Error('forced');
+    if(navigator.clipboard&&window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})]);ok=true}
+    else if(navigator.clipboard){await navigator.clipboard.writeText(text);ok=true}
+  }catch(e){ok=false}
+  window.__lastCopy={html,text,ok};
+  if(ok){st.copiedVer=st.ver;const t=new Date();$('#copyStatus').textContent=`Copied at ${t.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}. Paste into ${st.tab==='S'?'the chart':'My Health Online'}.`;$('#manual').hidden=true}
+  else{st.copiedVer=st.ver;$('#copyStatus').textContent='';$('#manual').hidden=false;const ta=$('#manualText');ta.value=text;ta.focus();ta.select()}
+}
+
+// ---------- events
+function set(k,v){st[k]=v;render()}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,id=b.dataset.id;
+  if(a==='toggle'){const i=st.sel.findIndex(x=>x.id===id);if(i>=0){st.sel.splice(i,1);if(st.backup===id)st.backup=''}else st.sel.push({id,send:st.pref==='info'?'full':'full'});render()}
+  else if(a==='up'||a==='down'){const i=st.sel.findIndex(x=>x.id===id),j=a==='up'?i-1:i+1;if(i>=0&&j>=0&&j<st.sel.length){[st.sel[i],st.sel[j]]=[st.sel[j],st.sel[i]];if(st.backup===st.sel[0].id)st.backup='';render();const btn=document.querySelector(`#sel [data-act="${a}"][data-id="${CSS.escape(id)}"]`);(btn&&!btn.disabled?btn:document.querySelector(`#sel [data-act="toggle"][data-id="${CSS.escape(id)}"]`))?.focus()}}
+  else if(a==='exc'){const x=st.sel.find(x=>x.id===id);if(x){x.exc=true;render()}}
+  else if(a==='excmc'){const x=st.sel.find(x=>x.id===id);if(x){x.excMc=true;render()}}
+  else if(a==='edit'){if(st.edits[id]==null){const s=svc(id,st.county);st.edits[id]=summaryFor(s)}render();$(`#ed-${CSS.escape(id)}`)?.focus()}
+  else if(a==='unedit'){delete st.edits[id];render()}
+  else if(a==='addneed'){if(!st.needs.includes(b.dataset.k))st.needs.push(b.dataset.k);render()}
+  else if(a==='showsw'){st.statewide=true;$('#statewide').checked=true;render()}
+  else if(a==='safety'){enterSafety()}
+  else if(a==='report'){openReport(id)}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;const a=t.dataset&&t.dataset.act;
+  if(a==='need'){if(t.checked){if(!st.needs.includes(t.value))st.needs.push(t.value)}else st.needs=st.needs.filter(k=>k!==t.value);render();return}
+  if(a==='send'){const x=st.sel.find(x=>x.id===t.dataset.id);if(x)x.send=t.value;render();return}
+  if(a==='tried'){const x=st.sel.find(x=>x.id===t.dataset.id);if(x){x.tried=t.checked;if(t.checked){const i=st.sel.indexOf(x);st.sel.splice(i,1);st.sel.push(x);if(st.backup===x.id)st.backup=''}}render();return}
+  if(a==='f'){st[t.dataset.f]=t.value;if(t.dataset.f==='status')st.statusOk=false;if(t.dataset.f==='owner'&&(t.value==='Patient'||!t.value))st.callback=false;render();$('#'+t.id)?.focus();return}
+  if(a==='c'){st[t.dataset.f]=t.checked;render();const el=document.querySelector(`[data-f="${t.dataset.f}"]`);el&&el.focus();return}
+  if(t.name==='mc'){set('mc',t.value);return}
+  if(t.name==='pref'){st.pref=t.value;if(t.value!=='help'){st.actor='';st.status='discussed';st.statusOk=false;st.owner='';st.by='';st.backup='';st.callback=false;st.gapOk=false}render();return}
+  if(['timing','delivery','canCall','vm'].includes(t.name)){set(t.name,t.value);return}
+  if(t.id==='county'){set('county',t.value);return}
+  if(t.id==='plan'){set('plan',t.value);return}
+  if(t.id==='prio'){set('prio',t.value);return}
+  if(t.id==='channel'){set('channel',t.value);return}
+  if(t.id==='statewide'){set('statewide',t.checked);return}
+  if(t.id==='big'){renderOut();return}
+  if(t.id==='sentOk'){set('sent',t.checked);return}
+});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.id==='phrase'){st.phrase=t.value;st.ver++;renderSugg();renderResults();return}
+  if(t.id==='pnote'){st.pnote=t.value;st.ver++;renderOut();return}
+  if(t.dataset&&t.dataset.act==='edtext'){st.edits[t.dataset.id]=t.value;st.ver++;renderOut();return}
+});
+$('#copy').addEventListener('click',doCopy);
+$('#clearSel').addEventListener('click',()=>{st.sel=[];st.edits={};st.backup='';render()});
+$('#printBtn').addEventListener('click',()=>window.print());
+function setTab(t){st.tab=t;$('#tabP').setAttribute('aria-selected',t==='P');$('#tabS').setAttribute('aria-selected',t==='S');$('#tabP').tabIndex=t==='P'?0:-1;$('#tabS').tabIndex=t==='S'?0:-1;$('#paneP').hidden=t!=='P';$('#paneS').hidden=t!=='S';st.ver++;renderOut()}
+$('#tabP').addEventListener('click',()=>setTab('P'));$('#tabS').addEventListener('click',()=>setTab('S'));
+$('.tabs').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=st.tab==='P'?'S':'P';setTab(n);$('#tab'+n).focus();e.preventDefault()}});
+// new referral
+$('#newref').addEventListener('click',()=>{$('#newconfirm').hidden=false;$('#newyes').focus()});
+$('#newno').addEventListener('click',()=>{$('#newconfirm').hidden=true;$('#newref').focus()});
+$('#newyes').addEventListener('click',()=>{st=fresh();$('#newconfirm').hidden=true;resetInputs();render();$('#phrase').focus()});
+function resetInputs(){$('#phrase').value='';$('#pnote').value='';$('#county').value='';$$('input[type=radio]').forEach(r=>r.checked=r.name==='mc'&&r.value==='unsure');$('#plan').value='';$('#channel').value='mho';$('#statewide').checked=true;$('#sentOk').checked=false;$('#big').checked=false;setTab('P')}
+// safety
+function enterSafety(){st.safety=true;render();$('#safemode').focus()}
+$('#safetyBtn').addEventListener('click',enterSafety);
+$('#safetyBack').addEventListener('click',()=>{st.safety=false;render();$('#safetyBtn').focus()});
+$('#copySafety').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(staffNote());$('#safetyStatus').textContent='Copied.'}catch(e){$('#safetyStatus').textContent='Copy failed: select the note and copy it.'}});
+// corrections
+const PHI=/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}\b|\b(?:mrn|dob|date of birth)\b|\b\d{7,}\b/i;
+function openReport(id){const d=$('#corr');$('#corrId').value=id;$('#corrText').value='';$('#corrStatus').textContent='';$('#corrPhi').hidden=true;
+  const m=$('#corrMail');if(P.correctionsEmail){m.hidden=false}else m.hidden=true;d.showModal?d.showModal():d.setAttribute('open','');$('#corrType').focus()}
+function corrText(){return `Resource correction\nResource ID: ${$('#corrId').value}\nIssue: ${$('#corrType').value}\nDetails: ${$('#corrText').value.trim()}\n(No patient information included.)`}
+$('#corrText').addEventListener('input',()=>{const bad=PHI.test($('#corrText').value);$('#corrPhi').hidden=!bad;$('#corrCopy').disabled=bad;if(P.correctionsEmail)$('#corrMail').href=`mailto:${P.correctionsEmail}?subject=${encodeURIComponent('Resource correction '+$('#corrId').value)}&body=${encodeURIComponent(corrText())}`});
+$('#corrCopy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(corrText());$('#corrStatus').textContent='Copied.'}catch(e){$('#corrStatus').textContent='Select and copy the text above.'}});
+$('#corrClose').addEventListener('click',()=>{const d=$('#corr');d.close?d.close():d.removeAttribute('open')});
+// init
+$('#county').innerHTML='<option value="">Select county</option>'+D.coverageCounties.map(c=>`<option>${esc(c)}</option>`).join('')+'<option value="__unlisted">County not listed</option>';
+renderNeeds();render();
+// patient-free test hooks (read-only)
+window.__v2={state:()=>JSON.parse(JSON.stringify(st)),patientText:()=>{const m=patientModel();return m.none?'':renderLinesText(m.lines)},patientHTML:()=>{const m=patientModel();return m.none?'':renderLinesHTML(m.lines)},note:staffNote,blocked,conflicts,detect,data:D};
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+{
+  "_readme": "Staff-only pilot settings. Leave a value null until Sutter approves it. Nothing here is shown to patients except an approved referral contact the staff member explicitly chooses as a backup.",
+  "roles": [
+    "Me (the staff member completing this)",
+    "Pharmacy team",
+    "Social worker",
+    "Nurse",
+    "Pilot referral contact"
+  ],
+  "referralContact": null,
+  "referralContactExample": {
+    "label": "Pilot referral contact (example only: not active)",
+    "patientText": "our care team at the number in your My Health Online inbox",
+    "backup": "Backup contact (example only)",
+    "monitored": "Weekdays 8 a.m.–5 p.m."
+  },
+  "pilotLead": null,
+  "correctionsEmail": null,
+  "approvedText": {
+    "mandatedReporting": null,
+    "urgentEscalation": null,
+    "moodScreening": null,
+    "medicationAccess": null
+  }
+}
