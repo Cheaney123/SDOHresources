@@ -117,6 +117,11 @@ aside{position:sticky;top:16px}
 .lhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px 10px}
 .lhead h2{font-size:19px}
 .count{font-family:Sora,Arial,sans-serif;font-size:13px;border-radius:999px;padding:3px 10px;background:var(--card);border:1px solid var(--line);white-space:nowrap}
+.cwarn{margin:0 18px 10px;padding:10px 12px;border-radius:10px;background:#fff4dc;border:1px solid #e2b764;color:#5c3a00;font-size:14.5px;line-height:1.4}
+.cwarn p{margin:0 0 8px}.cwarn .row{display:flex;gap:8px;flex-wrap:wrap}
+.cwarn button{font:inherit;font-weight:700;border-radius:8px;padding:6px 12px;min-height:40px;cursor:pointer;border:2px solid #1f3433;background:#1f3433;color:#fff}
+.cwarn button.alt{background:#fff;color:#1f3433}
+.sel li.oc{border-color:#e2b764;background:#fffaf0}
 .sel{list-style:none;margin:0;padding:0 18px 10px;display:grid;gap:6px;max-height:210px;overflow:auto}
 .sel li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:5px 5px 5px 12px;font-size:14.5px;line-height:1.3}
 .sel small{color:var(--muted);display:block;font-size:12.5px}
@@ -168,8 +173,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   <div class="wrap">
     <div class="lblcell"><h2 class="lbl"><span>SAFETY<br>FIRST</span></h2></div>
     <div class="sitem"><span class="num">911</span><span class="what">Immediate danger</span><span class="how">Call right away.</span></div>
-    <div class="sitem"><span class="num">988</span><span class="what">Suicide and Crisis Lifeline</span><span class="how">Call or text. Notify the patient's mental health provider.</span></div>
-    <div class="sitem"><span class="num">Adult Protective Services</span><span class="what">Concern for abuse or neglect?</span><span class="how"><a href="https://www.cdss.ca.gov/inforesources/adult-protective-services" target="_blank" rel="noopener">Learn more</a></span></div>
+    <div class="sitem"><span class="num">988</span><span class="what">Suicide and Crisis Lifeline</span><span class="how">Call or text. Notify the patient's PCP or mental health provider.</span></div>
+    <div class="sitem"><span class="num">Adult Protective Services</span><span class="what">Concern for abuse or neglect?</span><span class="how">Call 833-401-0832. <a href="https://www.cdss.ca.gov/inforesources/adult-protective-services" target="_blank" rel="noopener">Learn more</a></span></div>
   </div>
 </section>
 <main>
@@ -215,6 +220,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <section class="letter" aria-label="My Health Online message">
         <div class="lhead"><h2>My Health Online message</h2><span class="count" id="count">0 resources</span></div>
         <ul class="sel" id="sel"></ul>
+        <div class="cwarn" id="cwarn" role="alert" hidden></div>
         <div class="paperwrap"><div id="out" class="paper" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Message preview" spellcheck="true" data-ph="Tick one or more resources to build the message."></div></div>
         <div class="lfoot">
           <p class="hint" style="margin:0">Edit the preview if needed. Changing the selection rebuilds it.</p>
@@ -237,7 +243,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const NEEDS=[["","All"],["Food","Food"],["Transportation","Transportation"],["Utilities","Utilities"],["Caregiver (strain, lack of support)","Caregiver support"],["Behavioral health","Behavioral health"],["Aging & caregiver info (AAA)","Aging & senior services"],["Housing & legal","Housing & legal"],["Insurance & benefits","Insurance & benefits"],["Medication affordability","Medication costs"],["Phone & digital access","Phone access"],["Safety / crisis","Safety / crisis"]];
 const NL=Object.fromEntries(NEEDS.filter(n=>n[0]));
-let D=null,picked=[],MC='unsure',NEEDSEL=[];
+let D=null,picked=[],MC='unsure',NEEDSEL=[],keepOther=new Set();
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 const byId=id=>D.county.find(r=>r.id===id)||D.state.find(r=>r.id===id);
 const isMc=r=>/yes|medi-cal/i.test(r.medi||'')&&!/crisis: no/i.test(r.medi||'');
@@ -296,8 +302,15 @@ function compose(rs){
 }
 function build(){
   const rs=picked.map(byId).filter(Boolean),n=rs.length;
+  const cc=$('#county').value;
+  const other=cc?rs.filter(r=>r.county&&r.county!==cc&&!keepOther.has(r.id)):[];
+  const w=$('#cwarn');
+  if(other.length){const cs=[...new Set(other.map(r=>r.county+' County'))].join(' and ');
+    w.innerHTML=`<p><b>Check the county.</b> ${other.length} selected resource${other.length>1?'s are':' is'} from ${esc(cs)}, not ${esc(cc)} County: ${other.map(r=>esc(r.name)).join(', ')}.</p><div class="row"><button type="button" data-cw="rm">Remove ${other.length>1?'them':'it'}</button><button type="button" class="alt" data-cw="keep">Keep (patient can use ${other.length>1?'them':'it'})</button></div>`;
+    w.hidden=false;w.dataset.ids=other.map(r=>r.id).join(',')}
+  else{w.hidden=true;w.innerHTML=''}
   $('#count').textContent=`${n} resource${n===1?'':'s'}`;
-  $('#sel').innerHTML=rs.map((r,i)=>`<li><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
+  $('#sel').innerHTML=rs.map((r,i)=>`<li${cc&&r.county&&r.county!==cc?' class="oc"':''}><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
   $('#sel').style.display=n?'':'none';
   $('#out').innerHTML=n?compose(rs):'';
   $('#copied').textContent='';
@@ -336,10 +349,12 @@ needUI();
 document.querySelectorAll('input[name=mc]').forEach(x=>x.addEventListener('change',render));
 $('#results').addEventListener('change',e=>{const k=e.target.closest('input[data-id]');if(!k)return;toggle(k.dataset.id,k.checked);k.closest('.card').classList.toggle('on',k.checked)});
 $('#sel').addEventListener('click',e=>{const m=e.target.closest('[data-mv]'),x=e.target.closest('[data-rm]');if(m){const i=+m.dataset.mv,j=i+ +m.dataset.d;[picked[i],picked[j]]=[picked[j],picked[i]];build()}if(x){picked=picked.filter(p=>p!==x.dataset.rm);build();render()}});
-$('#county').addEventListener('change',()=>{store.set('syncCounty',$('#county').value);render()});
+$('#county').addEventListener('change',()=>{store.set('syncCounty',$('#county').value);render();build()});
+$('#cwarn').addEventListener('click',e=>{const b=e.target.closest('[data-cw]');if(!b)return;const ids=($('#cwarn').dataset.ids||'').split(',').filter(Boolean);
+  if(b.dataset.cw==='rm')picked=picked.filter(x=>!ids.includes(x));else ids.forEach(i=>keepOther.add(i));build();render()});
 ['#q','#showState'].forEach(s=>$(s).addEventListener('input',render));
 $('#copy').addEventListener('click',copy);
-$('#clear').addEventListener('click',()=>{picked=[];build();render()});
+$('#clear').addEventListener('click',()=>{picked=[];keepOther.clear();build();render()});
 window.__sync={query,compose,byId,setNeeds,needs:NOPTS.map(n=>n[0]),get data(){return D}};
 try{
   D=JSON.parse(document.getElementById('resdata').textContent);
