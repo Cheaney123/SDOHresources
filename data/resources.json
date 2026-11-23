@@ -51,13 +51,13 @@
    "county": "Alameda",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – East Bay Paratransit (AC Transit/BART)",
-   "name": "East Bay Paratransit (AC Transit/BART)",
+   "name": "East Bay Paratransit",
    "phone": "510-287-5000",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
    "how": "Check MA plan transportation benefit first. Patient (or SW on 3-way) calls to request the ADA application; agencies have up to 21 days to decide, so start before cardiac rehab begins.",
    "web": "eastbayparatransit.org",
-   "notes": "Toll-free 800-555-8085. No same-day trips; book by 5 pm the day before. Union City Transit runs its own paratransit (510-675-5373).",
+   "notes": "Run by AC Transit and BART. Toll-free 800-555-8085. No same-day trips; book by 5 pm the day before. Union City Transit runs its own paratransit (510-675-5373).",
    "source": "eastbayparatransit.org; bart.gov",
    "verified": "2026-11-20",
    "flag": null,
@@ -120,7 +120,7 @@
    "county": "Alameda",
    "need": "Behavioral health",
    "label": "Behavioral health access & referral (ACCESS) – Alameda County",
-   "name": "Alameda County Behavioral Health (ACCESS Line)",
+   "name": "Alameda County Behavioral Health ACCESS Line",
    "phone": "800-491-9099 (Monday–Friday 8:30–5; after hours, Crisis Support Services 800-309-2131)",
    "medi": "Ongoing specialty MH: Yes. Crisis: No",
    "who": "County specialty mental health is a Medi-Cal benefit; crisis response is open to all",
@@ -141,7 +141,7 @@
     "unsure": "If you have Medi-Cal, call 800-491-9099 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c8",
@@ -172,7 +172,7 @@
    "county": "Alameda",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Alameda Alliance (ModivCare) 855-891-7171. Member services: Alliance 877-932-2738; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -217,7 +217,7 @@
    "county": "Alameda",
    "need": "Food",
    "label": "Medically tailored meals & groceries – Project Open Hand (Oakland)",
-   "name": "Project Open Hand (Oakland)",
+   "name": "Project Open Hand",
    "phone": "510-622-0221",
    "medi": "Varies",
    "who": "People with qualifying chronic or critical illness (e.g., heart failure, diabetes); Medi-Cal members via Alameda Alliance Community Supports",
@@ -232,7 +232,7 @@
    ],
    "summary": "Call 510-622-0221 to see if you qualify. They provide healthy meals and groceries made for health conditions like heart disease or diabetes. Who qualifies depends on your diagnosis and health plan, and your care team can send a referral.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c12",
@@ -405,7 +405,7 @@
    "county": "Amador",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Anthem Blue Cross 877-931-4755; Health Net 855-253-6863. Member services: Anthem Blue Cross 800-407-4627; Health Net 800-675-6110; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -427,7 +427,7 @@
    "county": "Contra Costa",
    "need": "Aging & caregiver info (AAA)",
    "label": "Contra Costa County Aging & Adult Services (Area Agency on Aging)",
-   "name": "Contra Costa County Aging & Adult Services (Area Agency on Aging)",
+   "name": "Contra Costa County Aging & Adult Services",
    "phone": "925-229-8434",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -442,7 +442,7 @@
    ],
    "summary": "Call 925-229-8434 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c21",
@@ -472,13 +472,13 @@
    "county": "Contra Costa",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – County Connection LINK (central county)",
-   "name": "County Connection LINK (central county)",
+   "name": "County Connection LINK Paratransit",
    "phone": "925-680-2134",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
    "how": "Check MA plan transportation benefit first. Patient (or SW on 3-way) calls to request the ADA application; agencies have up to 21 days to decide, so start before cardiac rehab begins.",
    "web": "countyconnection.com/paratransit",
-   "notes": "East county: Tri Delta Transit paratransit. West county: WestCAT / East Bay Paratransit (510-287-5000). Not sure which? Way to Go Contra Costa helpline 855-234-7433.",
+   "notes": "Serves central Contra Costa County. East county: Tri Delta Transit paratransit. West county: WestCAT / East Bay Paratransit (510-287-5000). Not sure which? Way to Go Contra Costa helpline 855-234-7433.",
    "source": "Tri Delta Transit ADA rider guide (7/2026); 511 Contra Costa; MTC mobility managers",
    "verified": "2026-11-20",
    "flag": null,
@@ -593,7 +593,7 @@
    "county": "Contra Costa",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Member services: Contra Costa Health Plan 877-661-6230; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -637,13 +637,13 @@
    "county": "Contra Costa",
    "need": "Food",
    "label": "Medically tailored meals & groceries – Project Open Hand (via Contra Costa Health Plan)",
-   "name": "Project Open Hand (via Contra Costa Health Plan)",
+   "name": "Project Open Hand",
    "phone": "Contra Costa Health Plan 877-661-6230",
    "medi": "Yes",
    "who": "Contra Costa Health Plan Medi-Cal members with qualifying chronic conditions (e.g., heart failure, diabetes, hypertension)",
    "how": "Provider submits CCHP MTM referral (CCHPCalAIMReferrals@cchealth.org or CCHP provider portal). Eligibility and referral pathway vary by county, diagnosis and health plan.",
    "web": "openhand.org/get-meals/how-apply",
-   "notes": "Kaiser Medi-Cal members: ask Kaiser (855-839-7613) about its MTM provider.",
+   "notes": "Through Contra Costa Health Plan. Kaiser Medi-Cal members: ask Kaiser (855-839-7613) about its MTM provider.",
    "source": "openhand.org – How to Apply; Contra Costa Health MTM referral form (June 2025)",
    "verified": "2026-11-20",
    "flag": null,
@@ -653,7 +653,7 @@
    ],
    "summary": "Call Contra Costa Health Plan 877-661-6230 to see if you qualify. They provide healthy meals and groceries made for health conditions like heart disease or diabetes. Who qualifies depends on your diagnosis and health plan, and your care team can send a referral.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c30",
@@ -826,7 +826,7 @@
    "county": "Del Norte",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -1037,7 +1037,7 @@
    "county": "El Dorado",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Anthem Blue Cross 877-931-4755. Member services: Anthem Blue Cross 800-407-4627; Mountain Valley Health Plan 888-936-7526; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -1081,13 +1081,13 @@
    "county": "Lake",
    "need": "Food",
    "label": "Food bank / pantry – Clear Lake Gleaners (Finley)",
-   "name": "Clear Lake Gleaners (Finley)",
+   "name": "Clear Lake Gleaners",
    "phone": "707-263-8082",
    "medi": "No",
    "who": "Open to all; senior food box (CSFP) is 60+ and income-based",
    "how": "Give number; patient calls for nearest pantry, senior box or delivery options. Pair with CalFresh screen (see Statewide) and Nutritionist.",
    "web": null,
-   "notes": null,
+   "notes": "Located in Finley.",
    "source": "Partnership HealthPlan Lake County food resources (verified 3/2026); refb.org",
    "verified": "2026-11-20",
    "flag": null,
@@ -1096,20 +1096,20 @@
    ],
    "summary": "Call 707-263-8082 to find free groceries near your home. They can also help you apply for CalFresh, which gives you money each month for groceries.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c49",
    "county": "Lake",
    "need": "Food",
    "label": "Food bank / pantry – Redwood Empire Food Bank (senior distributions in Lake County)",
-   "name": "Redwood Empire Food Bank (senior distributions in Lake County)",
+   "name": "Redwood Empire Food Bank",
    "phone": "707-523-7900",
    "medi": "No",
    "who": "Open to all; senior food box (CSFP) is 60+ and income-based",
    "how": "Give number; patient calls for nearest pantry, senior box or delivery options. Pair with CalFresh screen (see Statewide) and Nutritionist.",
    "web": "refb.org",
-   "notes": null,
+   "notes": "Senior distributions in Lake County.",
    "source": "Partnership HealthPlan Lake County food resources (verified 3/2026); refb.org",
    "verified": "2026-11-20",
    "flag": null,
@@ -1119,14 +1119,14 @@
    ],
    "summary": "Call 707-523-7900 to find free groceries near your home. They can also help you apply for CalFresh, which gives you money each month for groceries.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c50",
    "county": "Lake",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – Lake Transit Dial-A-Ride / Flex Stop",
-   "name": "Lake Transit Dial-A-Ride / Flex Stop",
+   "name": "Lake Transit Dial-A-Ride and Flex Stop",
    "phone": "707-263-3334",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
@@ -1247,7 +1247,7 @@
    "county": "Lake",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -1269,7 +1269,7 @@
    "county": "Marin",
    "need": "Aging & caregiver info (AAA)",
    "label": "County of Marin Aging & Adult Services (information line)",
-   "name": "County of Marin Aging & Adult Services (information line)",
+   "name": "Marin County Aging & Adult Services",
    "phone": "415-473-4636",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -1284,7 +1284,7 @@
    ],
    "summary": "Call 415-473-4636 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c57",
@@ -1314,13 +1314,13 @@
    "county": "Marin",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – Marin Access (paratransit, volunteer driver, Catch-A-Ride)",
-   "name": "Marin Access (paratransit, volunteer driver, Catch-A-Ride)",
+   "name": "Marin Access",
    "phone": "415-454-0902",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
    "how": "Check MA plan transportation benefit first. Patient (or SW on 3-way) calls to request the ADA application; agencies have up to 21 days to decide, so start before cardiac rehab begins.",
    "web": "marintransit.gov/marin-access",
-   "notes": "Travel Navigators help with eligibility. 65+ residents can use Catch-A-Ride and volunteer driver programs without ADA certification.",
+   "notes": "Paratransit, volunteer drivers and Catch-A-Ride. Travel Navigators help with eligibility. 65+ residents can use Catch-A-Ride and volunteer driver programs without ADA certification.",
    "source": "marintransit.gov",
    "verified": "2026-11-20",
    "flag": null,
@@ -1435,7 +1435,7 @@
    "county": "Marin",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -1525,7 +1525,7 @@
    "county": "Merced",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – Merced County Transit \"The Bus\"",
-   "name": "Merced County Transit \"The Bus\"",
+   "name": "Merced County Transit",
    "phone": "ADAride 877-232-7433 (to apply; The Bus main line 209-723-3100)",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
@@ -1644,7 +1644,7 @@
    "county": "Merced",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Member services: Central California Alliance 800-700-3874",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -1711,13 +1711,13 @@
    "county": "Nevada",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – Nevada County Now paratransit (formerly Gold Country Lift)",
-   "name": "Nevada County Now paratransit (formerly Gold Country Lift)",
+   "name": "Nevada County Now Paratransit",
    "phone": "530-271-7433",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
    "how": "Check MA plan transportation benefit first. Patient (or SW on 3-way) calls to request the ADA application; agencies have up to 21 days to decide, so start before cardiac rehab begins.",
    "web": "nevadacountyconnects.com",
-   "notes": "Also senior (65+) Dial-a-Ride. Transit Services Division 530-477-0103.",
+   "notes": "Formerly Gold Country Lift. Also senior (65+) Dial-a-Ride. Transit Services Division 530-477-0103.",
    "source": "BenefitsCheckUp; YubaNet; Partnership HealthPlan",
    "verified": "2026-11-20",
    "flag": "Listed from secondary sources; confirm details with the agency.",
@@ -1832,7 +1832,7 @@
    "county": "Nevada",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -1899,13 +1899,13 @@
    "county": "Placer",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – South Placer Transit Information Center (PCT Dial-A-Ride, Roseville Transit)",
-   "name": "South Placer Transit Information Center (PCT Dial-A-Ride, Roseville Transit)",
+   "name": "South Placer Transit Information Center",
    "phone": "916-745-7560",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
    "how": "Check MA plan transportation benefit first. Patient (or SW on 3-way) calls to request the ADA application; agencies have up to 21 days to decide, so start before cardiac rehab begins.",
    "web": "placercountytransit.com/dial-a-ride",
-   "notes": "Also 530-745-7560. Placer Rides (medical appointments only, when transit isn't an option): 530-889-9500.",
+   "notes": "PCT Dial-A-Ride and Roseville Transit. Also 530-745-7560. Placer Rides (medical appointments only, when transit isn't an option): 530-889-9500.",
    "source": "placercountytransit.com; roseville.ca.gov; auburn.ca.gov",
    "verified": "2026-11-20",
    "flag": null,
@@ -2020,7 +2020,7 @@
    "county": "Placer",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -2156,7 +2156,7 @@
    "county": "Sacramento",
    "need": "Behavioral health",
    "label": "Behavioral health line (BHS-SAC) – Sacramento County",
-   "name": "Sacramento County Behavioral Health (BHS-SAC)",
+   "name": "Sacramento County Behavioral Health Services",
    "phone": "916-875-1055",
    "medi": "Ongoing specialty MH: Yes. Crisis: No",
    "who": "Ongoing care: Medi-Cal or uninsured. Crisis help: open to all",
@@ -2177,7 +2177,7 @@
     "unsure": "If you have Medi-Cal, call 916-875-1055 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c95",
@@ -2209,7 +2209,7 @@
    "county": "Sacramento",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Anthem Blue Cross 877-931-4755; Health Net 855-253-6863; Molina 844-292-2688. Member services: Anthem Blue Cross 800-407-4627; Health Net 800-675-6110; Molina 888-665-4621; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -2253,7 +2253,7 @@
    "county": "Sacramento",
    "need": "Housing & legal",
    "label": "2-1-1 Sacramento (housing, utility and food help)",
-   "name": "2-1-1 Sacramento (housing, utility and food help)",
+   "name": "211 Sacramento",
    "phone": "2-1-1 or 916-498-1000",
    "medi": "No",
    "who": "Anyone",
@@ -2268,14 +2268,14 @@
    ],
    "summary": "Call 2-1-1 or 916-498-1000 to get connected with local help for housing, utility bills, food and more.",
    "zcodes": "Z59.811 Housing instability, housed, with risk of homelessness; Z59.0- Homelessness; Z59.2 Discord with neighbors, lodgers and landlord; Z65.3 Problems related to other legal circumstances",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c99",
    "county": "Sacramento",
    "need": "Transportation",
    "label": "Senior rides (door-through-door) – ACC Rides, ACC Senior Services",
-   "name": "ACC Rides (ACC Senior Services)",
+   "name": "ACC Rides",
    "phone": "916-393-9026 ext. 333",
    "medi": "No",
    "who": "Older adults in Sacramento County without other transportation",
@@ -2290,14 +2290,14 @@
    ],
    "summary": "Call 916-393-9026 ext. 333 to sign up. They offer rides for older adults to medical appointments, shopping and errands.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c100",
    "county": "Sacramento",
    "need": "Utilities",
    "label": "SMUD bill discounts – Energy Assistance Program Rate (EAPR) & Medical Equipment Discount (MED Rate)",
-   "name": "SMUD bill discounts",
+   "name": "SMUD Bill Discounts",
    "phone": "888-742-7683",
    "medi": "No",
    "who": "SMUD customers: income-eligible (EAPR); household member uses qualifying electric medical equipment (MED Rate, $15/month)",
@@ -2313,14 +2313,14 @@
    ],
    "summary": "Call 888-742-7683 or apply online for discounts on your SMUD electric bill if your income is limited or you use electric medical equipment at home.",
    "zcodes": "Z59.861 Financial insecurity, difficulty paying for utilities; Z59.12 Inadequate housing utilities",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c101",
    "county": "San Francisco",
    "need": "Aging & caregiver info (AAA)",
    "label": "Benefits & Resources Hub intake line – SF Disability & Aging Services (DAS)",
-   "name": "San Francisco Disability & Aging Services (DAS) Benefits & Resources Hub",
+   "name": "SF Disability & Aging Services Benefits & Resources Hub",
    "phone": "415-355-6700",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -2335,7 +2335,7 @@
    ],
    "summary": "Call 415-355-6700 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c102",
@@ -2365,7 +2365,7 @@
    "county": "San Francisco",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – SF Paratransit (SFMTA)",
-   "name": "SF Paratransit (SFMTA)",
+   "name": "SF Paratransit",
    "phone": "415-351-7000",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
@@ -2486,7 +2486,7 @@
    "county": "San Francisco",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Anthem Blue Cross 877-931-4755. Member services: Anthem Blue Cross 800-407-4627; SF Health Plan 800-288-5555; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -2508,7 +2508,7 @@
    "county": "San Francisco",
    "need": "Food",
    "label": "Home-delivered meals & community dining – SF DAS Nutrition Services",
-   "name": "San Francisco Disability & Aging Services (DAS) meals",
+   "name": "SF Disability & Aging Services Meals",
    "phone": "415-355-6700",
    "medi": "No",
    "who": "Older adults and adults with disabilities in SF",
@@ -2523,14 +2523,14 @@
    ],
    "summary": "Call 415-355-6700 to sign up. They offer healthy meals delivered to your home, or meals at a community dining site near you.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c110",
    "county": "San Francisco",
    "need": "Caregiver (strain, lack of support)",
    "label": "Caregiver & dementia support (support groups, respite) – SF DAS",
-   "name": "San Francisco Disability & Aging Services (DAS) caregiver & dementia support",
+   "name": "SF Disability & Aging Services Caregiver & Dementia Support",
    "phone": "415-355-6700",
    "medi": "No",
    "who": "Family caregivers of older adults or adults with disabilities in SF",
@@ -2547,14 +2547,14 @@
    ],
    "summary": "Your caregiver can call 415-355-6700 to learn more. They offer support groups, dementia support and short breaks (respite) for family members who help care for you.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c111",
    "county": "San Francisco",
    "need": "Housing & legal",
    "label": "Housing support (eviction/tenancy help, assisted living, housing case management) – SF DAS",
-   "name": "San Francisco Disability & Aging Services (DAS) housing support",
+   "name": "SF Disability & Aging Services Housing Support",
    "phone": "415-355-6700",
    "medi": "No",
    "who": "Older adults and adults with disabilities in SF",
@@ -2569,20 +2569,20 @@
    ],
    "summary": "Call 415-355-6700 and ask for Housing Resource Programs. They help with housing problems, such as eviction or finding assisted living.",
    "zcodes": "Z59.811 Housing instability, housed, with risk of homelessness; Z59.0- Homelessness; Z59.2 Discord with neighbors, lodgers and landlord; Z65.3 Problems related to other legal circumstances",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c113",
    "county": "San Francisco",
    "need": "Aging & caregiver info (AAA)",
    "label": "Care management, transportation coordination & day programs – Institute on Aging (IOA Connect)",
-   "name": "Institute on Aging (IOA Connect)",
+   "name": "Institute on Aging",
    "phone": "415-750-4111",
    "medi": "No",
    "who": "Older adults in SF and their families; some services private pay",
    "how": "Patient, family or SW calls IOA Connect. Home support is private pay; ask about free consultation and Medi-Cal programs (MSSP 65+).",
    "web": "ioaging.org",
-   "notes": "3575 Geary Blvd. Also runs the Friendship Line (Statewide).",
+   "notes": "Program name: IOA Connect. 3575 Geary Blvd. Also runs the Friendship Line (Statewide).",
    "source": "ioaging.org; UCSF Geriatrics community resources",
    "verified": "2026-11-20",
    "flag": null,
@@ -2591,7 +2591,7 @@
    ],
    "summary": "Call 415-750-4111 to talk with a care coordinator. They can help you plan and arrange care at home, rides and adult day programs.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c114",
@@ -2620,7 +2620,7 @@
    "county": "San Francisco",
    "need": "Housing & legal",
    "label": "Free home repairs & safety modifications – Rebuilding Together SF (Safe at Home)",
-   "name": "Rebuilding Together SF (Safe at Home)",
+   "name": "Rebuilding Together SF Safe at Home",
    "phone": "415-905-1611",
    "medi": "No",
    "who": "Low-income older adults and people with disabilities in SF",
@@ -2635,14 +2635,14 @@
    ],
    "summary": "Call 415-905-1611 or apply online. They offer free home repairs and safety changes, such as grab bars, for older adults with limited income.",
    "zcodes": "Z59.811 Housing instability, housed, with risk of homelessness; Z59.0- Homelessness; Z59.2 Discord with neighbors, lodgers and landlord; Z65.3 Problems related to other legal circumstances",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c116",
    "county": "San Francisco",
    "need": "Caregiver (strain, lack of support)",
    "label": "Respite grant for unpaid caregivers – Institute on Aging (Temporary Respite Caregiver Support)",
-   "name": "Institute on Aging (Temporary Respite Caregiver Support)",
+   "name": "Institute on Aging Temporary Respite Caregiver Support",
    "phone": "415-750-4111",
    "medi": "No",
    "who": "Unpaid caregivers (18+) in SF caring at home for an SF adult 60+, or 18+ with a disability or cognitive impairment",
@@ -2658,14 +2658,14 @@
    ],
    "summary": "Your caregiver can call 415-750-4111 to see if they qualify. This program helps pay for short breaks (respite) for unpaid family caregivers.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c117",
    "county": "San Francisco",
    "need": "Food",
    "label": "Medically tailored meals & groceries – Project Open Hand (Wellness Program)",
-   "name": "Project Open Hand (Wellness Program)",
+   "name": "Project Open Hand Wellness Program",
    "phone": "415-447-2326",
    "medi": "Varies",
    "who": "SF residents with qualifying critical or chronic illness (e.g., heart failure, diabetes); Medi-Cal members via SF Health Plan or Anthem Community Supports",
@@ -2680,7 +2680,7 @@
    ],
    "summary": "Call 415-447-2326 to see if you qualify. They provide healthy meals and groceries made for health conditions like heart disease or diabetes. Who qualifies depends on your diagnosis and health plan, and your care team can send a referral.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c118",
@@ -2731,7 +2731,7 @@
    "county": "San Joaquin",
    "need": "Food",
    "label": "Food bank / pantry – Emergency Food Bank (Stockton)",
-   "name": "Emergency Food Bank (Stockton)",
+   "name": "Emergency Food Bank of Stockton",
    "phone": "209-464-7369",
    "medi": "No",
    "who": "San Joaquin County residents; bring current photo ID and proof of county address. Main pantry M–F 9–12.",
@@ -2747,7 +2747,7 @@
    ],
    "summary": "Call 209-464-7369 to find free groceries near your home. They can also help you apply for CalFresh, which gives you money each month for groceries.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c121",
@@ -2777,7 +2777,7 @@
    "county": "San Joaquin",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – Access San Joaquin / RTD Dial-A-Ride",
-   "name": "Access San Joaquin / RTD Dial-A-Ride",
+   "name": "Access San Joaquin and RTD Dial-A-Ride",
    "phone": "209-242-9965",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
@@ -2898,7 +2898,7 @@
    "county": "San Joaquin",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Health Net 855-253-6863. Member services: Health Net 800-675-6110; Health Plan of San Joaquin 888-936-7526; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -2920,7 +2920,7 @@
    "county": "San Mateo",
    "need": "Aging & caregiver info (AAA)",
    "label": "Aging & Disability Services TIES line – San Mateo County",
-   "name": "San Mateo County Aging & Disability Services (TIES line)",
+   "name": "San Mateo County Aging & Disability Services TIES Line",
    "phone": "800-675-8437",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -2935,14 +2935,14 @@
    ],
    "summary": "Call 800-675-8437 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c129",
    "county": "San Mateo",
    "need": "Food",
    "label": "Free groceries & CalFresh help – Second Harvest of Silicon Valley (Food Connection)",
-   "name": "Second Harvest of Silicon Valley (Food Connection)",
+   "name": "Second Harvest of Silicon Valley",
    "phone": "800-984-3663",
    "medi": "No",
    "who": "Open to all; senior food box (CSFP) is 60+ and income-based",
@@ -2958,14 +2958,14 @@
    ],
    "summary": "Call 800-984-3663 to find free groceries near your home. They can also help you apply for CalFresh, which gives you money each month for groceries.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c130",
    "county": "San Mateo",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – SamTrans Redi-Wheels / RediCoast",
-   "name": "SamTrans Redi-Wheels / RediCoast",
+   "name": "SamTrans Redi-Wheels and RediCoast",
    "phone": "650-366-4856",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
@@ -3086,7 +3086,7 @@
    "county": "San Mateo",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Member services: Health Plan of San Mateo 800-750-4776; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -3152,7 +3152,7 @@
    "county": "San Mateo",
    "need": "Housing & legal",
    "label": "2-1-1 San Mateo County (housing, utility and food help)",
-   "name": "2-1-1 San Mateo County (housing, utility and food help)",
+   "name": "211 San Mateo County",
    "phone": "2-1-1 (24/7), or text your ZIP code to 898211",
    "medi": "No",
    "who": "Anyone",
@@ -3167,14 +3167,14 @@
    ],
    "summary": "Call 2-1-1 (24/7), or text your ZIP code to 898211 to get connected with local help for housing, utility bills, food and more.",
    "zcodes": "Z59.811 Housing instability, housed, with risk of homelessness; Z59.0- Homelessness; Z59.2 Discord with neighbors, lodgers and landlord; Z65.3 Problems related to other legal circumstances",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c139",
    "county": "Santa Barbara",
    "need": "Aging & caregiver info (AAA)",
    "label": "Central Coast Commission for Senior Citizens (Area Agency on Aging)",
-   "name": "Central Coast Commission for Senior Citizens (Area Agency on Aging)",
+   "name": "Central Coast Commission for Senior Citizens",
    "phone": "805-925-9554",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -3189,7 +3189,7 @@
    ],
    "summary": "Call 805-925-9554 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c140",
@@ -3219,7 +3219,7 @@
    "county": "Santa Barbara",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – Easy Lift Dial-a-Ride (South Coast only)",
-   "name": "Easy Lift Dial-a-Ride (South Coast only)",
+   "name": "Easy Lift Dial-A-Ride",
    "phone": "805-681-1181",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
@@ -3340,7 +3340,7 @@
    "county": "Santa Barbara",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: CenCal (Ventura Transit System) 855-659-4600. Member services: CenCal 877-814-1861",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -3362,7 +3362,7 @@
    "county": "Santa Clara",
    "need": "Aging & caregiver info (AAA)",
    "label": "Senior information line – Sourcewise (Area Agency on Aging)",
-   "name": "Sourcewise (Area Agency on Aging)",
+   "name": "Sourcewise",
    "phone": "408-350-3200",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -3377,14 +3377,14 @@
    ],
    "summary": "Call 408-350-3200 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c148",
    "county": "Santa Clara",
    "need": "Food",
    "label": "Free groceries & CalFresh help – Second Harvest of Silicon Valley (Food Connection)",
-   "name": "Second Harvest of Silicon Valley (Food Connection)",
+   "name": "Second Harvest of Silicon Valley",
    "phone": "800-984-3663",
    "medi": "No",
    "who": "Open to all; senior food box (CSFP) is 60+ and income-based",
@@ -3400,7 +3400,7 @@
    ],
    "summary": "Call 800-984-3663 to find free groceries near your home. They can also help you apply for CalFresh, which gives you money each month for groceries.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c149",
@@ -3429,7 +3429,7 @@
    "county": "Santa Clara",
    "need": "Utilities",
    "label": "Energy bill help (LIHEAP) – Sacred Heart Community Service (bill assistance)",
-   "name": "Sacred Heart Community Service (bill assistance)",
+   "name": "Sacred Heart Community Service",
    "phone": "877-278-6455",
    "medi": "No",
    "who": "Income-based (federal LIHEAP guidelines); any insurance",
@@ -3446,7 +3446,7 @@
    ],
    "summary": "Call 877-278-6455 to apply for help paying your gas or electric bill if your income is limited. Have a recent utility bill, proof of income and a photo ID ready.",
    "zcodes": "Z59.861 Financial insecurity, difficulty paying for utilities; Z59.12 Inadequate housing utilities",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c151",
@@ -3523,7 +3523,7 @@
    "county": "Santa Clara",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Anthem Blue Cross 877-931-4755. Member services: Anthem Blue Cross 800-407-4627; Santa Clara Family Health Plan 800-260-2055; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -3545,7 +3545,7 @@
    "county": "Santa Clara",
    "need": "Food",
    "label": "Home-delivered meals – Meals on Wheels (Sourcewise)",
-   "name": "Meals on Wheels (Sourcewise)",
+   "name": "Sourcewise Meals on Wheels",
    "phone": "408-350-3200, option 4",
    "medi": "No",
    "who": "Homebound adults 60+ in Santa Clara County who can't shop or cook",
@@ -3560,7 +3560,7 @@
    ],
    "summary": "Call 408-350-3200 and choose option 4 to sign up. They deliver healthy meals to your home if shopping or cooking is hard for you.",
    "zcodes": "Z59.41 Food insecurity; Z59.48 Other specified lack of adequate food",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c156",
@@ -3589,7 +3589,7 @@
    "county": "Santa Clara",
    "need": "Housing & legal",
    "label": "2-1-1 Santa Clara County (housing, utility and food help)",
-   "name": "2-1-1 Santa Clara County (housing, utility and food help)",
+   "name": "211 Santa Clara County",
    "phone": "2-1-1 (24/7), or text your ZIP code to 898211",
    "medi": "No",
    "who": "Anyone",
@@ -3604,7 +3604,7 @@
    ],
    "summary": "Call 2-1-1 (24/7), or text your ZIP code to 898211 to get connected with local help for housing, utility bills, food and more.",
    "zcodes": "Z59.811 Housing instability, housed, with risk of homelessness; Z59.0- Homelessness; Z59.2 Discord with neighbors, lodgers and landlord; Z65.3 Problems related to other legal circumstances",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c158",
@@ -3634,7 +3634,7 @@
    "county": "Santa Cruz",
    "need": "Aging & caregiver info (AAA)",
    "label": "Seniors Council of Santa Cruz & San Benito Counties (Area Agency on Aging)",
-   "name": "Seniors Council of Santa Cruz & San Benito Counties (Area Agency on Aging)",
+   "name": "Seniors Council of Santa Cruz & San Benito Counties",
    "phone": "831-688-0400",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -3649,7 +3649,7 @@
    ],
    "summary": "Call 831-688-0400 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c160",
@@ -3800,7 +3800,7 @@
    "county": "Santa Cruz",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Member services: Central California Alliance 800-700-3874; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -3988,7 +3988,7 @@
    "county": "Solano",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -4010,7 +4010,7 @@
    "county": "Sonoma",
    "need": "Aging & caregiver info (AAA)",
    "label": "Sonoma County Area Agency on Aging (ADRC line)",
-   "name": "Sonoma County Area Agency on Aging (ADRC line)",
+   "name": "Sonoma County Area Agency on Aging",
    "phone": "707-565-4636",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -4025,7 +4025,7 @@
    ],
    "summary": "Call 707-565-4636 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c176",
@@ -4176,7 +4176,7 @@
    "county": "Sonoma",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -4221,7 +4221,7 @@
    "county": "Stanislaus",
    "need": "Aging & caregiver info (AAA)",
    "label": "Stanislaus County Department of Aging & Veterans Services (Area Agency on Aging)",
-   "name": "Stanislaus County Department of Aging & Veterans Services (Area Agency on Aging)",
+   "name": "Stanislaus County Department of Aging & Veterans Services",
    "phone": "209-558-8698",
    "medi": "No",
    "who": "Adults 60+ and family caregivers; any insurance",
@@ -4236,7 +4236,7 @@
    ],
    "summary": "Call 209-558-8698 and tell them what would be most helpful to you. They can help you find local services like meals delivered to your home, rides, help at home, Medicare counseling, and support for family caregivers.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c185",
@@ -4266,13 +4266,13 @@
    "county": "Stanislaus",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – MOVE Stanislaus (ADA eligibility for all county providers)",
-   "name": "MOVE Stanislaus (ADA eligibility for all county providers)",
+   "name": "MOVE Stanislaus",
    "phone": "209-672-1143",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
    "how": "Check MA plan transportation benefit first. Patient (or SW on 3-way) calls to request the ADA application; agencies have up to 21 days to decide, so start before cardiac rehab begins.",
    "web": "stanrta.org",
-   "notes": "StanRTA (\"The S\") dial-a-ride/paratransit: 209-527-4900. Turlock Transit runs its own paratransit.",
+   "notes": "Handles ADA eligibility for all county providers. StanRTA (\"The S\") dial-a-ride/paratransit: 209-527-4900. Turlock Transit runs its own paratransit.",
    "source": "stancounty.com Aging & Veterans Services; turlocktransit.com",
    "verified": "2026-11-20",
    "flag": null,
@@ -4387,7 +4387,7 @@
    "county": "Stanislaus",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Health Net 855-253-6863. Member services: Health Net 800-675-6110; Health Plan of San Joaquin 888-936-7526; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -4575,7 +4575,7 @@
    "county": "Sutter",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -4642,13 +4642,13 @@
    "county": "Yolo",
    "need": "Transportation",
    "label": "Paratransit / dial-a-ride – Yolobus Special (ADA paratransit)",
-   "name": "Yolobus Special (ADA paratransit)",
+   "name": "Yolobus Special",
    "phone": "530-666-2877",
    "medi": "No",
    "who": "Disability or health condition that prevents using the fixed-route bus; any insurance",
    "how": "Check MA plan transportation benefit first. Patient (or SW on 3-way) calls to request the ADA application; agencies have up to 21 days to decide, so start before cardiac rehab begins.",
    "web": "yolobus.com/paratransit",
-   "notes": "Also 916-371-2877. Davis Community Transit (Davis): 530-747-8240.",
+   "notes": "ADA paratransit. Also 916-371-2877. Davis Community Transit (Davis): 530-747-8240.",
    "source": "yolobus.com; cityofdavis.org",
    "verified": "2026-11-20",
    "flag": null,
@@ -4763,7 +4763,7 @@
    "county": "Yolo",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -4951,7 +4951,7 @@
    "county": "Yuba",
    "need": "Transportation",
    "label": "Medi-Cal rides to medical appointments (NEMT/NMT) – patient's Medi-Cal plan",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Ride scheduling: Partnership 866-828-2303. Member services: Partnership 800-863-4155; Kaiser 855-839-7613",
    "medi": "Yes",
    "who": "Medi-Cal members going to Medi-Cal-covered appointments. Ask the plan to confirm the visit (e.g., cardiac rehab) and the ride are covered.",
@@ -5048,7 +5048,7 @@
    "id": "s5",
    "need": "Safety / crisis",
    "label": "Long-Term Care Ombudsman CRISISline",
-   "name": "Long-Term Care Ombudsman CRISISline",
+   "name": "Long-Term Care Ombudsman Crisis Line",
    "phone": "800-231-4024",
    "medi": "No",
    "who": "Residents of nursing homes and residential care facilities",
@@ -5062,13 +5062,13 @@
    "verified": "2026-11-20",
    "source": "California Department of Aging, Long-Term Care Ombudsman page",
    "zcodes": "N/A: clinical codes (e.g., T74/T76 abuse codes) per assessment",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "s6",
    "need": "Isolation / mood",
    "label": "Friendship Line California (Institute on Aging)",
-   "name": "Friendship Line California (Institute on Aging)",
+   "name": "Friendship Line California",
    "phone": "888-670-1360",
    "medi": "No",
    "who": "Adults 60+ and adults with disabilities; caregivers",
@@ -5080,7 +5080,7 @@
    ],
    "summary": "Call 888-670-1360 any time to talk with someone friendly. You can also ask for regular check-in calls. It's free and open 24/7.",
    "zcodes": "Z60.2 Problems related to living alone; Z60.4 Social exclusion and rejection",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s7",
@@ -5104,7 +5104,7 @@
    "id": "s8",
    "need": "Insurance / benefits",
    "label": "HICAP – free Medicare counseling",
-   "name": "HICAP – free Medicare counseling",
+   "name": "HICAP Medicare Counseling",
    "phone": "800-434-0222",
    "medi": "No",
    "who": "Medicare beneficiaries and families",
@@ -5115,8 +5115,8 @@
     "https://aging.ca.gov/hicap"
    ],
    "summary": "Call 800-434-0222 for free, unbiased help with Medicare, like comparing plans, lowering drug costs and answering billing questions. They don't sell anything.",
-   "zcodes": "Z59.71 Insufficient health insurance coverage; Z59.72 Insufficient welfare support",
-   "updated": "2026-11-21"
+   "zcodes": "Z59.71 Insufficient health insurance coverage (only if a coverage gap is documented)",
+   "updated": "2026-11-22"
   },
   {
    "id": "s9",
@@ -5158,7 +5158,7 @@
    "id": "s11",
    "need": "Medication affordability",
    "label": "Pharm-tech path: HealthWell → Cost Plus Drugs → manufacturer assistance",
-   "name": "Pharmacy technician referral",
+   "name": "Pharmacy Technician Referral",
    "phone": "Pharmacy team (internal)",
    "medi": "No",
    "who": "Patients who can't afford medications (eligibility differs at each step)",
@@ -5177,7 +5177,7 @@
    "id": "s12",
    "need": "Utilities",
    "label": "PG&E CARE / FERA bill discount",
-   "name": "PG&E CARE / FERA bill discount",
+   "name": "PG&E CARE and FERA Bill Discounts",
    "phone": "866-743-2273",
    "medi": "No",
    "who": "Income-qualified PG&E customers (or enrolled in qualifying public programs)",
@@ -5190,7 +5190,7 @@
    ],
    "summary": "Call 866-743-2273 or apply online for a monthly discount on your PG&E bill if your income is limited. You don't need to send proof of income to apply.",
    "zcodes": "Z59.861 Financial insecurity, difficulty paying for utilities; Z59.12 Inadequate housing utilities",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s13",
@@ -5214,7 +5214,7 @@
    "id": "s14",
    "need": "Phone access",
    "label": "California LifeLine (discounted phone)",
-   "name": "California LifeLine (discounted phone service)",
+   "name": "California LifeLine",
    "phone": "866-272-0357",
    "medi": "No",
    "who": "Low-income households or those in qualifying programs",
@@ -5226,7 +5226,7 @@
    ],
    "summary": "Call 866-272-0357 or apply through your phone company for a discount on home or cell phone service if your income is limited.",
    "zcodes": "No specific Z-code; Z59.87 Material hardship due to limited financial resources may apply",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s16",
@@ -5270,7 +5270,7 @@
    "id": "s18",
    "need": "Insurance / benefits",
    "label": "Medicare Savings Programs",
-   "name": "Medicare Savings Programs (help paying Medicare costs)",
+   "name": "Medicare Savings Programs",
    "phone": "HICAP 800-434-0222 (free help applying); Medi-Cal Helpline 800-541-5555 (county office)",
    "medi": "No",
    "who": "Medicare beneficiaries with limited income. No asset test since January 1, 2024. Existing Medi-Cal not required.",
@@ -5284,15 +5284,15 @@
    "summary": "Medicare Savings Programs can help pay your Medicare premiums. You don't need to already have Medi-Cal. Call HICAP at 800-434-0222 for free help checking if you qualify, or apply online at BenefitsCal.",
    "verified": "2026-11-20",
    "source": "DHCS Medicare Savings Programs in California",
-   "zcodes": "Z59.71 Insufficient health insurance coverage; Z59.72 Insufficient welfare support",
-   "updated": "2026-11-21"
+   "zcodes": "Z59.868 Other specified financial insecurity; Z59.71 Insufficient health insurance coverage (only if a coverage gap is documented)",
+   "updated": "2026-11-22"
   },
   {
    "id": "s19",
    "need": "Plan benefits",
-   "label": "Patient's health plan member services",
-   "name": "Your health plan's member services",
-   "phone": "Number on member card",
+   "label": "Plan benefits, rides and coverage questions",
+   "name": "Health Plan's Member Services",
+   "phone": "Number on member ID card",
    "medi": "No",
    "who": "Medicare Advantage, SutterSelect, Sutter Health Plan members",
    "how": "Check supplemental benefits first: transportation, post-discharge meals, OTC allowance, BH benefit.",
@@ -5300,14 +5300,14 @@
    "ql": "Transportation; Food; Insurance & benefits; Behavioral health; Medication affordability",
    "links": [],
    "summary": "Call the number on your member card and ask what extra benefits your plan covers, such as rides, meals after a hospital stay or money for over-the-counter items.",
-   "zcodes": "Z59.71 Insufficient health insurance coverage",
-   "updated": "2026-11-21"
+   "zcodes": "N/A: code the underlying need (e.g., Z59.82 for transportation, Z59.41 for food)",
+   "updated": "2026-11-22"
   },
   {
    "id": "s20",
    "need": "Transportation",
    "label": "Medi-Cal NEMT / NMT rides to medical appointments",
-   "name": "Medi-Cal rides to medical appointments",
+   "name": "Medi-Cal Rides to Medical Appointments",
    "phone": "Medi-Cal plan member services (number on card)",
    "medi": "Yes",
    "who": "Medi-Cal members going to covered medical appointments. NEMT (wheelchair van, litter van) needs a provider prescription/PCS form; NMT (car, rideshare, transit) for full-scope Medi-Cal",
@@ -5319,13 +5319,13 @@
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments. Call the number on your Medi-Cal plan card as early as you can (most plans ask for 3 to 5 business days' notice) and ask them to confirm your visit and ride are covered.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s21",
    "need": "Behavioral health",
    "label": "Medicare counseling benefit (ask doctor for a referral)",
-   "name": "Medicare counseling benefit",
+   "name": "Medicare Counseling Benefit",
    "phone": "Number on member card",
    "medi": "No",
    "who": "Medicare and Medicare Advantage members",
@@ -5337,13 +5337,13 @@
    ],
    "summary": "Medicare covers counseling and therapy. Ask your doctor for a referral, or call the number on your member card to find a counselor.",
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s22",
    "need": "Utilities",
    "label": "Energy bill help (LIHEAP) – CSD statewide line",
-   "name": "Energy bill help (LIHEAP)",
+   "name": "LIHEAP Energy Bill Help",
    "phone": "866-675-6623",
    "medi": "No",
    "who": "Income-eligible households (federal LIHEAP guidelines)",
@@ -5355,7 +5355,7 @@
    ],
    "summary": "Call 866-675-6623 (Monday–Friday, 8 to 5) to find the agency near you that helps pay gas and electric bills when income is limited.",
    "zcodes": "Z59.861 Financial insecurity, difficulty paying for utilities; Z59.12 Inadequate housing utilities",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s23",
@@ -5398,7 +5398,7 @@
    "id": "s25",
    "need": "Caregiver (strain, lack of support)",
    "label": "National caregiver support lines (AARP, Caregiver Action Network, Well Spouse)",
-   "name": "Caregiver support lines (AARP, Caregiver Action Network, Well Spouse)",
+   "name": "National Caregiver Support Lines",
    "phone": "AARP 877-333-5885; CAN help desk 855-227-3640; Well Spouse 800-838-0879",
    "medi": "No",
    "who": "Family caregivers anywhere in the US; Well Spouse is for spousal caregivers",
@@ -5412,7 +5412,7 @@
    ],
    "summary": "These lines offer support and online groups for family caregivers, including spouses: AARP 877-333-5885; Caregiver Action Network 855-227-3640; Well Spouse 800-838-0879.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s26",
@@ -5490,7 +5490,7 @@
    "id": "s30",
    "need": "Insurance / benefits",
    "label": "Medi-Cal application",
-   "name": "Medi-Cal: apply or check coverage",
+   "name": "Medi-Cal Application and Coverage",
    "phone": "800-541-5555",
    "medi": "No",
    "who": "Income-eligible Californians without Medi-Cal, or unsure of coverage.",
@@ -5503,8 +5503,8 @@
    "summary": "You can apply for Medi-Cal online at BenefitsCal or at your county office. For questions, call the Medi-Cal Helpline at 800-541-5555.",
    "verified": "2026-11-20",
    "source": "DHCS Medicare Savings Programs in California",
-   "zcodes": "Z59.71 Insufficient health insurance coverage; Z59.72 Insufficient welfare support",
-   "updated": "2026-11-20"
+   "zcodes": "Z59.71 Insufficient health insurance coverage (if uninsured or underinsured)",
+   "updated": "2026-11-22"
   }
  ],
  "opening": "Hi @FNAME@,\n\nIt was good speaking with you today. I wanted to send you the {res} we talked about so you have {it} handy whenever you’re ready.\n\n",
