@@ -266,7 +266,7 @@ function phHtml(p){if(/:/.test(p))return `<span class="ph long">${p.split(/\.\s+
 function card(r){
   const on=picked.includes(r.id);
   const det=[["Who it's for",r.who],["How to refer",r.how],["Notes",r.notes],["Medi-Cal",r.medi],["Website",r.web?`<a href="${/^https?:/.test(r.web)?esc(r.web):'https://'+esc(r.web)}" target="_blank" rel="noopener">${esc(r.web.replace(/^https?:\/\//,''))}</a>`:null,1],["Links to send",r.links&&r.links.length?r.links.map(linkHtml).join('<br>'):null,1],["Suggested Z-code(s)",r.zcodes&&!/^N\/A/.test(r.zcodes)?r.zcodes:null],["Source",r.source||null],["Verification note",r.flag||null],["Last updated",r.updated||null]].filter(x=>x[1]);
-  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${subLabel(r)?`<div class="lab">${esc(subLabel(r))}</div>`:''}${r.action?`<div class="act"><b>Staff step:</b> ${esc(r.action)}</div>`:''}<div class="facts">${r.phone&&!/internal/i.test(r.phone)?phHtml(r.phone):''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal only · confirm coverage':'Medi-Cal only'}</span>`:''}</div><details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
+  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${subLabel(r)?`<div class="lab">${esc(subLabel(r))}</div>`:''}${r.action?`<div class="act"><b>Staff Step:</b> ${esc(r.action)}</div>`:''}<div class="facts">${r.phone&&!/internal/i.test(r.phone)?phHtml(r.phone):''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal only · confirm coverage':'Medi-Cal only'}</span>`:''}</div><details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
 }
 function query(){
   const c=$('#county').value,needs=NEEDSEL.slice(),q=$('#q').value.trim().toLowerCase(),mc=document.querySelector('input[name=mc]:checked').value,noMc=mc==='no',showS=$('#showState').checked;
@@ -285,10 +285,12 @@ function query(){
   }).sort((a,b)=>{
     // With a need picked, resources for that need come first (staff-step ones on top), then crisis lines
     const k=r=>needs.length&&needs.includes(r.need)?(r.action?3:2):(r.need==='Safety / crisis'?1:0);return k(b)-k(a)}):[];
-  return {c,needs,q,mc,cr,st,showS};
+  // Internal (Sutter Sync team) resources get their own section and show whether or not statewide is ticked
+  const it=D.state.filter(r=>r.internal&&matchQ(r,q)&&(!needs.length||needs.some(n=>stateNeeds(r).includes(n)||r.need===n)));
+  return {c,needs,q,mc,cr,st:st.filter(r=>!r.internal),it,showS};
 }
 function render(){
-  const {c,needs,q,mc,cr,st,showS}=query();
+  const {c,needs,q,mc,cr,st,it,showS}=query();
   $('#mcnote').textContent={yes:'Showing all resources. Medi-Cal-only resources are marked.',no:'Medi-Cal-only resources are hidden. If the patient might qualify, consider HICAP or Medi-Cal / Medicare Savings Programs (statewide).',unsure:'Showing all resources. Confirm coverage before sending anything marked Medi-Cal only; HICAP (800-434-0222) can screen.'}[mc];
   let h='';
   if(c){
@@ -304,7 +306,8 @@ function render(){
   if(showS){sh=`<div class="sec"><h2>Statewide Resources</h2><span class="ct">${st.length} resource${st.length===1?'':'s'}</span></div>`;sh+=st.length?`<div class="list">${st.map(card).join('')}</div>`:`<p class="empty">No statewide resource matches.</p>`}
   else if(c&&!cr.length)h+=`<p class="hint">Some needs, like medication costs, are covered by statewide resources. <button type="button" class="linkbtn" id="turnS">Show statewide resources</button></p>`;
   // When the county has nothing for this need, put the statewide list first so it isn't hidden below the fold
-  $('#results').innerHTML=c&&!cr.length&&showS?sh+h:h+sh;
+  const ih=it.length?`<div class="sec"><h2>Internal Resources</h2><span class="ct">${it.length} resource${it.length===1?'':'s'}</span></div><div class="list">${it.map(card).join('')}</div>`:'';
+  $('#results').innerHTML=c&&!cr.length?ih+sh+h:h+ih+sh;
   const tb=$('#turnS');if(tb)tb.onclick=()=>{$('#showState').checked=true;render()};
 }
 const bph=s=>esc(s).replace(/_{3}-_{3}-_{4}/g,'<mark class="fill" title="Fill in the callback number">___-___-____</mark>').replace(/(\b(?:1-)?\d{3}-\d{3}-\d{4}\b(?:\s*(?:ext\.?|x)\s*\d+)?|\b2-1-1\b|\b988\b|\b911\b)/g,'<b>$1</b>');
@@ -329,10 +332,10 @@ function build(){
     w.hidden=false;w.dataset.ids=other.map(r=>r.id).join(',')}
   else{w.hidden=true;w.innerHTML=''}
   $('#count').textContent=`${n} resource${n===1?'':'s'}`;
-  $('#sel').innerHTML=rs.map((r,i)=>`<li${cc&&r.county&&r.county!==cc?' class="oc"':''}><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
+  $('#sel').innerHTML=rs.map((r,i)=>`<li${cc&&r.county&&r.county!==cc?' class="oc"':''}><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':r.internal?'Internal':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
   $('#sel').style.display=n?'':'none';
   $('#out').innerHTML=n?compose(rs):'';
-  const acts=rs.filter(r=>r.action);$('#acts').hidden=!acts.length;$('#acts').innerHTML=acts.map(r=>`<p><b>Staff step:</b> ${esc(r.action)}</p>`).join('')+(acts.length&&/_{3}-_{3}-_{4}/.test($('#out').textContent)?'<p>Fill in the callback number (highlighted) before copying.</p>':'');
+  const acts=rs.filter(r=>r.action);$('#acts').hidden=!acts.length;$('#acts').innerHTML=acts.map(r=>`<p><b>Staff Step:</b> ${esc(r.action)}</p>`).join('')+(acts.length&&/_{3}-_{3}-_{4}/.test($('#out').textContent)?'<p>Fill in the callback number (highlighted) before copying.</p>':'');
   $('#copied').textContent='';
 }
 async function copy(){

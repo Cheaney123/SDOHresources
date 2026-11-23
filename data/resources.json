@@ -5169,8 +5169,9 @@
    "summary": "We're going to connect you to a pharmacy technician who can help you find lower-cost options for your medicines. In the meantime, reach out to us if you need expedited assistance at 855-320-5200.",
    "zcodes": "Z59.868 Other specified financial insecurity; Z59.87 Material hardship due to limited financial resources; Z91.120 Intentional underdosing of medication due to financial hardship (only if documented)",
    "updated": "2026-11-22",
-   "action": "Task to Pharm Tech in Epic before sending this message.",
-   "notes": "Pharm tech references (staff only): HealthWell Foundation healthwellfoundation.org; Mark Cuban Cost Plus Drugs costplusdrugs.com"
+   "action": "Task to Pharm Tech in Epic",
+   "notes": "Pharm tech references (staff only): HealthWell Foundation healthwellfoundation.org; Mark Cuban Cost Plus Drugs costplusdrugs.com",
+   "internal": true
   },
   {
    "id": "s12",
