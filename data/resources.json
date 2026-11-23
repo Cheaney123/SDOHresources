@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21",
+ "updated": "2026-11-22",
  "county": [
   {
    "id": "c2",
@@ -64,9 +64,9 @@
    "links": [
     "https://eastbayparatransit.org"
    ],
-   "summary": "Call 510-287-5000 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 510-287-5000 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c5",
@@ -181,14 +181,14 @@
    "notes": "Alameda Alliance rides confirmed for booking; routine trips need 3 business days' notice. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/",
     "Alameda Alliance ride flyer (PDF): https://alamedaalliance.org/wp-content/uploads/Transportation_Handout_v3_HR_EN.pdf"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Alameda Alliance (ModivCare) 855-891-7171. For other plans, call the member services number on your plan card and ask for a ride: Alliance 877-932-2738; Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c10",
@@ -204,13 +204,13 @@
    "notes": null,
    "source": "Caregiver resource sheet",
    "verified": null,
-   "flag": "Not re-checked",
+   "flag": "Not yet re-confirmed with the agency.",
    "links": [
     "https://jfcs-eastbay.org"
    ],
    "summary": "Your caregiver can call 510-704-7475 to join. It's a support group for family members who help care for a loved one from a distance.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c11",
@@ -297,9 +297,9 @@
    "links": [
     "https://amadortransit.com"
    ],
-   "summary": "Call 209-267-9395 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 209-267-9395 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c15",
@@ -362,7 +362,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -374,7 +374,7 @@
     "unsure": "If you have Medi-Cal, call 888-310-6555 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c18",
@@ -390,7 +390,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -398,7 +398,7 @@
    ],
    "summary": "Call 209-223-6550 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c19",
@@ -414,13 +414,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Anthem Blue Cross 877-931-4755; Health Net 855-253-6863. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c20",
@@ -485,9 +485,9 @@
    "links": [
     "https://countyconnection.com/paratransit"
    ],
-   "summary": "Call 925-680-2134 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 925-680-2134 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c23",
@@ -550,7 +550,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -562,7 +562,7 @@
     "unsure": "If you have Medi-Cal, call 888-678-7277 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c26",
@@ -578,7 +578,7 @@
    "notes": "County Aging & Adult Services intake line.",
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -586,7 +586,7 @@
    ],
    "summary": "Call 925-229-8434 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c27",
@@ -602,13 +602,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). For other plans, call the member services number on your plan card and ask for a ride: Contra Costa Health Plan 877-661-6230; Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c28",
@@ -624,13 +624,13 @@
    "notes": null,
    "source": "Caregiver resource sheet",
    "verified": null,
-   "flag": "Not re-checked",
+   "flag": "Not yet re-confirmed with the agency.",
    "links": [
     "https://jfcs-eastbay.org"
    ],
    "summary": "Your caregiver can call 510-704-7475 to join. It's a support group for family members who help care for a loved one from a distance.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c29",
@@ -718,9 +718,9 @@
    "links": [
     "https://redwoodcoasttransit.org"
    ],
-   "summary": "Call 707-308-7433 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 707-308-7433 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c33",
@@ -783,7 +783,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -795,7 +795,7 @@
     "unsure": "If you have Medi-Cal, call 888-446-4408 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c36",
@@ -811,7 +811,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -819,7 +819,7 @@
    ],
    "summary": "Call 707-464-3191 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c37",
@@ -835,13 +835,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c38",
@@ -929,9 +929,9 @@
    "links": [
     "https://eldoradotransit.com/dial-a-ride"
    ],
-   "summary": "Call 530-642-5383 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 530-642-5383 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c42",
@@ -994,7 +994,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -1006,7 +1006,7 @@
     "unsure": "If you have Medi-Cal, call 800-929-1955 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c45",
@@ -1046,13 +1046,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Anthem Blue Cross 877-931-4755. For other plans, call the member services number on your plan card and ask for a ride: Mountain Valley Health Plan 888-936-7526; Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c47",
@@ -1139,9 +1139,9 @@
    "links": [
     "https://laketransit.org"
    ],
-   "summary": "Call 707-263-3334 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 707-263-3334 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c51",
@@ -1204,7 +1204,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -1216,7 +1216,7 @@
     "unsure": "If you have Medi-Cal, call 800-900-2075 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c54",
@@ -1232,7 +1232,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -1240,7 +1240,7 @@
    ],
    "summary": "Call 707-995-4680 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c55",
@@ -1256,13 +1256,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c56",
@@ -1327,9 +1327,9 @@
    "links": [
     "https://marintransit.gov/marin-access"
    ],
-   "summary": "Call 415-454-0902 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 415-454-0902 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c59",
@@ -1392,7 +1392,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -1404,7 +1404,7 @@
     "unsure": "If you have Medi-Cal, call 888-818-1115 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c62",
@@ -1444,13 +1444,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c64",
@@ -1536,9 +1536,9 @@
    "verified": "2026-11-20",
    "flag": "Agency page not opened directly; 209-723-3100 role not confirmed",
    "links": [],
-   "summary": "Call ADAride at 877-232-7433 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call ADAride at 877-232-7433 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c68",
@@ -1601,7 +1601,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -1613,7 +1613,7 @@
     "unsure": "If you have Medi-Cal, call 888-334-0163 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c71",
@@ -1629,7 +1629,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -1637,7 +1637,7 @@
    ],
    "summary": "Call 209-385-3105 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c72",
@@ -1653,13 +1653,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). For other plans, call the member services number on your plan card and ask for a ride: Central California Alliance 800-700-3874.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c73",
@@ -1720,13 +1720,13 @@
    "notes": "Also senior (65+) Dial-a-Ride. Transit Services Division 530-477-0103.",
    "source": "BenefitsCheckUp; YubaNet; Partnership HealthPlan",
    "verified": "2026-11-20",
-   "flag": "Secondary source",
+   "flag": "Listed from secondary sources; confirm details with the agency.",
    "links": [
     "https://www.nevadacountyconnects.com"
    ],
-   "summary": "Call 530-271-7433 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 530-271-7433 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c76",
@@ -1789,7 +1789,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -1801,7 +1801,7 @@
     "unsure": "If you have Medi-Cal, call 888-801-1437 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c79",
@@ -1817,7 +1817,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -1825,7 +1825,7 @@
    ],
    "summary": "Call 530-265-1639 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c80",
@@ -1841,13 +1841,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c81",
@@ -1912,9 +1912,9 @@
    "links": [
     "https://placercountytransit.com/dial-a-ride"
    ],
-   "summary": "Call 916-745-7560 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 916-745-7560 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c84",
@@ -1977,7 +1977,7 @@
    "notes": "Adult access line.",
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -1989,7 +1989,7 @@
     "unsure": "If you have Medi-Cal, call 888-886-5401 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c87",
@@ -2029,13 +2029,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c89",
@@ -2100,9 +2100,9 @@
    "links": [
     "https://sacrt.com/sacrt-go-paratransit-service"
    ],
-   "summary": "Call 916-321-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 916-321-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c92",
@@ -2218,13 +2218,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Anthem Blue Cross 877-931-4755; Health Net 855-253-6863; Molina 844-292-2688. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c97",
@@ -2378,9 +2378,9 @@
    "links": [
     "https://sfmta.com/paratransit"
    ],
-   "summary": "Call 415-351-7000 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 415-351-7000 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c104",
@@ -2443,7 +2443,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -2455,7 +2455,7 @@
     "unsure": "If you have Medi-Cal, call 888-246-3333 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c107",
@@ -2495,13 +2495,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Anthem Blue Cross 877-931-4755. For other plans, call the member services number on your plan card and ask for a ride: SF Health Plan 800-288-5555; Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c109",
@@ -2812,9 +2812,9 @@
    "links": [
     "https://sanjoaquinrtd.com/paratransit"
    ],
-   "summary": "Call 209-242-9965 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 209-242-9965 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c123",
@@ -2877,7 +2877,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -2889,7 +2889,7 @@
     "unsure": "If you have Medi-Cal, call 888-468-9370 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c126",
@@ -2905,7 +2905,7 @@
    "notes": "Same line as Senior Information & Assistance.",
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024); DHCS HCBS resource list",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -2913,7 +2913,7 @@
    ],
    "summary": "Call 209-468-1104 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c127",
@@ -2929,13 +2929,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Health Net 855-253-6863. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c128",
@@ -3000,9 +3000,9 @@
    "links": [
     "https://samtrans.com/accessibility/paratransit"
    ],
-   "summary": "Call 650-366-4856 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 650-366-4856 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c131",
@@ -3117,13 +3117,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). For other plans, call the member services number on your plan card and ask for a ride: Health Plan of San Mateo 800-750-4776; Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c136",
@@ -3254,9 +3254,9 @@
    "links": [
     "https://easylift.org"
    ],
-   "summary": "Call 805-681-1181 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 805-681-1181 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c142",
@@ -3319,7 +3319,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -3331,7 +3331,7 @@
     "unsure": "If you have Medi-Cal, call 888-868-1649 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c145",
@@ -3347,7 +3347,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -3355,7 +3355,7 @@
    ],
    "summary": "Call 805-681-4550 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c146",
@@ -3371,13 +3371,13 @@
    "notes": "Book with VTS at least 2 business days ahead (5 business days for provider-prescribed NEMT). Previous number 877-814-1862 was incorrect.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: CenCal (Ventura Transit System) 855-659-4600.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c147",
@@ -3442,9 +3442,9 @@
    "links": [
     "https://vta.org/access"
    ],
-   "summary": "Call 408-321-2381 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 408-321-2381 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c150",
@@ -3554,13 +3554,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Anthem Blue Cross 877-931-4755. For other plans, call the member services number on your plan card and ask for a ride: Santa Clara Family Health Plan 800-260-2055; Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c155",
@@ -3714,9 +3714,9 @@
    "links": [
     "https://scmetro.org/rider-info/paracruz"
    ],
-   "summary": "Call ADAride at 877-232-7433 (Monday–Friday, 8 to 4) to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call ADAride at 877-232-7433 (Monday–Friday, 8 to 4) to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c162",
@@ -3779,7 +3779,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -3791,7 +3791,7 @@
     "unsure": "If you have Medi-Cal, call 800-952-2335 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c165",
@@ -3831,13 +3831,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). For other plans, call the member services number on your plan card and ask for a ride: Central California Alliance 800-700-3874; Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c167",
@@ -3902,9 +3902,9 @@
    "links": [
     "https://solanomobility.org"
    ],
-   "summary": "Call 800-535-6883 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 800-535-6883 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c170",
@@ -3967,7 +3967,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -3979,7 +3979,7 @@
     "unsure": "If you have Medi-Cal, call 800-547-0495 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c173",
@@ -4019,13 +4019,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c175",
@@ -4090,9 +4090,9 @@
    "links": [
     "https://sctransit.com/paratransit"
    ],
-   "summary": "Call 707-585-7516 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 707-585-7516 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c178",
@@ -4155,7 +4155,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -4167,7 +4167,7 @@
     "unsure": "If you have Medi-Cal, call 800-870-8786 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c181",
@@ -4207,13 +4207,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c183",
@@ -4301,9 +4301,9 @@
    "links": [
     "https://stanrta.org"
    ],
-   "summary": "Call 209-672-1143 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 209-672-1143 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c187",
@@ -4366,7 +4366,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -4378,7 +4378,7 @@
     "unsure": "If you have Medi-Cal, call 888-376-6246 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c190",
@@ -4394,7 +4394,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -4402,7 +4402,7 @@
    ],
    "summary": "Call 209-558-2500 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c191",
@@ -4418,13 +4418,13 @@
    "notes": "Plans serving this county per DHCS (Apr 2026). Numbers are general member services; plans may route rides to a separate transportation line.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Health Net 855-253-6863. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c192",
@@ -4489,9 +4489,9 @@
    "links": [
     "https://yubasuttertransit.com/dial-a-ride"
    ],
-   "summary": "Call 530-742-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 530-742-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c195",
@@ -4554,7 +4554,7 @@
    "notes": "Sutter and Yuba share one plan.",
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -4566,7 +4566,7 @@
     "unsure": "If you have Medi-Cal, call 888-923-3800 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c198",
@@ -4582,7 +4582,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -4590,7 +4590,7 @@
    ],
    "summary": "Call 530-822-5990 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c199",
@@ -4606,13 +4606,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c200",
@@ -4677,9 +4677,9 @@
    "links": [
     "https://yolobus.com/paratransit"
    ],
-   "summary": "Call 530-666-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 530-666-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c203",
@@ -4742,7 +4742,7 @@
    "notes": null,
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -4754,7 +4754,7 @@
     "unsure": "If you have Medi-Cal, call 888-965-6647 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c206",
@@ -4794,13 +4794,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c208",
@@ -4865,9 +4865,9 @@
    "links": [
     "https://yubasuttertransit.com/dial-a-ride"
    ],
-   "summary": "Call 530-742-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, reply here and we'll help you find a ride.",
+   "summary": "Call 530-742-2877 to ask for an application. This is a shared-ride van for people who have trouble using the regular bus because of a health condition or disability. The agency has up to 21 days to decide, so apply early. If you have an appointment before then, call the number on your health plan card to ask about rides.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c211",
@@ -4930,7 +4930,7 @@
    "notes": "Sutter and Yuba share one plan.",
    "source": "DHCS – County Mental Health Plan contact list (dhcs.ca.gov)",
    "verified": "2026-11-20",
-   "flag": "24/7 status not stated by DHCS",
+   "flag": "The state list doesn't say whether this line is open 24/7. In a crisis, use 988 or 911.",
    "links": [
     "Medicare mental health benefits (PDF): https://www.medicare.gov/publications/11358-medicare-and-your-mental-health-benefits-getting-started.pdf",
     "988 Lifeline: https://988lifeline.org"
@@ -4942,7 +4942,7 @@
     "unsure": "If you have Medi-Cal, call 888-923-3800 to get connected to county mental health care. If you have Medicare or other insurance, ask your doctor for a referral or call the number on your plan card."
    },
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c214",
@@ -4958,7 +4958,7 @@
    "notes": null,
    "source": "CWDA – IHSS Main Contact Lines by County (Aug 2024)",
    "verified": "2026-11-20",
-   "flag": "From CWDA list; not re-checked on county site",
+   "flag": "Number from the statewide county welfare directors' list; not yet confirmed on the county website.",
    "links": [
     "IHSS application (SOC 295): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC295.pdf",
     "Doctor's form (SOC 873): https://www.cdss.ca.gov/cdssweb/entres/forms/English/SOC873.pdf",
@@ -4966,7 +4966,7 @@
    ],
    "summary": "Call 530-749-6471 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c215",
@@ -4982,13 +4982,13 @@
    "notes": "Partnership ride line confirmed on Partnership's transportation flyer: M–F 7–7, call 5+ days ahead. Other plan numbers are member services.",
    "source": "Anthem, Health Net and Molina Medi-Cal transportation pages; DHCS Transportation Services",
    "verified": "2026-11-20",
-   "flag": "Ride lines verified for Anthem, Health Net, Molina. Other plans listed as member services; Kaiser ride line not verified.",
+   "flag": "Ride numbers confirmed for Anthem, Health Net and Molina. Other plans show their member services line; the Kaiser ride line is not confirmed.",
    "links": [
     "Medi-Cal rides: https://www.dhcs.ca.gov/services/medi-cal-resources/transportation-services/"
    ],
    "summary": "If you have Medi-Cal, your health plan gives free rides to covered medical appointments, including picking up prescriptions. Call as early as you can (most plans ask for 3 to 5 business days' notice). To schedule a ride, call your plan's ride line: Partnership 866-828-2303. For other plans, call the member services number on your plan card and ask for a ride: Kaiser 855-839-7613.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c216",
@@ -5180,20 +5180,19 @@
    "id": "s11",
    "need": "Medication affordability",
    "label": "Pharm-tech path: HealthWell → Cost Plus Drugs → manufacturer assistance",
-   "name": "Pharmacy team",
+   "name": "Pharmacy technician referral",
    "phone": "Pharmacy team (internal)",
    "medi": "No",
    "who": "Patients who can't afford medications (eligibility differs at each step)",
    "how": "Pharm tech owns, in order: 1) HealthWell Foundation copay grant (insured; fund-specific eligibility); 2) Mark Cuban Cost Plus Drugs cash price, compared with plan copay; 3) manufacturer patient assistance program for the specific drug. SW supports if the barrier is broader SDOH.",
    "flag": null,
    "ql": "Medication affordability",
-   "links": [
-    "https://www.healthwellfoundation.org",
-    "https://costplusdrugs.com"
-   ],
-   "summary": "Our pharmacy team can help you find lower-cost options for your medicines, such as copay grants, discount pharmacies or drug company programs. Reply here and we'll connect you.",
+   "links": [],
+   "summary": "We're going to connect you to a pharmacy technician who can help you find lower-cost options for your medicines. In the meantime, reach out to us if you need expedited assistance at ___-___-____.",
    "zcodes": "Z59.868 Other specified financial insecurity; Z59.87 Material hardship due to limited financial resources; Z91.120 Intentional underdosing of medication due to financial hardship (only if documented)",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22",
+   "action": "Task to Pharm Tech in Epic before sending this message.",
+   "notes": "Pharm tech references (staff only): HealthWell Foundation healthwellfoundation.org; Mark Cuban Cost Plus Drugs costplusdrugs.com"
   },
   {
    "id": "s12",
@@ -5406,7 +5405,7 @@
    "medi": "No",
    "who": "Families and caregivers of people with dementia",
    "how": "Call any time. Local support groups (virtual and in person) at communityresourcefinder.org.",
-   "flag": "Not re-checked",
+   "flag": "Not yet re-confirmed with the agency.",
    "ql": "Caregiver (strain, lack of support)",
    "links": [
     "https://www.alz.org",
@@ -5414,7 +5413,7 @@
    ],
    "summary": "Call 800-272-3900 any time, day or night, for help and support caring for someone with memory loss or dementia.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s25",
@@ -5445,14 +5444,14 @@
    "medi": "No",
    "who": "Anyone, 24/7",
    "how": "For people who prefer texting. Imminent risk: 911.",
-   "flag": "Not re-checked",
+   "flag": "Not yet re-confirmed with the agency.",
    "ql": "Behavioral health",
    "links": [
     "https://www.crisistextline.org"
    ],
    "summary": "Text HOME to 741741 any time to reach a trained crisis counselor by text. It's free.",
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s27",
@@ -5463,14 +5462,14 @@
    "medi": "No",
    "who": "Anyone; free and confidential",
    "how": "Treatment referrals and information.",
-   "flag": "Not re-checked",
+   "flag": "Not yet re-confirmed with the agency.",
    "ql": "Behavioral health",
    "links": [
     "https://www.samhsa.gov/find-help/national-helpline"
    ],
    "summary": "Call 800-662-4357 any time for free, private help finding mental health or substance use treatment.",
    "zcodes": "N/A: not an SDOH Z-code (clinical diagnosis applies)",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s28",
@@ -5481,14 +5480,14 @@
    "medi": "No",
    "who": "Anyone being harmed by a partner or family member",
    "how": "24/7. For elder abuse, also report to APS (833-401-0832).",
-   "flag": "Not re-checked",
+   "flag": "Not yet re-confirmed with the agency.",
    "ql": "Behavioral health; Housing & legal",
    "links": [
     "https://www.thehotline.org"
    ],
    "summary": "Call 800-799-7233 any time for free, private help if someone in your home or family is hurting you.",
    "zcodes": "N/A: clinical codes (e.g., T74/T76 abuse codes) per assessment",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s29",
@@ -5499,14 +5498,14 @@
    "medi": "No",
    "who": "Older adults or families outside California; long-distance caregivers",
    "how": "Finds the Area Agency on Aging in any US county.",
-   "flag": "Not re-checked",
+   "flag": "Not yet re-confirmed with the agency.",
    "ql": "Aging & caregiver info (AAA)",
    "links": [
     "https://eldercare.acl.gov"
    ],
    "summary": "Call 800-677-1116 to find senior services for older adults or family members who live outside California.",
    "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "s30",

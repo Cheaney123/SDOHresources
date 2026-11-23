@@ -99,8 +99,15 @@ select{height:48px;width:100%;border-radius:10px;border:1px solid var(--line);ba
 .card .lab{color:var(--muted);font-size:14px;margin-top:2px}
 .facts{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:8px}
 .ph{font-family:Sora,Arial,sans-serif;font-weight:600;font-size:15px}
+.ph.long{flex-basis:100%;display:flex;flex-direction:column;gap:2px;font-family:Roboto,Arial,sans-serif;font-weight:400;font-size:14.5px;line-height:1.4}
+.ph.long .pk{font-weight:700}
+.phx{font-size:13.5px;color:var(--muted)}
 .pill{font-size:12.5px;border-radius:999px;padding:2px 10px;background:var(--tint);color:var(--ink);white-space:nowrap}
 .pill.mc{background:transparent;border:1.5px solid var(--yel);font-weight:700}
+.linkbtn{border:0;background:none;color:var(--teal);font-weight:700;text-decoration:underline;cursor:pointer;padding:0;font:inherit}
+.act{margin-top:8px;background:#FFF4D6;border:1px solid #EFC469;border-radius:8px;padding:6px 10px;font-size:14px}
+.acts{background:#FFF4D6;border:1px solid #EFC469;border-radius:10px;padding:8px 12px;margin:0 0 10px;font-size:14px}.acts p{margin:2px 0}
+mark.fill{background:#FFE08A;padding:0 2px;border-radius:3px}
 .chk{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-size:13.5px;color:var(--muted)}
 .chk:before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--yel);margin-top:6px}
 details{margin-top:6px}
@@ -220,6 +227,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <section class="letter" aria-label="My Health Online message">
         <div class="lhead"><h2>My Health Online message</h2><span class="count" id="count">0 resources</span></div>
         <ul class="sel" id="sel"></ul>
+        <div class="acts" id="acts" hidden></div>
         <div class="cwarn" id="cwarn" role="alert" hidden></div>
         <div class="paperwrap"><div id="out" class="paper" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Message preview" spellcheck="true" data-ph="Tick one or more resources to build the message."></div></div>
         <div class="lfoot">
@@ -241,7 +249,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 {
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const NEEDS=[["","All"],["Food","Food"],["Transportation","Transportation"],["Utilities","Utilities"],["Caregiver (strain, lack of support)","Caregiver support"],["Behavioral health","Behavioral health"],["Aging & caregiver info (AAA)","Aging & senior services"],["Housing & legal","Housing & legal"],["Insurance & benefits","Insurance & benefits"],["Medication affordability","Medication costs"],["Phone & digital access","Phone access"],["Safety / crisis","Safety / crisis"]];
+const NEEDS=[["","All"],["Food","Food"],["Transportation","Transportation"],["Utilities","Utilities"],["Caregiver (strain, lack of support)","Caregiver support"],["Behavioral health","Behavioral health"],["Aging & caregiver info (AAA)","Aging & Senior Services"],["Housing & legal","Housing & legal"],["Insurance & benefits","Insurance & benefits"],["Medication affordability","Medication costs"],["Phone & digital access","Phone access"],["Safety / crisis","Safety / crisis"]];
 const NL=Object.fromEntries(NEEDS.filter(n=>n[0]));
 let D=null,picked=[],MC='unsure',NEEDSEL=[],keepOther=new Set();
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
@@ -251,10 +259,14 @@ const needLabel=n=>NL[n]||n;
 function matchQ(r,q){if(!q)return true;return [r.name,r.label,r.need,r.who,r.how,r.notes,r.summary].join(' ').toLowerCase().includes(q)}
 const stateNeeds=r=>(r.ql||'').split(';').map(s=>s.trim());
 function linkHtml(l){const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t||u.replace(/^https?:\/\//,''))}</a>`}
+// Card subtitle: just the service type. Labels are stored as "Type – Name", which repeated the name.
+function subLabel(r){const l=r.label||'';const i=l.lastIndexOf(' – ');const t=(i>0?l.slice(0,i):l).trim();const a=t.toLowerCase(),n=String(r.name||'').trim().toLowerCase();return t&&!a.startsWith(n)&&!n.startsWith(a)?t:''}
+// Phone line: plain numbers stay bold; plan-by-plan lists and notes in brackets get a quieter style
+function phHtml(p){if(/:/.test(p))return `<span class="ph long">${p.split(/\.\s+/).map(seg=>{const m=seg.match(/^([^:]+):\s*(.*)$/);return m?`<span class="pl"><span class="pk">${esc(m[1])}:</span> ${esc(m[2])}</span>`:`<span class="pl">${esc(seg)}</span>`}).join('')}</span>`;const m=p.match(/^([^()]*?)\s*(\(.*\))\s*$/);return m?`<span class="ph">${esc(m[1])}</span><span class="phx">${esc(m[2])}</span>`:`<span class="ph">${esc(p)}</span>`}
 function card(r){
   const on=picked.includes(r.id);
-  const det=[["Who it's for",r.who],["How to refer",r.how],["Notes",r.notes],["Medi-Cal",r.medi],["Website",r.web?`<a href="${/^https?:/.test(r.web)?esc(r.web):'https://'+esc(r.web)}" target="_blank" rel="noopener">${esc(r.web.replace(/^https?:\/\//,''))}</a>`:null,1],["Links to send",r.links&&r.links.length?r.links.map(linkHtml).join('<br>'):null,1],["Suggested Z-code(s)",r.zcodes&&!/^N\/A/.test(r.zcodes)?r.zcodes:null],["Source",r.source||null],["Last updated",r.updated||null]].filter(x=>x[1]);
-  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${r.label!==r.name?`<div class="lab">${esc(r.label)}</div>`:''}<div class="facts">${r.phone?`<span class="ph">${esc(r.phone)}</span>`:''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal only · confirm coverage':'Medi-Cal only'}</span>`:''}</div>${r.flag?`<div class="chk">${esc(r.flag)}</div>`:''}<details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
+  const det=[["Who it's for",r.who],["How to refer",r.how],["Notes",r.notes],["Medi-Cal",r.medi],["Website",r.web?`<a href="${/^https?:/.test(r.web)?esc(r.web):'https://'+esc(r.web)}" target="_blank" rel="noopener">${esc(r.web.replace(/^https?:\/\//,''))}</a>`:null,1],["Links to send",r.links&&r.links.length?r.links.map(linkHtml).join('<br>'):null,1],["Suggested Z-code(s)",r.zcodes&&!/^N\/A/.test(r.zcodes)?r.zcodes:null],["Source",r.source||null],["Verification note",r.flag||null],["Last updated",r.updated||null]].filter(x=>x[1]);
+  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${subLabel(r)?`<div class="lab">${esc(subLabel(r))}</div>`:''}${r.action?`<div class="act"><b>Staff step:</b> ${esc(r.action)}</div>`:''}<div class="facts">${r.phone&&!/internal/i.test(r.phone)?phHtml(r.phone):''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal only · confirm coverage':'Medi-Cal only'}</span>`:''}</div><details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
 }
 function query(){
   const c=$('#county').value,needs=NEEDSEL.slice(),q=$('#q').value.trim().toLowerCase(),mc=document.querySelector('input[name=mc]:checked').value,noMc=mc==='no',showS=$('#showState').checked;
@@ -269,7 +281,9 @@ function query(){
     if(!needs.length)return true;
     if(r.ql==='Always')return true;
     return needs.some(n=>n==='Safety / crisis'?r.need==='Safety / crisis':(stateNeeds(r).includes(n)||r.need===n));
-  }).sort((a,b)=>(b.need==='Safety / crisis')-(a.need==='Safety / crisis')):[];
+  }).sort((a,b)=>{
+    // With a need picked, resources for that need come first (staff-step ones on top), then crisis lines
+    const k=r=>needs.length&&needs.includes(r.need)?(r.action?3:2):(r.need==='Safety / crisis'?1:0);return k(b)-k(a)}):[];
   return {c,needs,q,mc,cr,st,showS};
 }
 function render(){
@@ -279,16 +293,20 @@ function render(){
   if(c){
     h+=`<div class="sec"><h2>${esc(c)} County</h2><span class="ct">${cr.length} resource${cr.length===1?'':'s'}</span></div>`;
     const missing=c&&needs.length?needs.filter(n=>!cr.some(r=>r.need===n)):[];
-    if(!cr.length)h+=`<p class="empty">No ${esc(c)} County resource ${needs.length?`for ${esc(needs.map(needLabel).join(', '))}`:''}${q?' matches this search':''}. Check the statewide list below, or try the county's Area Agency on Aging under "Aging & senior services."</p>`;
+    if(!cr.length)h+=`<p class="empty">No ${esc(c)} County resource ${needs.length?`for ${esc(needs.map(needLabel).join(', '))}`:''}${q?' matches this search':''}. ${showS?'The statewide resources above cover this need.':''} You can also try the county's Area Agency on Aging under "Aging & Senior Services."</p>`;
     else if(missing.length)h+=`<p class="hint" style="margin:-4px 0 12px">No ${esc(c)} County listing for ${esc(missing.map(needLabel).join(', '))}. See statewide resources below.</p>`;
     if(!cr.length){}
     else if(needs.length===1)h+=`<div class="list">${cr.sort((a,b)=>a.name.localeCompare(b.name)).map(card).join('')}</div>`;
     else{const g={};cr.forEach(r=>(g[r.need]=g[r.need]||[]).push(r));NEEDS.forEach(([n])=>{if(g[n])h+=`<p class="grp">${esc(needLabel(n))}</p><div class="list">${g[n].sort((a,b)=>a.name.localeCompare(b.name)).map(card).join('')}</div>`})}
   } else h+=`<p class="empty">Select the patient's county to see local resources. Statewide resources are listed below.</p>`;
-  if(showS){h+=`<div class="sec"><h2>Statewide</h2><span class="ct">${st.length} resource${st.length===1?'':'s'}</span></div>`;h+=st.length?`<div class="list">${st.map(card).join('')}</div>`:`<p class="empty">No statewide resource matches.</p>`}
-  $('#results').innerHTML=h;
+  let sh='';
+  if(showS){sh=`<div class="sec"><h2>Statewide</h2><span class="ct">${st.length} resource${st.length===1?'':'s'}</span></div>`;sh+=st.length?`<div class="list">${st.map(card).join('')}</div>`:`<p class="empty">No statewide resource matches.</p>`}
+  else if(c&&!cr.length)h+=`<p class="hint">Some needs, like medication costs, are covered by statewide resources. <button type="button" class="linkbtn" id="turnS">Show statewide resources</button></p>`;
+  // When the county has nothing for this need, put the statewide list first so it isn't hidden below the fold
+  $('#results').innerHTML=c&&!cr.length&&showS?sh+h:h+sh;
+  const tb=$('#turnS');if(tb)tb.onclick=()=>{$('#showState').checked=true;render()};
 }
-const bph=s=>esc(s).replace(/(\b(?:1-)?\d{3}-\d{3}-\d{4}\b(?:\s*(?:ext\.?|x)\s*\d+)?|\b2-1-1\b|\b988\b|\b911\b)/g,'<b>$1</b>');
+const bph=s=>esc(s).replace(/_{3}-_{3}-_{4}/g,'<mark class="fill" title="Fill in the callback number">___-___-____</mark>').replace(/(\b(?:1-)?\d{3}-\d{3}-\d{4}\b(?:\s*(?:ext\.?|x)\s*\d+)?|\b2-1-1\b|\b988\b|\b911\b)/g,'<b>$1</b>');
 const lk=l=>{const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `&bull; ${esc(t||'Website')}: <a href="${esc(u)}">${esc(u)}</a>`};
 const fl=x=>{const u=(x.match(/https?:\/\/\S+/)||[''])[0];return u?`<b>${esc(x.replace(u,'').trim())}</b> <a href="${esc(u)}">${esc(u)}</a>`:bph(x)};
 function compose(rs){
@@ -313,10 +331,12 @@ function build(){
   $('#sel').innerHTML=rs.map((r,i)=>`<li${cc&&r.county&&r.county!==cc?' class="oc"':''}><span>${esc(r.name)}<small>${esc(r.county?r.county+' County':'Statewide')}</small></span><span class="row" style="gap:4px"><button class="ib" data-mv="${i}" data-d="-1" aria-label="Move ${esc(r.name)} up" ${i?'':'disabled'}>&#8593;</button><button class="ib" data-mv="${i}" data-d="1" aria-label="Move ${esc(r.name)} down" ${i<n-1?'':'disabled'}>&#8595;</button><button class="ib" data-rm="${r.id}" aria-label="Remove ${esc(r.name)}">&#10005;</button></span></li>`).join('');
   $('#sel').style.display=n?'':'none';
   $('#out').innerHTML=n?compose(rs):'';
+  const acts=rs.filter(r=>r.action);$('#acts').hidden=!acts.length;$('#acts').innerHTML=acts.map(r=>`<p><b>Staff step:</b> ${esc(r.action)}</p>`).join('')+(acts.length&&/_{3}-_{3}-_{4}/.test($('#out').textContent)?'<p>Fill in the callback number (highlighted) before copying.</p>':'');
   $('#copied').textContent='';
 }
 async function copy(){
   const el=$('#out');if(!el.textContent.trim()){$('#copied').textContent='Select a resource first.';return}
+  if(/_{3}-_{3}-_{4}/.test(el.textContent)){$('#copied').textContent='Fill in the callback number (highlighted) first.';return}
   const html=el.innerHTML;
   const text=[...el.querySelectorAll('p')].map(p=>p.innerText.replace(/• /g,'- ')).join('\n\n')||el.innerText;
   try{
