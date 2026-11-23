@@ -279,7 +279,8 @@ function query(){
     if(noMc&&isMc(r))return false;
     if(!matchQ(r,q))return false;
     if(!needs.length)return true;
-    if(r.ql==='Always')return true;
+    // 911, 988 and APS stay in the safety banner; in the list they show only for safety or behavioral health needs
+    if(r.ql==='Always')return needs.includes('Safety / crisis')||needs.includes('Behavioral health');
     return needs.some(n=>n==='Safety / crisis'?r.need==='Safety / crisis':(stateNeeds(r).includes(n)||r.need===n));
   }).sort((a,b)=>{
     // With a need picked, resources for that need come first (staff-step ones on top), then crisis lines
@@ -300,7 +301,7 @@ function render(){
     else{const g={};cr.forEach(r=>(g[r.need]=g[r.need]||[]).push(r));NEEDS.forEach(([n])=>{if(g[n])h+=`<p class="grp">${esc(needLabel(n))}</p><div class="list">${g[n].sort((a,b)=>a.name.localeCompare(b.name)).map(card).join('')}</div>`})}
   } else h+=`<p class="empty">Select the patient's county to see local resources. Statewide resources are listed below.</p>`;
   let sh='';
-  if(showS){sh=`<div class="sec"><h2>Statewide</h2><span class="ct">${st.length} resource${st.length===1?'':'s'}</span></div>`;sh+=st.length?`<div class="list">${st.map(card).join('')}</div>`:`<p class="empty">No statewide resource matches.</p>`}
+  if(showS){sh=`<div class="sec"><h2>Statewide Resources</h2><span class="ct">${st.length} resource${st.length===1?'':'s'}</span></div>`;sh+=st.length?`<div class="list">${st.map(card).join('')}</div>`:`<p class="empty">No statewide resource matches.</p>`}
   else if(c&&!cr.length)h+=`<p class="hint">Some needs, like medication costs, are covered by statewide resources. <button type="button" class="linkbtn" id="turnS">Show statewide resources</button></p>`;
   // When the county has nothing for this need, put the statewide list first so it isn't hidden below the fold
   $('#results').innerHTML=c&&!cr.length&&showS?sh+h:h+sh;

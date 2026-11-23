@@ -6,7 +6,7 @@ statewide-only and 3 Medi-Cal answers that is 4,896 combinations. Checks:
   - every card on screen matches what the filter logic returned
   - county results belong to the chosen county and selected needs, and none are missing
   - Medi-Cal "No" hides every Medi-Cal-only resource
-  - 911 is always listed; statewide Medi-Cal rides are hidden once a county is chosen
+  - 911 is listed with no need picked or for safety / behavioral health needs, and not otherwise; statewide Medi-Cal rides are hidden once a county is chosen
 And for every resource on its own:
   - the patient message has no placeholders, undefined values or non-https links
   - the phone number appears in the patient text
@@ -54,7 +54,11 @@ async () => {
       if (m === 'no' && isMc(r)) errs.push(`Medi-Cal-only statewide shown with No: ${r.id}`);
       if (c && r.ql === 'NOCOUNTY') errs.push(`statewide Medi-Cal rides shown with county ${c}`);
     }
-    if (!q.st.some(r => r.label === '911')) errs.push(`911 missing ${c}|${nd}|${m}`);
+    const ns = nd;
+    const want911 = !ns.length || ns.includes('Safety / crisis') || ns.includes('Behavioral health');
+    const has911 = q.st.some(r => r.label === '911');
+    if (want911 && !has911) errs.push(`911 missing ${c}|${nd}|${m}`);
+    if (!want911 && has911) errs.push(`911 shown for unrelated need ${c}|${nd}|${m}`);
     if (c && nd.length === 1 && m === 'unsure' && !q.cr.length) gaps.push(`${c}: ${nd[0]}`);
   }
   for (const r of [...D.county, ...D.state]) {
