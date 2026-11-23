@@ -2572,28 +2572,6 @@
    "updated": "2026-11-20"
   },
   {
-   "id": "c112",
-   "county": "San Francisco",
-   "need": "Aging & caregiver info (AAA)",
-   "label": "Community Living Fund (intensive case management to avoid or leave institutional care) – SF DAS / Institute on Aging",
-   "name": "Community Living Fund (SF DAS / Institute on Aging)",
-   "phone": "415-355-6700",
-   "medi": "No",
-   "who": "SF residents 18+ with income up to 300% FPL who need help to avoid moving into, or to leave, a care facility",
-   "how": "Call DAS intake 415-355-6700 and ask for the Community Living Fund. DAS screens eligibility; Institute on Aging runs the program.",
-   "web": "sfhsa.org/das",
-   "notes": "Short-term intensive case management plus purchase of services (home changes, equipment, care hours).",
-   "source": "sfhsa.org Community Living Fund page; ioaging.org CLF page",
-   "verified": "2026-11-20",
-   "flag": null,
-   "links": [
-    "https://sfhsa.org/das"
-   ],
-   "summary": "Call 415-355-6700 and ask about the Community Living Fund or case management. They can help you stay safe at home, or move home from a care facility, with things like home changes, medical equipment and extra caregiving hours.",
-   "zcodes": "Z74.2 Need for assistance at home and no other household member able to render care; Z60.2 Problems related to living alone",
-   "updated": "2026-11-20"
-  },
-  {
    "id": "c113",
    "county": "San Francisco",
    "need": "Aging & caregiver info (AAA)",
