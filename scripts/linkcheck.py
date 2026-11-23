@@ -27,7 +27,7 @@ BOT = re.compile(r"(just a moment|attention required|access denied|captcha|verif
 def urls_of(r):
     found = []
     for l in r.get("links") or []:
-        found += re.findall(r"https?://[^\s|]+", l)
+        found += re.findall(r"https?://[^\s|)]+", l)
     w = (r.get("web") or "").strip()
     if w and w not in ("—", "-") and "." in w and " " not in w.split(";")[0]:
         for part in re.split(r"\s*[;/]\s+|\s+/\s+", w):
