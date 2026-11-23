@@ -292,7 +292,7 @@ function render(){
   $('#mcnote').textContent={yes:'Showing all resources. Medi-Cal-only resources are marked.',no:'Medi-Cal-only resources are hidden. If the patient might qualify, consider HICAP or Medi-Cal / Medicare Savings Programs (statewide).',unsure:'Showing all resources. Confirm coverage before sending anything marked Medi-Cal only; HICAP (800-434-0222) can screen.'}[mc];
   let h='';
   if(c){
-    h+=`<div class="sec"><h2>${esc(c)} County</h2><span class="ct">${cr.length} resource${cr.length===1?'':'s'}</span></div>`;
+    h+=`<div class="sec"><h2>Resources in ${esc(c)} County</h2><span class="ct">${cr.length} resource${cr.length===1?'':'s'}</span></div>`;
     const missing=c&&needs.length?needs.filter(n=>!cr.some(r=>r.need===n)):[];
     if(!cr.length)h+=`<p class="empty">No ${esc(c)} County resource ${needs.length?`for ${esc(needs.map(needLabel).join(', '))}`:''}${q?' matches this search':''}. ${showS?'The statewide resources above cover this need.':''} You can also try the county's Area Agency on Aging under "Aging & Senior Services."</p>`;
     else if(missing.length)h+=`<p class="hint" style="margin:-4px 0 12px">No ${esc(c)} County listing for ${esc(missing.map(needLabel).join(', '))}. See statewide resources below.</p>`;
