@@ -39,7 +39,7 @@ async () => {
     S.setNeeds(nd); n++;
     const q = S.query();
     const shown = document.querySelectorAll('#results .card').length;
-    if (shown !== q.cr.length + q.st.length) errs.push(`card count ${c}|${nd}|${m}`);
+    if (shown !== q.cr.length + q.st.length + q.it.length) errs.push(`card count ${c}|${nd}|${m}`);
     for (const r of q.cr) {
       if (r.county !== c) errs.push(`wrong county ${r.id} in ${c}`);
       if (nd.length && !nd.includes(r.need)) errs.push(`wrong need ${r.id} for ${nd}`);
