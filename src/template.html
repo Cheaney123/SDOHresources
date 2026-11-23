@@ -261,7 +261,8 @@ function tc(str){return String(str||'').split(/(\s+)/).map((w,i)=>/^\s+$/.test(w
 const needLabel=n=>tc(NL[n]||n);
 function matchQ(r,q){if(!q)return true;return [r.name,r.label,r.need,r.who,r.how,r.notes,r.summary].join(' ').toLowerCase().includes(q)}
 const stateNeeds=r=>(r.ql||'').split(';').map(s=>s.trim());
-function linkHtml(l){const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t||u.replace(/^https?:\/\//,''))}</a>`}
+const md=l=>l.match(/^\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)$/);
+function linkHtml(l){const m=md(l);if(m)return `<a href="${esc(m[2])}" target="_blank" rel="noopener">${esc(m[1])}</a>`;const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t||u.replace(/^https?:\/\//,''))}</a>`}
 // Card subtitle: just the service type. Labels are stored as "Type – Name", which repeated the name.
 function subLabel(r){const l=r.label||'';const i=l.lastIndexOf(' – ');const t=tc((i>0?l.slice(0,i):l).trim());const a=t.toLowerCase(),n=String(r.name||'').trim().toLowerCase();return t&&!a.startsWith(n)&&!n.startsWith(a)?t:''}
 // Phone line: plain numbers stay bold; plan-by-plan lists and notes in brackets get a quieter style
@@ -314,7 +315,7 @@ function render(){
   const tb=$('#turnS');if(tb)tb.onclick=()=>{$('#showState').checked=true;render()};
 }
 const bph=s=>esc(s).replace(/_{3}-_{3}-_{4}/g,'<mark class="fill" title="Fill in the callback number">___-___-____</mark>').replace(/(\b(?:1-)?\d{3}-\d{3}-\d{4}\b(?:\s*(?:ext\.?|x)\s*\d+)?|\b2-1-1\b|\b988\b|\b911\b)/g,'<b>$1</b>');
-const lk=l=>{const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `&bull; ${esc(t||'Website')}: <a href="${esc(u)}">${esc(u)}</a>`};
+const lk=l=>{const m=md(l);if(m)return `&bull; <a href="${esc(m[2])}" data-named="1">${esc(m[1])}</a>`;const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `&bull; ${esc(t||'Website')}: <a href="${esc(u)}">${esc(u)}</a>`};
 const fl=x=>{const u=(x.match(/https?:\/\/\S+/)||[''])[0];return u?`<b>${esc(x.replace(u,'').trim())}</b> <a href="${esc(u)}">${esc(u)}</a>`:bph(x)};
 function compose(rs){
   const n=rs.length,many=n>1,P=[];
@@ -345,7 +346,10 @@ async function copy(){
   const el=$('#out');if(!el.textContent.trim()){$('#copied').textContent='Select a resource first.';return}
   if(/_{3}-_{3}-_{4}/.test(el.textContent)){$('#copied').textContent='Fill in the callback number (highlighted) first.';return}
   const html=el.innerHTML;
-  const text=[...el.querySelectorAll('p')].map(p=>p.innerText.replace(/• /g,'- ')).join('\n\n')||el.innerText;
+  // Plain-text copy keeps the web address after a named link, in case the paste drops hyperlinks
+  const cl=el.cloneNode(true);cl.querySelectorAll('a[data-named]').forEach(a=>{a.textContent=`${a.textContent} (${a.getAttribute('href')})`});
+  document.body.appendChild(cl);cl.style.cssText='position:absolute;left:-9999px';
+  const text=[...cl.querySelectorAll('p')].map(p=>p.innerText.replace(/• /g,'- ')).join('\n\n')||cl.innerText;cl.remove();
   try{
     if(window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})])}
     else await navigator.clipboard.writeText(text);

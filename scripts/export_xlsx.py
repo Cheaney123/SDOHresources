@@ -58,7 +58,8 @@ def sheet(ws, cols, rows, band_key=None):
     ws.freeze_panes = "B2"
     ws.auto_filter.ref = ws.dimensions
 
-links = lambda r: "\n".join(r.get("links") or [])
+import re as _re
+links = lambda r: "\n".join(_re.sub(r"^\[([^\]]+)\]\((\S+)\)$", r"\1: \2", l) for l in (r.get("links") or []))
 COUNTY = [("County", lambda r: r["county"], 13), ("Identified need", lambda r: r["need"], 20),
           ("Resource / agency", lambda r: r["label"], 36), ("Phone", lambda r: r["phone"], 22),
           ("Medi-Cal required", lambda r: r["medi"], 13), ("Who it's for", lambda r: r.get("who"), 30),
