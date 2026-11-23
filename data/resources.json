@@ -5047,7 +5047,7 @@
   {
    "id": "s5",
    "need": "Safety / crisis",
-   "label": "Long-Term Care Ombudsman CRISISline",
+   "label": "Long-term care facility concerns",
    "name": "Long-Term Care Ombudsman Crisis Line",
    "phone": "800-231-4024",
    "medi": "No",
@@ -5085,7 +5085,7 @@
   {
    "id": "s7",
    "need": "Aging info",
-   "label": "CA Aging & Adult Information Line",
+   "label": "Statewide aging & adult information",
    "name": "California Aging & Adult Information Line",
    "phone": "800-510-2020",
    "medi": "No",
@@ -5121,7 +5121,7 @@
   {
    "id": "s9",
    "need": "Medication affordability",
-   "label": "Medicare Extra Help (Part D Low-Income Subsidy)",
+   "label": "Part D Low-Income Subsidy",
    "name": "Medicare Extra Help",
    "phone": "800-772-1213",
    "medi": "No",
@@ -5157,7 +5157,7 @@
   {
    "id": "s11",
    "need": "Medication affordability",
-   "label": "Pharm-tech path: HealthWell → Cost Plus Drugs → manufacturer assistance",
+   "label": "Pharm Tech Path: HealthWell → Cost Plus Drugs → Manufacturer Assistance",
    "name": "Pharmacy Technician Referral",
    "phone": "Pharmacy team (internal)",
    "medi": "No",
@@ -5176,7 +5176,7 @@
   {
    "id": "s12",
    "need": "Utilities",
-   "label": "PG&E CARE / FERA bill discount",
+   "label": "PG&E monthly bill discounts",
    "name": "PG&E CARE and FERA Bill Discounts",
    "phone": "866-743-2273",
    "medi": "No",
@@ -5213,7 +5213,7 @@
   {
    "id": "s14",
    "need": "Phone access",
-   "label": "California LifeLine (discounted phone)",
+   "label": "Discounted phone service",
    "name": "California LifeLine",
    "phone": "866-272-0357",
    "medi": "No",
@@ -5231,7 +5231,7 @@
   {
    "id": "s16",
    "need": "Housing / all needs",
-   "label": "211 (county information & referral)",
+   "label": "County information & referral",
    "name": "211",
    "phone": "211",
    "medi": "No",
@@ -5292,7 +5292,7 @@
    "need": "Plan benefits",
    "label": "Plan benefits, rides and coverage questions",
    "name": "Health Plan's Member Services",
-   "phone": "Number on member ID card",
+   "phone": "Number on Member ID Card",
    "medi": "No",
    "who": "Medicare Advantage, SutterSelect, Sutter Health Plan members",
    "how": "Check supplemental benefits first: transportation, post-discharge meals, OTC allowance, BH benefit.",
@@ -5324,7 +5324,7 @@
   {
    "id": "s21",
    "need": "Behavioral health",
-   "label": "Medicare counseling benefit (ask doctor for a referral)",
+   "label": "Ask your doctor for a referral",
    "name": "Medicare Counseling Benefit",
    "phone": "Number on member card",
    "medi": "No",
@@ -5342,7 +5342,7 @@
   {
    "id": "s22",
    "need": "Utilities",
-   "label": "Energy bill help (LIHEAP) – CSD statewide line",
+   "label": "CSD statewide line",
    "name": "LIHEAP Energy Bill Help",
    "phone": "866-675-6623",
    "medi": "No",
@@ -5360,7 +5360,7 @@
   {
    "id": "s23",
    "need": "Isolation / mood",
-   "label": "CA Peer-Run Warm Line (non-crisis emotional support)",
+   "label": "Non-crisis emotional support",
    "name": "California Peer-Run Warm Line",
    "phone": "855-845-7415",
    "medi": "No",
@@ -5397,7 +5397,7 @@
   {
    "id": "s25",
    "need": "Caregiver (strain, lack of support)",
-   "label": "National caregiver support lines (AARP, Caregiver Action Network, Well Spouse)",
+   "label": "AARP, Caregiver Action Network and Well Spouse",
    "name": "National Caregiver Support Lines",
    "phone": "AARP 877-333-5885; CAN help desk 855-227-3640; Well Spouse 800-838-0879",
    "medi": "No",
@@ -5435,7 +5435,7 @@
   {
    "id": "s27",
    "need": "Behavioral health",
-   "label": "SAMHSA National Helpline (mental health and substance use referrals)",
+   "label": "Mental health and substance use referrals",
    "name": "SAMHSA National Helpline",
    "phone": "800-662-4357",
    "medi": "No",
