@@ -173,7 +173,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <h1>Resource Referral Prototype</h1>
       <p>Select the patient's county and identified need, tick the resources that apply, and copy the finished text into a My Health Online message.</p>
     </div>
-    <ol class="steps" aria-label="Steps"><li><b>1</b>Patient details</li><li><b>2</b>Choose resources</li><li><b>3</b>Copy to MHO</li></ol>
+    <ol class="steps" aria-label="Steps"><li><b>1</b>Patient Details</li><li><b>2</b>Choose Resources</li><li><b>3</b>Copy to MHO</li></ol>
   </div>
 </header>
 <section class="safety" aria-label="Safety first">
@@ -207,7 +207,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
         </fieldset>
         <p class="hint" id="mcnote"></p>
       </div>
-      <details class="guide"><summary>Before you send: 6 checks</summary>
+      <details class="guide"><summary>Before You Send: 6 Checks</summary>
         <ol>
           <li><span><b>Plan benefits first.</b> Medicare Advantage, SutterSelect and Sutter Health Plan members may already have rides, post-discharge meals or an OTC allowance.</span></li>
           <li><span><b>Medi-Cal-only resources</b> are marked. Medicare-only patients usually start with the Area Agency on Aging or statewide lines; the county mental health line mainly serves Medi-Cal for ongoing care.</span></li>
@@ -219,13 +219,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       </details>
       <div class="tools">
         <div class="search"><label for="q" class="hint" style="position:absolute;left:-9999px">Search resources</label><input id="q" type="search" placeholder="Search resources (e.g. meals, IHSS, rides)" autocomplete="off"></div>
-        <label class="tog"><input type="checkbox" id="showState" checked> Include statewide resources</label>
+        <label class="tog"><input type="checkbox" id="showState" checked> Include Statewide Resources</label>
       </div>
       <div id="results"><p class="empty">Loading resources…</p></div>
     </section>
     <aside>
       <section class="letter" aria-label="My Health Online message">
-        <div class="lhead"><h2>My Health Online message</h2><span class="count" id="count">0 resources</span></div>
+        <div class="lhead"><h2>My Health Online Message</h2><span class="count" id="count">0 resources</span></div>
         <ul class="sel" id="sel"></ul>
         <div class="acts" id="acts" hidden></div>
         <div class="cwarn" id="cwarn" role="alert" hidden></div>
@@ -233,7 +233,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
         <div class="lfoot">
           <p class="hint" style="margin:0">Edit the preview if needed. Changing the selection rebuilds it.</p>
           <div class="row">
-            <button class="btn" id="copy" type="button">Copy message</button>
+            <button class="btn" id="copy" type="button">Copy Message</button>
             <button class="btn ghost" id="clear" type="button">Clear</button>
             <span class="status" id="copied" aria-live="polite"></span>
           </div>
@@ -243,7 +243,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     </aside>
   </div>
 </main>
-<footer><div class="wrap"><span id="foot">Resource Referral Prototype</span><span>Questions or corrections: contact the social worker. <a href="SDOH_Resources.xlsx" download>Download spreadsheet (Excel)</a></span></div></footer>
+<footer><div class="wrap"><span id="foot">Resource Referral Prototype</span><span>Questions or corrections: contact the social worker. <a href="SDOH_Resources.xlsx" download>Download Spreadsheet (Excel)</a></span></div></footer>
 <script id="resdata" type="application/json">__DATA__</script>
 <script>
 {
@@ -255,18 +255,21 @@ let D=null,picked=[],MC='unsure',NEEDSEL=[],keepOther=new Set();
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 const byId=id=>D.county.find(r=>r.id===id)||D.state.find(r=>r.id===id);
 const isMc=r=>/yes|medi-cal/i.test(r.medi||'')&&!/crisis: no/i.test(r.medi||'');
-const needLabel=n=>NL[n]||n;
+// Title Case for display: keeps acronyms and existing capitals; small joining words stay lowercase
+const SMALL=new Set(['a','an','and','or','to','of','for','the','in','on','at','by','with','via','as']);
+function tc(str){return String(str||'').split(/(\s+)/).map((w,i)=>/^\s+$/.test(w)?w:w.split('-').map((p,j)=>{const m=p.match(/^([^A-Za-z]*)([A-Za-z].*)$/);if(!m)return p;const [_,pre,core]=m;const low=core.toLowerCase();if((i>0||j>0)&&SMALL.has(low.replace(/[^a-z]/g,''))&&!/^\(/.test(pre))return pre+low;return pre+core[0].toUpperCase()+core.slice(1)}).join('-')).join('')}
+const needLabel=n=>tc(NL[n]||n);
 function matchQ(r,q){if(!q)return true;return [r.name,r.label,r.need,r.who,r.how,r.notes,r.summary].join(' ').toLowerCase().includes(q)}
 const stateNeeds=r=>(r.ql||'').split(';').map(s=>s.trim());
 function linkHtml(l){const u=(l.match(/https?:\/\/\S+/)||[''])[0];const t=l.replace(u,'').replace(/:\s*$/,'').trim();return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t||u.replace(/^https?:\/\//,''))}</a>`}
 // Card subtitle: just the service type. Labels are stored as "Type – Name", which repeated the name.
-function subLabel(r){const l=r.label||'';const i=l.lastIndexOf(' – ');const t=(i>0?l.slice(0,i):l).trim();const a=t.toLowerCase(),n=String(r.name||'').trim().toLowerCase();return t&&!a.startsWith(n)&&!n.startsWith(a)?t:''}
+function subLabel(r){const l=r.label||'';const i=l.lastIndexOf(' – ');const t=tc((i>0?l.slice(0,i):l).trim());const a=t.toLowerCase(),n=String(r.name||'').trim().toLowerCase();return t&&!a.startsWith(n)&&!n.startsWith(a)?t:''}
 // Phone line: plain numbers stay bold; plan-by-plan lists and notes in brackets get a quieter style
 function phHtml(p){if(!/:/.test(p)&&/;\s/.test(p))return `<span class="ph long">${p.split(/;\s+/).map(seg=>`<span class="pl">${esc(seg)}</span>`).join('')}</span>`;if(/:/.test(p))return `<span class="ph long">${p.split(/\.\s+/).map(seg=>{const m=seg.match(/^([^:]+):\s*(.*)$/);return m?`<span class="pl"><span class="pk">${esc(m[1])}:</span> ${esc(m[2])}</span>`:`<span class="pl">${esc(seg)}</span>`}).join('')}</span>`;const m=p.match(/^([^()]*?)\s*(\(.*\))\s*$/);return m?`<span class="ph">${esc(m[1])}</span><span class="phx">${esc(m[2])}</span>`:`<span class="ph">${esc(p)}</span>`}
 function card(r){
   const on=picked.includes(r.id);
   const det=[["Who it's for",r.who],["How to refer",r.how],["Notes",r.notes],["Medi-Cal",r.medi],["Website",r.web?`<a href="${/^https?:/.test(r.web)?esc(r.web):'https://'+esc(r.web)}" target="_blank" rel="noopener">${esc(r.web.replace(/^https?:\/\//,''))}</a>`:null,1],["Links to send",r.links&&r.links.length?r.links.map(linkHtml).join('<br>'):null,1],["Suggested Z-code(s)",r.zcodes&&!/^N\/A/.test(r.zcodes)?r.zcodes:null],["Source",r.source||null],["Verification note",r.flag||null],["Last updated",r.updated||null]].filter(x=>x[1]);
-  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${subLabel(r)?`<div class="lab">${esc(subLabel(r))}</div>`:''}${r.action?`<div class="act"><b>Staff Step:</b> ${esc(r.action)}</div>`:''}<div class="facts">${r.phone&&!/internal/i.test(r.phone)?phHtml(r.phone):''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal only · confirm coverage':'Medi-Cal only'}</span>`:''}</div><details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
+  return `<article class="card${on?' on':''}"><input class="ck" type="checkbox" id="k_${r.id}" data-id="${r.id}" ${on?'checked':''}><h3><label for="k_${r.id}">${esc(r.name)}</label></h3>${subLabel(r)?`<div class="lab">${esc(subLabel(r))}</div>`:''}${r.action?`<div class="act"><b>Staff Step:</b> ${esc(r.action)}</div>`:''}<div class="facts">${r.phone&&!/internal/i.test(r.phone)?phHtml(r.phone):''}<span class="pill">${esc(needLabel(r.need))}</span>${isMc(r)?`<span class="pill mc">${MC==='unsure'?'Medi-Cal Only · Confirm Coverage':'Medi-Cal Only'}</span>`:''}</div><details><summary>Details</summary><dl>${det.map(([k,v,raw])=>`<dt>${k}</dt><dd>${raw?v:esc(v)}</dd>`).join('')}</dl></details></article>`;
 }
 function query(){
   const c=$('#county').value,needs=NEEDSEL.slice(),q=$('#q').value.trim().toLowerCase(),mc=document.querySelector('input[name=mc]:checked').value,noMc=mc==='no',showS=$('#showState').checked;
