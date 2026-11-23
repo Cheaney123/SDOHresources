@@ -147,7 +147,7 @@
    "id": "c8",
    "county": "Alameda",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Alameda County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Alameda County IHSS",
    "name": "Alameda County In-Home Supportive Services (IHSS)",
    "phone": "510-577-1800",
    "medi": "Yes",
@@ -165,7 +165,7 @@
    ],
    "summary": "Call 510-577-1800 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c9",
@@ -380,7 +380,7 @@
    "id": "c18",
    "county": "Amador",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Amador County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Amador County IHSS",
    "name": "Amador County In-Home Supportive Services (IHSS)",
    "phone": "209-223-6550",
    "medi": "Yes",
@@ -568,7 +568,7 @@
    "id": "c26",
    "county": "Contra Costa",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Contra Costa County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Contra Costa County IHSS",
    "name": "Contra Costa County In-Home Supportive Services (IHSS)",
    "phone": "925-229-8434",
    "medi": "Yes",
@@ -801,7 +801,7 @@
    "id": "c36",
    "county": "Del Norte",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Del Norte County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Del Norte County IHSS",
    "name": "Del Norte County In-Home Supportive Services (IHSS)",
    "phone": "707-464-3191",
    "medi": "Yes",
@@ -1012,7 +1012,7 @@
    "id": "c45",
    "county": "El Dorado",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – El Dorado County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – El Dorado County IHSS",
    "name": "El Dorado County In-Home Supportive Services (IHSS)",
    "phone": "530-642-4800",
    "medi": "Yes",
@@ -1030,7 +1030,7 @@
    ],
    "summary": "Call 530-642-4800 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c46",
@@ -1222,7 +1222,7 @@
    "id": "c54",
    "county": "Lake",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Lake County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Lake County IHSS",
    "name": "Lake County In-Home Supportive Services (IHSS)",
    "phone": "707-995-4680",
    "medi": "Yes",
@@ -1410,7 +1410,7 @@
    "id": "c62",
    "county": "Marin",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Marin County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Marin County IHSS",
    "name": "Marin County In-Home Supportive Services (IHSS)",
    "phone": "415-473-4636",
    "medi": "Yes",
@@ -1428,7 +1428,7 @@
    ],
    "summary": "Call 415-473-4636 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-21"
+   "updated": "2026-11-22"
   },
   {
    "id": "c63",
@@ -1619,7 +1619,7 @@
    "id": "c71",
    "county": "Merced",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Merced County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Merced County IHSS",
    "name": "Merced County In-Home Supportive Services (IHSS)",
    "phone": "209-385-3105",
    "medi": "Yes",
@@ -1807,7 +1807,7 @@
    "id": "c79",
    "county": "Nevada",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Nevada County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Nevada County IHSS",
    "name": "Nevada County In-Home Supportive Services (IHSS)",
    "phone": "530-265-1639",
    "medi": "Yes",
@@ -1995,7 +1995,7 @@
    "id": "c87",
    "county": "Placer",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Placer County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Placer County IHSS",
    "name": "Placer County In-Home Supportive Services (IHSS)",
    "phone": "916-787-8860 (toll-free 888-886-5401)",
    "medi": "Yes",
@@ -2013,7 +2013,7 @@
    ],
    "summary": "Call 916-787-8860 (toll-free 888-886-5401) to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c88",
@@ -2183,7 +2183,7 @@
    "id": "c95",
    "county": "Sacramento",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Sacramento County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Sacramento County IHSS",
    "name": "Sacramento County In-Home Supportive Services (IHSS)",
    "phone": "916-874-9471",
    "medi": "Yes",
@@ -2202,7 +2202,7 @@
    ],
    "summary": "Call 916-874-9471 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c96",
@@ -2461,7 +2461,7 @@
    "id": "c107",
    "county": "San Francisco",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – SF DAS IHSS intake",
+   "label": "In-home help for Medi-Cal members (IHSS) – SF DAS IHSS intake",
    "name": "San Francisco In-Home Supportive Services (IHSS)",
    "phone": "415-355-6700",
    "medi": "Yes",
@@ -2479,7 +2479,7 @@
    ],
    "summary": "Call 415-355-6700 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c108",
@@ -2873,7 +2873,7 @@
    "id": "c126",
    "county": "San Joaquin",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – San Joaquin County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – San Joaquin County IHSS",
    "name": "San Joaquin County In-Home Supportive Services (IHSS)",
    "phone": "209-468-1104",
    "medi": "Yes",
@@ -3061,7 +3061,7 @@
    "id": "c134",
    "county": "San Mateo",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – San Mateo County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – San Mateo County IHSS",
    "name": "San Mateo County In-Home Supportive Services (IHSS)",
    "phone": "800-675-8437",
    "medi": "Yes",
@@ -3079,7 +3079,7 @@
    ],
    "summary": "Call 800-675-8437 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c135",
@@ -3315,7 +3315,7 @@
    "id": "c145",
    "county": "Santa Barbara",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Santa Barbara County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Santa Barbara County IHSS",
    "name": "Santa Barbara County In-Home Supportive Services (IHSS)",
    "phone": "805-681-4550",
    "medi": "Yes",
@@ -3498,7 +3498,7 @@
    "id": "c153",
    "county": "Santa Clara",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Santa Clara County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Santa Clara County IHSS",
    "name": "Santa Clara County In-Home Supportive Services (IHSS)",
    "phone": "408-792-1600",
    "medi": "Yes",
@@ -3516,7 +3516,7 @@
    ],
    "summary": "Call 408-792-1600 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c154",
@@ -3775,7 +3775,7 @@
    "id": "c165",
    "county": "Santa Cruz",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Santa Cruz County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Santa Cruz County IHSS",
    "name": "Santa Cruz County In-Home Supportive Services (IHSS)",
    "phone": "831-454-4101 or 831-763-8800, option 2",
    "medi": "Yes",
@@ -3793,7 +3793,7 @@
    ],
    "summary": "Call 831-454-4101, or 831-763-8800 and choose option 2, to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c166",
@@ -3963,7 +3963,7 @@
    "id": "c173",
    "county": "Solano",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Solano County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Solano County IHSS",
    "name": "Solano County In-Home Supportive Services (IHSS)",
    "phone": "707-784-8259",
    "medi": "Yes",
@@ -3981,7 +3981,7 @@
    ],
    "summary": "Call 707-784-8259 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c174",
@@ -4151,7 +4151,7 @@
    "id": "c181",
    "county": "Sonoma",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Sonoma County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Sonoma County IHSS",
    "name": "Sonoma County In-Home Supportive Services (IHSS)",
    "phone": "707-565-5900 (IHSS intake/referral)",
    "medi": "Yes",
@@ -4169,7 +4169,7 @@
    ],
    "summary": "Call 707-565-5900 to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c182",
@@ -4362,7 +4362,7 @@
    "id": "c190",
    "county": "Stanislaus",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Stanislaus County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Stanislaus County IHSS",
    "name": "Stanislaus County In-Home Supportive Services (IHSS)",
    "phone": "209-558-2500",
    "medi": "Yes",
@@ -4550,7 +4550,7 @@
    "id": "c198",
    "county": "Sutter",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Sutter County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Sutter County IHSS",
    "name": "Sutter County In-Home Supportive Services (IHSS)",
    "phone": "530-822-5990",
    "medi": "Yes",
@@ -4738,7 +4738,7 @@
    "id": "c206",
    "county": "Yolo",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Yolo County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Yolo County IHSS",
    "name": "Yolo County In-Home Supportive Services (IHSS)",
    "phone": "530-661-2955 (West Sacramento: 916-375-6200 x2955)",
    "medi": "Yes",
@@ -4756,7 +4756,7 @@
    ],
    "summary": "Call 530-661-2955 (West Sacramento: 916-375-6200 x2955) to apply. In-Home Supportive Services (IHSS) can pay for a caregiver to help you at home with bathing, meals, housekeeping and errands. The county will check your Medi-Cal eligibility and what help you need to live safely at home. A family member can become your paid caregiver after you're approved and they enroll as a provider. Your doctor will need to fill out a health form.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "id": "c207",
@@ -4926,7 +4926,7 @@
    "id": "c214",
    "county": "Yuba",
    "need": "Caregiver (strain, lack of support)",
-   "label": "In-home caregiver (IHSS – paid caregiver, can be a family member) – Yuba County IHSS",
+   "label": "In-home help for Medi-Cal members (IHSS) – Yuba County IHSS",
    "name": "Yuba County In-Home Supportive Services (IHSS)",
    "phone": "530-749-6471",
    "medi": "Yes",
@@ -5074,13 +5074,14 @@
    "who": "Adults 60+ and adults with disabilities; caregivers",
    "how": "24/7 emotional support and crisis line; can set up regular outbound check-in calls.",
    "flag": null,
-   "ql": "Behavioral health",
+   "ql": "Behavioral health; Caregiver (strain, lack of support)",
    "links": [
     "https://ioaging.org/friendship-line"
    ],
    "summary": "Call 888-670-1360 any time to talk with someone friendly. You can also ask for regular check-in calls. It's free and open 24/7.",
    "zcodes": "Z60.2 Problems related to living alone; Z60.4 Social exclusion and rejection",
-   "updated": "2026-11-22"
+   "updated": "2026-11-22",
+   "priority": 5
   },
   {
    "id": "s7",
@@ -5392,7 +5393,8 @@
    ],
    "summary": "Call 800-272-3900 any time, day or night, for help and support caring for someone with memory loss or dementia.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-22"
+   "updated": "2026-11-22",
+   "priority": 6
   },
   {
    "id": "s25",
@@ -5412,7 +5414,8 @@
    ],
    "summary": "These lines offer support and online groups for family caregivers, including spouses: AARP 877-333-5885; Caregiver Action Network 855-227-3640; Well Spouse 800-838-0879.",
    "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
-   "updated": "2026-11-22"
+   "updated": "2026-11-22",
+   "priority": 7
   },
   {
    "id": "s26",
@@ -5504,6 +5507,94 @@
    "verified": "2026-11-20",
    "source": "DHCS Medicare Savings Programs in California",
    "zcodes": "Z59.71 Insufficient health insurance coverage (if uninsured or underinsured)",
+   "updated": "2026-11-22"
+  },
+  {
+   "id": "s31",
+   "need": "Caregiver (strain, lack of support)",
+   "priority": 1,
+   "label": "Statewide network of 11 regional centers for family caregivers",
+   "name": "California Caregiver Resource Centers",
+   "phone": "Find the local center online",
+   "medi": "No",
+   "who": "Unpaid family caregivers of adults with chronic or debilitating health conditions (including heart disease) or memory loss",
+   "how": "First referral for general caregiver strain. Each county's regional center is listed under that county; services and eligibility vary by center, so confirm respite and counseling locally.",
+   "notes": "Services may include caregiver assessment, counseling, education, support groups, care planning and respite help. No statewide phone line.",
+   "flag": null,
+   "ql": "Caregiver (strain, lack of support)",
+   "links": [
+    "[Find your local Caregiver Resource Center](https://www.caregivercalifornia.org/find-your-local-center/)"
+   ],
+   "summary": "California's Caregiver Resource Centers support family members who care for someone with an ongoing health condition, including heart conditions. They can offer counseling, support groups, help planning care and help finding short breaks (respite). Use the link below to find the center for your county.",
+   "source": "caregivercalifornia.org",
+   "verified": "2026-11-22",
+   "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
+   "updated": "2026-11-22"
+  },
+  {
+   "id": "s32",
+   "need": "Caregiver (strain, lack of support)",
+   "priority": 2,
+   "label": "California Department of Aging, through local Area Agencies on Aging",
+   "name": "Family Caregiver Support Program",
+   "phone": "800-510-2020",
+   "medi": "No",
+   "who": "Unpaid caregivers of older adults or people with disabilities",
+   "how": "Add when the caregiver of an older adult needs practical help or respite. The line connects to the county's Area Agency on Aging.",
+   "notes": "Information and referral, training, counseling, support groups, care planning and respite.",
+   "flag": null,
+   "ql": "Caregiver (strain, lack of support)",
+   "links": [
+    "[Family Caregiver Support Program](https://www.aging.ca.gov/Aging_Resources/Caring_for_the_Caregivers/)"
+   ],
+   "summary": "Call 800-510-2020 to reach your local Area Agency on Aging. Its caregiver program offers support groups, counseling, training and help finding short breaks (respite) for family caregivers.",
+   "source": "aging.ca.gov – Caring for the Caregivers",
+   "verified": "2026-11-22",
+   "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
+   "updated": "2026-11-22"
+  },
+  {
+   "id": "s33",
+   "need": "Caregiver (strain, lack of support)",
+   "priority": 3,
+   "label": "Caregiver education and online guidance",
+   "name": "Family Caregiver Alliance",
+   "phone": null,
+   "medi": "No",
+   "who": "Family caregivers; also runs the Bay Area Caregiver Resource Center (six counties)",
+   "how": "Education and practical guidance on caring for someone with a chronic illness. Bay Area counties list FCA as their local center.",
+   "notes": null,
+   "flag": null,
+   "ql": "Caregiver (strain, lack of support)",
+   "links": [
+    "[Family Caregiver Alliance](https://www.caregiver.org)"
+   ],
+   "summary": "Family Caregiver Alliance has free guides and practical tips for family caregivers, including how to manage a long-term illness at home.",
+   "source": "caregiver.org",
+   "verified": "2026-11-22",
+   "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
+   "updated": "2026-11-22"
+  },
+  {
+   "id": "s34",
+   "need": "Caregiver (strain, lack of support)",
+   "priority": 4,
+   "label": "EDD partial wage replacement for working caregivers",
+   "name": "California Paid Family Leave",
+   "phone": null,
+   "medi": "No",
+   "who": "Working family members (spouse, child, parent, sibling, grandparent and others) caring for someone with a serious health condition who have paid into State Disability Insurance",
+   "how": "For working spouses or adult children. Up to 8 weeks within 12 months; requires a medical certification. Immigration status does not affect eligibility.",
+   "notes": null,
+   "flag": null,
+   "ql": "Caregiver (strain, lack of support)",
+   "links": [
+    "[Paid Family Leave for caregivers](https://edd.ca.gov/PFLCaregivers)"
+   ],
+   "summary": "If a family member who works needs time off to care for you, California Paid Family Leave may pay part of their wages for up to 8 weeks. They can learn more and apply online.",
+   "source": "edd.ca.gov/PFLCaregivers",
+   "verified": "2026-11-22",
+   "zcodes": "Z63.6 Dependent relative needing care at home; Z74.2 Need for assistance at home and no other household member able to render care",
    "updated": "2026-11-22"
   }
  ],

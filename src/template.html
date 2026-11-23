@@ -288,7 +288,7 @@ function query(){
     return needs.some(n=>n==='Safety / crisis'?r.need==='Safety / crisis':(stateNeeds(r).includes(n)||r.need===n));
   }).sort((a,b)=>{
     // With a need picked, resources for that need come first (staff-step ones on top), then crisis lines
-    const k=r=>needs.length&&needs.includes(r.need)?(r.action?3:2):(r.need==='Safety / crisis'?1:0);return k(b)-k(a)}):[];
+    const k=r=>needs.length&&needs.includes(r.need)?(r.action?3:2):(r.need==='Safety / crisis'?1:0);return k(b)-k(a)||(a.priority||99)-(b.priority||99)}):[];
   // Internal (Sutter Sync team) resources get their own section and show whether or not statewide is ticked
   const it=D.state.filter(r=>r.internal&&matchQ(r,q)&&(!needs.length||needs.some(n=>stateNeeds(r).includes(n)||r.need===n)));
   return {c,needs,q,mc,cr,st:st.filter(r=>!r.internal),it,showS};
