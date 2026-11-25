@@ -2276,21 +2276,21 @@
    "need": "Transportation",
    "label": "Senior rides (door-through-door) – ACC Rides, ACC Senior Services",
    "name": "ACC Rides",
-   "phone": "916-393-9026 ext. 333",
+   "phone": "916-393-7433",
    "medi": "No",
    "who": "Older adults in Sacramento County without other transportation",
    "how": "Rider completes a Rider Information Form (fax 916-393-9128 or rides@accsv.org). Medical and dental visits, groceries, errands.",
    "web": "accsv.org",
-   "notes": "Also listed as 916-393-RIDE (7433).",
-   "source": "Agency on Aging Area 4 – Sacramento County page; accsv.org",
-   "verified": "2026-11-20",
+   "notes": "Spelled 916-393-RIDE on ACC's site. Older directories list 916-393-9026 ext. 333.",
+   "source": "ACC Senior Services – ACC Rides program page (accsv.org)",
+   "verified": "2026-11-24",
    "flag": null,
    "links": [
     "https://accsv.org"
    ],
-   "summary": "Call 916-393-9026 ext. 333 to sign up. They offer rides for older adults to medical appointments, shopping and errands.",
+   "summary": "Call 916-393-7433 to sign up. They offer rides for older adults to medical appointments, shopping and errands.",
    "zcodes": "Z59.82 Transportation insecurity",
-   "updated": "2026-11-22"
+   "updated": "2026-11-24"
   },
   {
    "id": "c100",
